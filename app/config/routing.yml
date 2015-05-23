@@ -1,0 +1,4 @@
+fisi_sigri:
+    resource: "@FisiSigriBundle/Resources/config/routing.yml"
+    prefix:   /
+

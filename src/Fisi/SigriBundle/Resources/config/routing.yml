@@ -4,19 +4,19 @@ fisi_sigri_homepage:
     
 consultar_usuario:
     path:     /solicitante/consultar
-    defaults: { _controller: FisiSigriBundle:solicitante\Solicitante:index }
+    defaults: { _controller: FisiSigriBundle:User:ConsultarSolicitate }
 
 solicitar_usuario:
     path:     /solicitante/solicitar
-    defaults: { _controller: FisiSigriBundle:solicitante\Solicitante:solicitar }
+    defaults: { _controller: FisiSigriBundle:User:SolicitarSolicitante }
     
 bandeja_entrada_gestor:
     path:     /gestor/bandeja
-    defaults: { _controller: FisiSigriBundle:gestor\Gestor:MostrarBEG}
+    defaults: { _controller: FisiSigriBundle:User:MostrarBEG}
     
-bandeja_entrada_analista:
-    path:     /analista/bandeja
-    defaults: { _controller: FisiSigriBundle:analista\Analista:MostrarBEA }
+bandeja_entrada_personal:
+    path:     /personal/bandeja
+    defaults: { _controller: FisiSigriBundle:User:MostrarBEP }
        
 
     

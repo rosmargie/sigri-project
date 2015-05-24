@@ -1,2 +1,7 @@
-solicitar
-<a href="{{ path('consultar_usuario') }}">Principal usuario</a>
+{% extends 'FisiSigriBundle:Default:solicitanteLayout.html.twig' %}
+{% block title %}Solicitante 2{% endblock %}
+{% block content %}
+    solicitar
+    <a href="{{ path('consultar_usuario') }}">Principal usuario</a>
+{% endblock %}
+

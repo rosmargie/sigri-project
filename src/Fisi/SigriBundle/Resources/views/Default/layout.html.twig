@@ -1,0 +1,324 @@
+{% extends 'FisiSigriBundle:Default:base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}    
+    
+    <link rel="stylesheet" href="{{ asset('bundles/fisisigri/css/font/entypo.eot') }}" />
+    
+    <style>
+        @font-face {
+            font-family: 'entypo';
+            src: url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.eot?71205724')}}}');
+            src: url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.eot?71205724#iefix')}}') format('embedded-opentype'),
+                 url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.woff')}}') format('woff'),
+                 url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.ttf?71205724')}}') format('truetype'),
+                 url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.svg?71205724#entypo')}}') format('svg');
+            font-weight: normal;
+            font-style: normal;
+          }
+    </style>
+   
+    {% stylesheets 
+        '@FisiSigriBundle/Resources/public/template/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css'
+        '@FisiSigriBundle/Resources/public/template/css/font-icons/entypo/css/entypo.css'
+        '@FisiSigriBundle/Resources/public/template/css/bootstrap.css'
+        '@FisiSigriBundle/Resources/public/template/css/neon-core.css'
+        '@FisiSigriBundle/Resources/public/template/css/neon-theme.css'
+        '@FisiSigriBundle/Resources/public/template/css/neon-forms.css'
+        
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+    <link href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic" type="text/css" rel="stylesheet" />
+    
+{% endblock %}
+
+{% block body %}
+    <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+        <div class="sidebar-menu">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="#">
+                            {% image '@FisiSigriBundle/Resources/public/template/images/logo@2x.png' %}
+                            <img src="{{ asset_url }}" width="120" alt="" />
+                            {% endimage %}
+                        </a>
+                    </div>
+                    <!-- logo collapse icon -->
+                    <div class="sidebar-collapse">
+                        <a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
+
+                    <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+                    <div class="sidebar-mobile-menu visible-xs">
+                        <a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
+
+                </header>
+                {% block mainmenu %}            
+                
+                {% endblock %}
+
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="row">
+                <!-- Profile Info and Notifications -->
+                <div class="col-md-6 col-sm-8 clearfix">
+
+                    <ul class="user-info pull-left pull-none-xsm">
+
+                        <!-- Profile Info -->
+                        <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1@2x.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-circle" width="44" />
+                                {% endimage %}
+                                John Henderson
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <!-- Reverse Caret -->
+                                <li class="caret"></li>
+
+                                <!-- Profile sub-links -->
+                                <li>
+                                    <a href="extra-timeline.html">
+                                        <i class="entypo-user"></i>
+                                        Edit Profile
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="mailbox.html">
+                                        <i class="entypo-mail"></i>
+                                        Inbox
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="extra-calendar.html">
+                                        <i class="entypo-calendar"></i>
+                                        Calendar
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="entypo-clipboard"></i>
+                                        Tasks
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <ul class="user-info pull-left pull-right-xs pull-none-xsm">
+
+                        <!-- Raw Notifications -->
+                        <li class="notifications dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="entypo-attention"></i>
+                                <span class="badge badge-info">6</span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="top">
+                                    <p class="small">
+                                        <a href="#" class="pull-right">Mark all Read</a>
+                                        You have <strong>3</strong> new notifications.
+                                    </p>
+                                </li>
+
+                                <li>
+                                    <ul class="dropdown-menu-list scroller">
+                                        <li class="unread notification-success">
+                                            <a href="#">
+                                                <i class="entypo-user-add pull-right"></i>
+
+                                                <span class="line">
+                                                    <strong>New user registered</strong>
+                                                </span>
+
+                                                <span class="line small">
+                                                    30 seconds ago
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="external">
+                                    <a href="#">View all notifications</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <!-- Message Notifications -->
+                        <li class="notifications dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="entypo-mail"></i>
+                                <span class="badge badge-secondary">10</span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form class="top-dropdown-search">
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search anything..." name="s" />
+                                        </div>
+
+                                    </form>
+
+                                    <ul class="dropdown-menu-list scroller">
+                                        <li class="active">
+                                            <a href="#">
+                                                <span class="image pull-right">
+                                                    {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1.png' %}
+                                                    <img src="{{ asset_url }}" alt="" class="img-circle" />
+                                                    {% endimage %}
+                                                </span>
+
+                                                <span class="line">
+                                                    <strong>Luc Chartier</strong>
+                                                    - yesterday
+                                                </span>
+
+                                                <span class="line desc small">
+                                                    This ain’t our first item, it is the best of the rest.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="image pull-right">
+                                                    {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1.png' %}
+                                                    <img src="{{ asset_url }}" alt="" class="img-circle" />
+                                                    {% endimage %}
+                                                </span>
+
+                                                <span class="line">
+                                                    Sandra Eberhardt
+                                                    - 16 days ago
+                                                </span>
+
+                                                <span class="line desc small">
+                                                    On so attention necessary at by provision otherwise existence direction.
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="external">
+                                    <a href="mailbox.html">All Messages</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <!-- Task Notifications -->
+                        <li class="notifications dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="entypo-list"></i>
+                                <span class="badge badge-warning">1</span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="top">
+                                    <p>You have 6 pending tasks</p>
+                                </li>
+
+                                <li>
+                                    <ul class="dropdown-menu-list scroller">
+                                        <li>
+                                            <a href="#">
+                                                <span class="task">
+                                                    <span class="desc">Procurement</span>
+                                                    <span class="percent">27%</span>
+                                                </span>
+
+                                                <span class="progress">
+                                                    <span style="width: 27%;" class="progress-bar progress-bar-success">
+                                                        <span class="sr-only">27% Complete</span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="external">
+                                    <a href="#">See all tasks</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Raw Links -->
+                <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+                    <ul class="list-inline links-list pull-right">
+                        <li>
+                            <a href="#">
+                                Log Out <i class="entypo-logout right"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    {% endblock %}
+
+    {% block javascripts %}
+        {% javascripts 
+        '@FisiSigriBundle/Resources/public/template/js/jquery-1.11.0.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/gsap/main-gsap.js'
+        '@FisiSigriBundle/Resources/public/template/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap.js'
+        '@FisiSigriBundle/Resources/public/template/js/joinable.js'
+        '@FisiSigriBundle/Resources/public/template/js/resizeable.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-api.js'
+        '@FisiSigriBundle/Resources/public/template/js/jvectormap/jquery-jvectormap-1.2.2.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/jvectormap/jquery-jvectormap-europe-merc-en.js'
+        '@FisiSigriBundle/Resources/public/template/js/jquery.sparkline.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/rickshaw/vendor/d3.v3.js'
+        '@FisiSigriBundle/Resources/public/template/js/rickshaw/rickshaw.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/raphael-min.js'
+        '@FisiSigriBundle/Resources/public/template/js/morris.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/toastr.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-chat.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-custom.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <script>$.noConflict();</script>
+    {% endblock %}

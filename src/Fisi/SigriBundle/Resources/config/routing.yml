@@ -17,6 +17,10 @@ bandeja_entrada_gestor:
 bandeja_entrada_personal:
     path:     /personal/bandeja
     defaults: { _controller: FisiSigriBundle:User:MostrarBEP }
+
+gestionar_actividad_personal:
+    path:     /gestionActividad/bandeja
+    defaults: { _controller: FisiSigriBundle:User:GestionarActividad}
        
 
     

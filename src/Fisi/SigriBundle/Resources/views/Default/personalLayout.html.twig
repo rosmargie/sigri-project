@@ -3,15 +3,17 @@
 {% block mainmenu %}
     <ul id="main-menu" class="main-menu">
        <li>
-           <a href="#">
+           <a href="{{ path('bandeja_entrada_personal') }}" >
                <i class="entypo-chart-bar"></i>
-               <span class="title">Personal 1</span>
+               <span class="title" >Bandeja de Entrada</span>
+               
            </a>
        </li>
        <li>
-           <a href="#">
+           <a href="{{ path('gestionar_actividad_personal') }}"   >
                <i class="entypo-chart-bar"></i>
-               <span class="title">Personal 2</span>
+               <span class="title">Gestión de Actividad</span>
+             
            </a>
        </li>
     </ul>

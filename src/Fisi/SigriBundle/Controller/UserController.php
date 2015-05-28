@@ -25,6 +25,11 @@ class UserController extends Controller
         return $this->render('FisiSigriBundle:gestor:bandejaEntrGestor.html.twig');
     }
     
+     public function GestionarActividadAction()
+    {
+        return $this->render('FisiSigriBundle:personal:gestionActividad.html.twig');
+    }
+    
    
     
     

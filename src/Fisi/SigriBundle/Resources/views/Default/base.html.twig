@@ -6,10 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         {% block stylesheets %}{% endblock %}
+         {% block stylesheets_unique %}{% endblock %}
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body class="page-body  page-fade">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        {% block javascripts_unique %}{% endblock %}
     </body>
 </html>

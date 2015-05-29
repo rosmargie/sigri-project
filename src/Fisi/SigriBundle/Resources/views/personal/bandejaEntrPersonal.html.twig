@@ -1,7 +1,9 @@
+
 {% extends 'FisiSigriBundle:Default:personalLayout.html.twig' %}
 {% block title %}Personal 1{% endblock %}
+
 {% block content %}
-    
+
 <!--Barra de Búsqueda>    <-->
 
 
@@ -101,9 +103,6 @@
     </div>
 </div>
 </br></br>
-
-
-
 <!--Lista de Solicitudes>  <!-->
 
     <table class="table table-bordered datatable dataTable" id="table-1" role="grid" aria-describedby="table-1_info">
@@ -132,7 +131,7 @@
     <tr>
         <td>
             <div class="checkbox checkbox-replace">
-                <input type="checkbox" id="chk-1">
+                <input type="checkbox" id="chk-21">
             </div>
         </td>
         <td>48957</td>
@@ -177,7 +176,7 @@
     <tr>
         <td>
             <div class="checkbox checkbox-replace">
-                <input type="checkbox" id="chk-1">
+                <input type="checkbox" id="chk-21">
             </div>
         </td>
         <td>89576</td>
@@ -427,14 +426,19 @@
         </td>
     </tr>
 
-
 </tbody>
 
 </table>
-
+            
 {% endblock %}
 
+{% block javascripts_unique %}
+{% javascripts 
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap-datepicker.js'
+        '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js'
+        
+             %}
+        <script src="{{ asset_url }}"></script>
 
-
-
+        {% endjavascripts %}{% endblock %}
 

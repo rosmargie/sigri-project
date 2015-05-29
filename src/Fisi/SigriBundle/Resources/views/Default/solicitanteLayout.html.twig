@@ -3,16 +3,16 @@
 {% block mainmenu %}
     <ul id="main-menu" class="main-menu">
        <li>
-           <a href="#">
+           <a href="{{ path('solicitar_usuario') }}">
                <i class="entypo-chart-bar"></i>
-               <span class="title">Solicitante 1</span>
+               <span class="title">Registrar Solicitud</span>
            </a>
        </li>
        <li>
            
-           <a href="#">
+           <a href="{{ path('consultar_usuario') }}">
                <i class="entypo-chart-bar"></i>
-               <span class="title">Solicitante 2</span>
+               <span class="title">Notificaciones</span>
            </a>
        </li>
     </ul>

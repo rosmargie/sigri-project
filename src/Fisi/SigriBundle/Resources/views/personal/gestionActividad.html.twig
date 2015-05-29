@@ -1,13 +1,20 @@
 {% extends 'FisiSigriBundle:Default:personalLayout.html.twig' %}
 {% block title %}Personal 1{% endblock %}
 {% block content %}
-    
-gestion de actividad
 
+    sdfsdfg
 
 {% endblock %}
 
+{% block javascripts_unique %}
+{% javascripts 
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap-datepicker.js'
+        '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js'
+        
+             %}
+        <script src="{{ asset_url }}"></script>
 
+        {% endjavascripts %}{% endblock %}
 
 
 

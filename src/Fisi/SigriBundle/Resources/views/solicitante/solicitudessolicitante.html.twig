@@ -1,5 +1,5 @@
 {% extends 'FisiSigriBundle:Default:solicitanteLayout.html.twig' %}
-{% block title %}Lista de Solicitud{% endblock %}
+{% block title %}solicitante 1{% endblock %}
 {% block content %}
     <!--Barra de Búsqueda>    <-->
 
@@ -309,6 +309,30 @@
 </tbody>
 
 </table>
+<div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate">
+    <ul class="pagination pagination-sm">
+        <li class="prev disabled">
+            <a href="#"><i class="entypo-left-open"></i></a>
+        </li><li class="active"><a href="#">1</a>
+        </li><li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li class="next"><a href="#"><i class="entypo-right-open"></i>
+            </a></li></ul>
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($)
+    {
+        var table = $("#table-1").dataTable({
+            "sPaginationType": "bootstrap",
+            "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+            "oTableTools": {
+            },
+        });
+    });
+
+</script>
 {% endblock %}
 
 

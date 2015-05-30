@@ -390,11 +390,22 @@
 {% javascripts 
         '@FisiSigriBundle/Resources/public/template/js/bootstrap-datepicker.js'
         '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-charts.js'
+
+
         
              %}
         <script src="{{ asset_url }}"></script>
 
         {% endjavascripts %}{% endblock %}
 
+{% block stylesheets_unique %}
+    {% stylesheets
+      
+        '@FisiSigriBundle/Resources/public/template/js/rickshaw/rickshaw.min.css'
 
+    %}
+    <stylesheets src="{{ asset_url }}"></stylesheets>
+
+{% endstylesheets %}{% endblock %}
 

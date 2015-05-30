@@ -40,23 +40,18 @@
                                 </div>
                             </div>
         <label class="col-sm-1 control-label" style="margin:5px;"> Prioridad</label> 
-        <div class="btn-group rigth-dropdown    "  >
-                                <button type="button" class="btn btn-default">Todas</button>
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                </button>
-                                
-                                <ul class="dropdown-menu dropdown-default" role="menu">
-                                    
-                                    <li><a href="#">Alta</a>
-                                    </li>
-                                    <li><a href="#">Media</a>
-                                    </li>
-                                    <li><a href="#">Baja</a>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
+
+         <div class="col-sm-2">
+
+                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                    <option>Todas</option>
+                    <option value="1">Alta</option>
+                    <option value="2">Media</option>
+                    <option value="2">Baja</option>
+                </select>
+
+            </div>
+    
        <label>  
                                 <button type="button" class="btn btn-default entypo-search"></button>
                             </label>
@@ -429,6 +424,30 @@
 </tbody>
 
 </table>
+<div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate">
+    <ul class="pagination pagination-sm">
+        <li class="prev disabled">
+            <a href="#"><i class="entypo-left-open"></i></a>
+        </li><li class="active"><a href="#">1</a>
+        </li><li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li class="next"><a href="#"><i class="entypo-right-open"></i>
+            </a></li></ul>
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($)
+    {
+        var table = $("#table-1").dataTable({
+            "sPaginationType": "bootstrap",
+            "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+            "oTableTools": {
+            },
+        });
+    });
+
+</script>
             
 {% endblock %}
 

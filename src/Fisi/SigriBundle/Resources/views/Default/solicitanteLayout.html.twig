@@ -2,26 +2,30 @@
 
 {% block mainmenu %}
     <ul id="main-menu" class="main-menu">
-       <li>
-           <a href="{{ path('solicitar_usuario') }}">
-               <i class="entypo-chart-bar"></i>
-               <span class="title">Registrar Solicitud</span>
-           </a>
-       </li>
-       <li>
+      <li>
            
            <a href="{{ path('solicitudes_usuario') }}">
-               <i class="entypo-chart-bar"></i>
+               <i class="entypo-menu"></i>
                <span class="title">Lista de Solicitudes</span>
            </a>
        </li>
+            
        
        <li>
            
            <a href="{{ path('notificaciones_usuario') }}">
-               <i class="entypo-chart-bar"></i>
-               <span class="title">Lista de Notificaciones</span>
+               <i class="entypo-alert"></i>
+               <span class="title">Alertas</span>
            </a>
+       </li>
+
+
+       <li>
+        <a href="{{ path('solicitar_usuario') }}">
+              
+              <button  type="button" class="btn btn-info">Registrar Solicitud</button>
+           </a>
+        
        </li>
     </ul>
 {% endblock %}

@@ -2,10 +2,14 @@ fisi_sigri_homepage:
     path:     /
     defaults: { _controller: FisiSigriBundle:Default:index }
     
-consultar_usuario:
-    path:     /solicitante/consultar
-    defaults: { _controller: FisiSigriBundle:User:ConsultarSolicitate }
+solicitudes_usuario:
+    path:     /solicitante/solicitudes
+    defaults: { _controller: FisiSigriBundle:User:SolicitudesSolicitante }
 
+notificaciones_usuario:
+    path:     /solicitante/notificaciones
+    defaults: { _controller: FisiSigriBundle:User:NotificacionesSolicitate }
+    
 solicitar_usuario:
     path:     /solicitante/solicitar
     defaults: { _controller: FisiSigriBundle:User:SolicitarSolicitante }

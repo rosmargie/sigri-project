@@ -6,9 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller
 {     
-    public function ConsultarSolicitateAction()
+    public function SolicitudesSolicitanteAction()
     {
-        return $this->render('FisiSigriBundle:solicitante:consultar.html.twig');
+        return $this->render('FisiSigriBundle:solicitante:solicitudessolicitante.html.twig');
+    }
+    public function NotificacionesSolicitateAction()
+    {
+        return $this->render('FisiSigriBundle:solicitante:notificaciones.html.twig');
     }
       public function SolicitarSolicitanteAction()
     {

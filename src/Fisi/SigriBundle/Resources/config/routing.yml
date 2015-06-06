@@ -25,7 +25,10 @@ bandeja_entrada_personal:
 gestionar_actividad_personal:
     path:     /gestionActividad/bandeja
     defaults: { _controller: FisiSigriBundle:User:GestionarActividad}
-       
+
+menu_principal:
+    path:   /gestor/menuPrincipal
+    defaults: {_controler: FisiSigriBundle:Ticket:menuPrincipal}
 
     
     

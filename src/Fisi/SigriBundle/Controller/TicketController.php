@@ -11,5 +11,10 @@ class TicketController extends Controller
         return $this->render('FisiSigriBundle::index.html.twig');
     }
     
+    public function menuPrincipalAction()
+    {
+        return $this->render('FisiSigriBundle:gestor:menuPrincipalGestor.html.twig');
+    }
+    
    
 }

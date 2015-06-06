@@ -30,6 +30,9 @@ menu_principal:
     path:   /gestor/menuPrincipal
     defaults: {_controller: FisiSigriBundle:Ticket:menuPrincipal}
 
+bandeja_entrada_gestor:
+    path: /gestor/menuPrincipal/bandejaDeEntrada
+    defaults: {_controller: FisisigriBunble:Ticket:bandejaDeEntrada}
     
     
     

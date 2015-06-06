@@ -28,7 +28,7 @@ gestionar_actividad_personal:
 
 menu_principal:
     path:   /gestor/menuPrincipal
-    defaults: {_controler: FisiSigriBundle:Ticket:menuPrincipal}
+    defaults: {_controller: FisiSigriBundle:Ticket:menuPrincipal}
 
     
     

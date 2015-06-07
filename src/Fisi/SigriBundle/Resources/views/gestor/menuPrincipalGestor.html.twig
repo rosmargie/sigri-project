@@ -1,82 +1,150 @@
 
-        <div class="container-fluid">    
-            <center>
-                <h1>Menú principal</h1><br/>
-            </center>
+{% extends 'FisiSigriBundle:Default:layout.html.twig' %}
 
+{% block menuPortal %}
+{% endblock%}
 
-            <div class="row">
-                <div class="col-lg-1 col-sm-6 col-md-4">
+{% block cabecera %}
+    <div class="container-fluid">
+    <div class="row" style="background-color: #133783;">
+        <!-- Profile Info and Notifications -->
+        <div class="col-md-6 col-sm-8 clearfix">
 
-                </div>
-                <div class="col-lg-10 col-sm-6 col-md-4">
-                    <div class="col-lg-4 col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="{{ asset('bundles/fisisigri/imagenes/mensaje.png') }}" alt="Quick tour" />
-                            <div class="caption">
-                                <center><h3>Bandeja de entrada</h3> <br/>
-                                    <p><a href="#" class="btn btn-primary" role="button">Entrar</a></p>
-                                </center>
-                            </div>
-                        </div>
-                    </div>
-                            
-                    <div class="col-lg-4  col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="{{ asset('bundles/fisisigri/imagenes/actividades.png') }}" alt="Quick tour" />
-                            <div class="caption">
-                                <center><h3>Actividades</h3><br/>
-                                    <p><a href="#" class="btn btn-primary" role="button">Entrar</a></p>
-                                </center>
-                            </div>
-                        </div>
-                    </div>
+            <ul class="user-info pull-left pull-none-xsm">
 
-                    <div class="col-lg-4  col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="{{ asset('bundles/fisisigri/imagenes/reportes.png') }}" alt="Quick tour" />
-                            <div class="caption">
-                                <center><h3>Reportes</h3><br/>
-                                    <p><a href="#" class="btn btn-primary" role="button">Entrar</a></p>
-                                </center>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Profile Info -->
+                <li class="profile-info dropdown" ><!-- add class "pull-right" if you want to place this from right -->
 
-
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-lg-3">
-
-                </div>
-
-                <div class="col-lg-3  col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="{{ asset('bundles/fisisigri/imagenes/seguimiento.png') }}" alt="Quick tour" />
-                        <div class="caption">
-                            <center><h3>Seguimiento incidencia / requerimiento</h3><br/>
-                                <p><a href="#" class="btn btn-primary" role="button">Entrar</a></p>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="{{ asset('bundles/fisisigri/imagenes/mantenerCatalogo.png') }}" alt="Quick tour" />
-                        <div class="caption">
-                            <center><h3>Mantenimiento de catálogo</h3><br/>
-                                <p><a href="#" class="btn btn-primary" role="button">Entrar</a></p>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" color: #ffffff">
+                        {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1@2x.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-circle" width="44" />
+                        {% endimage %}
+                        Bienvenido, Nombre del usuario
+                    </a>
+                </li>
+            </ul>
         </div>
 
 
+        <!-- Raw Links -->
+        <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+            <ul class="list-inline links-list pull-right">
+
+                <li>
+                    <a href="#" style=" color: #ffffff">
+                        Menú principal<i class="entypo-home " style="width:  4em"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style=" color: #ffffff">
+                        Salir<i class="entypo-logout right "></i>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="container-fluid">    
+        <center>
+            <h1>MENÚ PRINCIPAL</h1><br/>
+        </center>
+
+
+        <div class="row">
+            <div class="col-lg-1 col-sm-6 col-md-4">
+            </div>
+            <div class="col-lg-10 col-sm-6 col-md-4">
+
+
+                <div class="col-lg-4 col-sm-6 col-md-4">
+                    <div class="tile-title tile-purple">
+                        <div class="icon">
+                            <i class="entypo-mail"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Bandeja de entrada</h2><br/>
+                            <p><a href="{{ path('bandeja_entrada_gestor_m') }}" class="btn" role="button" style="background-color: #cc66ff; color: #ffffff">Entrar</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-sm-6 col-md-4">
+                    <div class="tile-title tile-aqua">
+                        <div class="icon">
+                            <i class="entypo-list"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Actividades</h2><br/>
+                            <p><a href="#" class="btn btn-blue" role="button">Entrar</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-sm-6 col-md-4">
+                    <div class="tile-title tile-pink">
+                        <div class="icon">
+                            <i class="entypo-shuffle"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Reportes</h2><br/>
+                            <p><a href="#" class="btn" role="button" style="background-color: #ff6699; color: #ffffff">Entrar</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+<br/>
+
+        <div class="row">
+            <div class="col-lg-3">
+
+            </div>
+
+            <div class="col-lg-3  col-sm-6 col-md-4">
+                <div class="tile-title tile-red">
+                        <div class="icon">
+                            <i class="entypo-tag"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Seguimientos de incidencia/ requerimiento</h2><br/>
+                            <p><a href="#" class="btn btn-danger" role="button">Entrar</a></p>
+                        </div>
+                        
+                    </div>
+            </div>
+            <div class="col-lg-3  col-sm-6 col-md-4">
+                <div class="tile-title tile-green">
+                        <div class="icon">
+                            <i class="entypo-book"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Mantenimiento de catálogo</h2><br/>
+                            <p><a href="#" class="btn btn-success" role="button">Entrar</a></p>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+                    
+
+{% endblock %}
 
 

@@ -15,11 +15,12 @@ class TicketController extends Controller
     {
         return $this->render('FisiSigriBundle:gestor:menuPrincipalGestor.html.twig');
     }
-    
-    public function bandejaDeEntradaAction()
+    public function bandejaEntradaGestorAction()
     {
         return $this->render('FisiSigriBundle:gestor:bandejaEntradaGestor.html.twig');
     }
+    
+  
     
    
 }

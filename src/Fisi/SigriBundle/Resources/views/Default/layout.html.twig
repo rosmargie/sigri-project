@@ -1,22 +1,22 @@
 {% extends 'FisiSigriBundle:Default:base.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}    
-    
+
     <link rel="stylesheet" href="{{ asset('bundles/fisisigri/css/font/entypo.eot') }}" />
-    
+
     <style>
         @font-face {
             font-family: 'entypo';
             src: url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.eot?71205724')}}}');
             src: url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.eot?71205724#iefix')}}') format('embedded-opentype'),
-                 url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.woff')}}') format('woff'),
-                 url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.ttf?71205724')}}') format('truetype'),
-                 url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.svg?71205724#entypo')}}') format('svg');
+                url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.woff')}}') format('woff'),
+                url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.ttf?71205724')}}') format('truetype'),
+                url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.svg?71205724#entypo')}}') format('svg');
             font-weight: normal;
             font-style: normal;
-          }
+        }
     </style>
-   
+
     {% stylesheets 
         '@FisiSigriBundle/Resources/public/template/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css'
         '@FisiSigriBundle/Resources/public/template/css/font-icons/entypo/css/entypo.css'
@@ -29,46 +29,53 @@
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
     {% endstylesheets %}
     <link href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic" type="text/css" rel="stylesheet" />
-    
+
 {% endblock %}
 
 {% block body %}
     <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 
-        <div class="sidebar-menu">
-            <div class="sidebar-menu-inner">
-                <header class="logo-env">
-                    <!-- logo -->
-                    <div class="logo">
-                        <a href="#">
-                            {% image '@FisiSigriBundle/Resources/public/template/images/logo-s.png' %}
-                            <img src="{{ asset_url }}" width="120" alt="" />
-                            {% endimage %}
-                        </a>
-                    </div>
-                    <!-- logo collapse icon -->
-                    <div class="sidebar-collapse">
-                        <a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
-                            <i class="entypo-menu"></i>
-                        </a>
-                    </div>
+        {% block menuPortal %}
 
-                    <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
-                    <div class="sidebar-mobile-menu visible-xs">
-                        <a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
-                            <i class="entypo-menu"></i>
-                        </a>
-                    </div>
+            <div class="sidebar-menu">
+                <div class="sidebar-menu-inner">
+                    <header class="logo-env">
+                        <!-- logo -->
+                        <div class="logo">
+                            <a href="#">
+                                {% image '@FisiSigriBundle/Resources/public/template/images/logo-s.png' %}
+                                <img src="{{ asset_url }}" width="120" alt="" />
+                                {% endimage %}
+                            </a>
+                        </div>
+                        <!-- logo collapse icon -->
+                        <div class="sidebar-collapse">
+                            <a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+                                <i class="entypo-menu"></i>
+                            </a>
+                        </div>
 
-                </header>
-                {% block mainmenu %}            
-                
-                {% endblock %}
+                        <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+                        <div class="sidebar-mobile-menu visible-xs">
+                            <a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
+                                <i class="entypo-menu"></i>
+                            </a>
+                        </div>
 
+                    </header>
+                    {% block mainmenu %}            
+
+                    {% endblock %}
+
+                </div>
             </div>
-        </div>
+
+        {% endblock%}
 
         <div class="main-content">
+            
+            {% block cabecera %}
+            
             <div class="row">
                 <!-- Profile Info and Notifications -->
                 <div class="col-md-6 col-sm-8 clearfix">
@@ -123,7 +130,7 @@
 
                     </ul>
 
-                   
+
 
                 </div>
 
@@ -143,9 +150,12 @@
 
             </div>
 
-            <hr />
+            {% endblock %}
+                                <hr />
 
             {% block content %}
+
+
             {% endblock %}
         </div>
 

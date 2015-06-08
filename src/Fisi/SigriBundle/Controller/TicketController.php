@@ -19,6 +19,10 @@ class TicketController extends Controller
     {
         return $this->render('FisiSigriBundle:gestor:bandejaEntradaGestor.html.twig');
     }
+    public function detalleSoliicitudGestorAction()
+    {
+        return $this->render('FisiSigriBundle:gestor:detalleSolicitud.html.twig');
+    }
     
   
     

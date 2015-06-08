@@ -34,3 +34,6 @@ bandeja_entrada_gestor_m:
     path: /gestor/menuPrincipal/bandejaEntrada
     defaults: {_controller: FisiSigriBundle:Ticket:bandejaEntradaGestor}
     
+detalle_solicitud_gestor:
+    path: /gestor/menuPrincipal/bandejaEntrada/detalleSolicitud
+    defaults: {_controller: FisiSigriBundle:Ticket:detalleSoliicitudGestor}

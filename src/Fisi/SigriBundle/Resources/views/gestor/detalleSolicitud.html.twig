@@ -1,0 +1,261 @@
+{% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
+{% block content %}
+
+    <center> <h1> SOLICITUD N° 00001</h1> </center>
+    <div class="row" style="padding-right: 15px;">
+        <div class="col-lg-7">
+            <fieldset  style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px;">
+                <legend>Descripción</legend>
+                <form class="form-horizontal validate ">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Solicitante </label>
+                        <div class="col-sm-8">
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Unidad orgánica</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Dirección IP</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Titulo</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Fecha de reporte</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Fecha de reserva</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;"  >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Descripcióno</label>
+                        <div class="col-sm-8">
+                            <textarea cols="68" rows="12" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Calificación</label>
+                        <div class="col-sm-8">
+                            <input type="text"  disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            <i class="entypo-info-circled" style="color: #0000C0;"> Sin calificar </i>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </fieldset>
+
+        </div>
+        <div class="col-lg-5" >
+            <div class="row">
+                <fieldset  style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; ">
+                    <legend>Opciones</legend>
+                    <div class="row" style="text-align: center;">
+                        <div class="col-lg-6">
+                            <div class="icon" style="font-size: 60px; ">
+                                <a  onclick="jQuery('#modal-4').modal('show', {backdrop: 'static'});"  style="color: #66e51b;"> <i class="entypo-mail"> </i> </a>                               
+
+                            </div>
+                            Reenviar solicitud
+                            <div class="icon" style="font-size: 60px; ">
+                                <a href="#" style="color: #65bcef;"><i class="entypo-search"></i></a>
+                            </div>
+                            Consultar catálogo
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="icon" style="font-size: 60px; ">
+                                <a href="#" style="color: #ff9c25;"><i class="entypo-list"></i></a>
+                            </div>
+                            Registrar actividades                            
+                            <div class="icon" style="font-size: 60px;">
+                                <a href="#"  style="color: #ff0c96;"><i class="entypo-floppy"></i></a>
+                            </div>
+                            Guardar cambios
+                        </div>
+                    </div>            
+                </fieldset>
+
+            </div>
+            <br/>
+            <div class="row">
+                <fieldset  style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px;">
+                    <legend>Registro de incidencia / requerimiento</legend>
+                    <form class="form-horizontal validate ">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Estado </label>
+                            <div class="col-sm-8">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Prioridad </label>
+                            <div class="col-sm-8">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tipo </label>
+                            <div class="col-sm-8">
+                                <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                    <option value="0">--- Seleccionar --</option>
+                                    <option value="1">Requerimiento</option>
+                                    <option value="2">Incidencia</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Categoria </label>
+                            <div class="col-sm-8">
+                                <input type="text"  style="width: 100%;" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Sub-categoria </label>
+                            <div class="col-sm-8">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Impacto </label>
+                            <div class="col-sm-8">
+                                <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                    <option value="0">--------- Seleccionar ---------</option>
+                                    <option value="1">Un solo usuario</option>
+                                    <option value="2">Multiples usuarios</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <br/>
+    <br/>
+
+    <div class="row"> 
+        <ul class="nav nav-tabs bordered">
+            <li class="active">
+                <a href="#dSolicitudEspera" data-toggle="tab">
+                    <span class="visible-xs"><i class="entypo-home"></i></span>
+                    <span class="hidden-xs">Solicitudes en espera</span>
+                </a>
+            </li>
+            <li>
+                <a href="#dSolicitudFinalizada" data-toggle="tab">
+                    <span class="visible-xs"><i class="entypo-user"></i></span>
+                    <span class="hidden-xs">Solicitudes finalizadas</span>
+                </a>
+            </li>
+            <li>
+                <a href="#dResumenSolicitudes" data-toggle="tab">
+                    <span class="visible-xs"><i class="entypo-mail"></i></span>
+                    <span class="hidden-xs">Resumen de solicitudes</span>
+                </a>
+            </li>            
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="dSolicitudEspera">
+                <br/><br/>
+                Documento adjunto:          
+                <icon class="entypo-link"> ArchivoRecepcion.pdf                   
+                </icon>
+                <button type="button">
+                    <i class="entypo-download"> </i> Descargar
+                </button>
+                <br/><br/><br/><br/>
+            </div>
+        </div>
+
+        <center><button class="btn btn-info"> Salir </button> </center>
+
+
+        <div class="modal fade" id="modal-4" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Mensaje de reenvio</h4>
+                    </div>
+
+                    <div class="modal-body row">
+                        <div class="col-lg-3" style="text-align: center;">
+                            <i class="entypo-window" style="font-size: 60px;"> </i>
+                        </div>
+                        <div class="col-lg-9">
+                            Seleccionar área de atención para la solicitud <br/><br/>
+                            <div style="padding-left: 30px;">
+                            <input type="radio" checked value="1" name="opcionSubcategoria"> Soporte técnico / videostreaming<br/>
+                            <input type="radio" checked value="2" name="opcionSubcategoria"> Estadistica e informática<br/>
+                            <input type="radio" checked value="3" name="opcionSubcategoria"> Redes / telecomunicaciones                    
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal" onclick="jQuery('#dConfirmarReenvio').modal('show', {backdrop: 'static'});">Aceptar</button>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="dConfirmarReenvio" data-backdrop="static">
+            <div class="modal-dialog" style="width: 400px;">
+                <div class="modal-content" >
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Mensaje de confirmación</h4>
+                    </div>
+
+                    <div class="modal-body row">
+                        <div class="col-lg-3" style="text-align: center;">
+                            <i class="entypo-help-circled" style="font-size: 60px;"> </i>
+                        </div>
+                        <div class="col-lg-9" >
+                            <br/>
+                            <br/>
+                            
+                            Esta seguro que desea enviar la solicitud <br/><br/>
+                        </div>
+
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <center>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">    Si   </button>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">    No   </button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock%}

@@ -1,188 +1,210 @@
 {% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
-{% block content %}
+{% block content %}   
 
-    <center> <h1> SOLICITUD N° 00001</h1> </center>
-    <div class="row" style="padding-right: 15px;">
-        <div class="col-lg-7">
-            <fieldset  style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px;">
-                <legend>Descripción</legend>
-                <form class="form-horizontal validate ">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Solicitante </label>
-                        <div class="col-sm-8">
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Unidad orgánica</label>
-                        <div class="col-sm-8">
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Dirección IP</label>
-                        <div class="col-sm-8">
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Titulo</label>
-                        <div class="col-sm-8">
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Fecha de reporte</label>
-                        <div class="col-sm-8">
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Fecha de reserva</label>
-                        <div class="col-sm-8">
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;"  >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Descripcióno</label>
-                        <div class="col-sm-8">
-                            <textarea cols="68" rows="12" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
-                                
-                            </textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Calificación</label>
-                        <div class="col-sm-8">
-                            <input type="text"  disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
-                            <i class="entypo-info-circled" style="color: #0000C0;"> Sin calificar </i>
-                        </div>
-                    </div>
-                </form>
+    <script src="{{ asset('bundles/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
+   
 
 
+    <div class="row" style="border:solid; border-width: 1px; border-color: #f7f7f7; border-radius: 10px;">           
 
-            </fieldset>
-
-        </div>
-        <div class="col-lg-5" >
-            <div class="row">
-                <fieldset  style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; ">
-                    <legend>Opciones</legend>
-                    <div class="row" style="text-align: center;">
-                        <div class="col-lg-6">
-                            <div class="icon" style="font-size: 60px; ">
-                                <a  onclick="jQuery('#modal-4').modal('show', {backdrop: 'static'});"  style="color: #66e51b;"> <i class="entypo-mail"> </i> </a>                               
-
-                            </div>
-                            Reenviar solicitud
-                            <div class="icon" style="font-size: 60px; ">
-                                <a href="#" style="color: #65bcef;"><i class="entypo-search"></i></a>
-                            </div>
-                            Consultar catálogo
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="icon" style="font-size: 60px; ">
-                                <a href="#" style="color: #ff9c25;"><i class="entypo-list"></i></a>
-                            </div>
-                            Registrar actividades                            
-                            <div class="icon" style="font-size: 60px;">
-                                <a href="#"  style="color: #ff0c96;"><i class="entypo-floppy"></i></a>
-                            </div>
-                            Guardar cambios
-                        </div>
-                    </div>            
-                </fieldset>
-
+        <div class="row" style="text-align: center; padding-top: 5px;">
+            <div class="icon col-lg-3" style="font-size: 60px; ">
+                <a  onclick="jQuery('#dmensajeReenvioGestor').modal('show', {backdrop: 'static'});"  >
+                    <i class="entypo-mail"> </i> 
+                    <span style="font-size: 12px; margin-top: -15px;"> Reenviar solicitud </span>
+                </a>                               
             </div>
-            <br/>
-            <div class="row">
-                <fieldset  style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px;">
-                    <legend>Registro de incidencia / requerimiento</legend>
-                    <form class="form-horizontal validate ">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Estado </label>
-                            <div class="col-sm-8">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Prioridad </label>
-                            <div class="col-sm-8">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Tipo </label>
-                            <div class="col-sm-8">
-                                <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
-                                    <option value="0">--- Seleccionar --</option>
-                                    <option value="1">Requerimiento</option>
-                                    <option value="2">Incidencia</option>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Categoria </label>
-                            <div class="col-sm-8">
-                                <input type="text"  style="width: 100%;" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Sub-categoria </label>
-                            <div class="col-sm-8">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Impacto </label>
-                            <div class="col-sm-8">
-                                <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
-                                    <option value="0">--------- Seleccionar ---------</option>
-                                    <option value="1">Un solo usuario</option>
-                                    <option value="2">Multiples usuarios</option>
-
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-                </fieldset>
+            <div class="icon col-lg-3" style="font-size: 60px; ">
+                <a  onclick="jQuery('#dConsultarCatalogo').modal('show', {backdrop: 'static'});"  >
+                    <i class="entypo-search"></i>
+                    <span style="font-size: 12px;"> Consultar catálogo</span>
+                </a>
             </div>
+            <div class="icon col-lg-3" style="font-size: 60px; ">
 
+                <a  onclick="jQuery('#dRegistarActividad').modal('show', {backdrop: 'static'});"  >
+                    <i class="entypo-list"></i>
+                    <span style="font-size: 12px;"> Registrar actividades</span>
+                </a>
+            </div>          
+            <div class="icon col-lg-3" style="font-size: 60px;">            
+                <a  onclick="jQuery('#dGuardarCambios').modal('show', {backdrop: 'static'});"  >
+                    <i class="entypo-floppy"></i>
+                    <span style="font-size: 12px;"> Guardar cambios</span>
+                </a>                
+            </div>
         </div>
-
-
     </div>
 
-
     <br/>
     <br/>
 
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="row">
+                <fieldset >
+                    <legend>Descripción</legend>
+                    <div class="form-horizontal validate " style=" padding-left: 25px;  ">
+                        <div class="form-group">
+                            <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">ID solicitud</div>
+                            <div class="col-sm-9">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Solicitante </div>
+                            <div class="col-sm-9">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Unidad orgánica</div>
+                            <div class="col-sm-9">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Dirección IP</div>
+                            <div class="col-sm-9">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Titulo</div>
+                            <div class="col-sm-9">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label"  style="font-size: 12px; width: 130px;">Fecha de reporte </div>
+                            <div class="col-sm-9">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Fecha de reserva </div>
+                            <div class="col-sm-9">
+                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
+                            <div class="col-sm-9">
+                                <textarea cols="68" rows="12" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"  style="font-size: 12px; width: 130px;">Calificación</label>
+                            <div class="col-sm-9">
+                                <input type="text"  disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                <i class="entypo-info-circled" style="color: #0000C0;"> Sin calificar </i>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </fieldset>
+            </div>
+
+        </div>
+        <div class="col-lg-1">
+        </div>
+
+        <div class="col-lg-4" >
+            <div class="row">
+
+
+                <fieldset >
+                    <legend>Registro de incidencia / requerimiento</legend>
+                    <div  style="border: solid; border-color: green; border-width: 1px; border-radius: 20px; padding-top: 10px;">
+                        <div class="col-sm-4"></div>
+                        <div class=" form-group col-sm-4  label label-success control-label"  style="font-size: 12px; ">Estado </div>
+                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                        </div>
+
+                        <div class="col-sm-4"></div>
+                        <div class="form-group col-sm-4 label label-success control-label "  style="font-size: 12px; ">Prioridad </div>  
+                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
+                            <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                <option value="0">--- Seleccionar --</option>
+                                <option value="1">Alta</option>
+                                <option value="2">Media</option>
+                                <option value="3">Baja</option>
+
+                            </select>
+
+                        </div>  
+                        <div class="col-sm-4"></div>
+                        <div class="form-group col-sm-4 label label-success control-label"  style="font-size: 12px; ">Tipo </div>
+                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
+
+                            <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                <option value="0">--- Seleccionar --</option>
+                                <option value="1">Requerimiento</option>
+                                <option value="2">Incidencia</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-sm-4"></div>
+                        <div class="form-group col-sm-4 label label-success control-label "  style="font-size: 12px; ">Categoria </div>
+                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
+
+                            <input type="text"  style="width: 100%;" >
+
+                        </div>
+                        <div class="col-sm-4"></div>
+                        <div class=" form-group col-sm-4 label label-success control-label"  style="font-size: 12px; ">Sub-categoria </div>
+                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
+
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </fieldset>
+
+
+            </div>
+
+        </div>
+
+    </div>
     <div class="row"> 
         <ul class="nav nav-tabs bordered">
             <li class="active">
-                <a href="#dSolicitudEspera" data-toggle="tab">
+                <a href="#dArchivoRecepcion" data-toggle="tab">
                     <span class="visible-xs"><i class="entypo-home"></i></span>
-                    <span class="hidden-xs">Solicitudes en espera</span>
+                    <span class="hidden-xs">Documento adjunto</span>
                 </a>
             </li>
             <li>
-                <a href="#dSolicitudFinalizada" data-toggle="tab">
+                <a href="#dActividadesRegitar" data-toggle="tab">
                     <span class="visible-xs"><i class="entypo-user"></i></span>
-                    <span class="hidden-xs">Solicitudes finalizadas</span>
+                    <span class="hidden-xs">Actividades</span>
                 </a>
             </li>
             <li>
-                <a href="#dResumenSolicitudes" data-toggle="tab">
+                <a href="#dResumenSolicitud" data-toggle="tab">
                     <span class="visible-xs"><i class="entypo-mail"></i></span>
-                    <span class="hidden-xs">Resumen de solicitudes</span>
+                    <span class="hidden-xs">Resumen de solicitud</span>
                 </a>
             </li>            
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane active" id="dSolicitudEspera">
+            <div class="tab-pane active" id="dArchivoRecepcion">
                 <br/><br/>
                 Documento adjunto:          
                 <icon class="entypo-link"> ArchivoRecepcion.pdf                   
@@ -192,12 +214,91 @@
                 </button>
                 <br/><br/><br/><br/>
             </div>
+            <div class="tab-pane" id="dActividadesRegitar">
+
+
+
+                <div class="row" style="padding: 20px;">
+
+                    <div style="float: right">
+
+                        <a>Agregar fila
+                            <button type="button" onclick="agregarFilaActGestor();">	
+                                <i class="entypo-ccw"  style="color: blue; background-color: width;"></i>
+                            </button>
+                        </a>
+                        <a>Actualizar
+                            <button type="button" >	
+                                <i class="entypo-plus-circled"  style="color: green; background-color: width;"></i>
+                            </button>
+                        </a>
+
+                        <br/>
+                        <br/>
+                    </div>
+                    <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                        <thead>
+                            <tr>
+
+
+                                <th style="text-align: center;">Titulo</th>
+                                <th style="text-align: center; width: 150px; ">Estado</th>
+                                <th style="text-align: center; width: 150px; ">F.E. Inicio</th>
+                                <th style="text-align: center; width: 150px; ">F.E. Finzalizado</th>
+                                <th style="text-align: center; width: 160px; ">Opciones</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody id="tBodyAgregarAct">
+
+
+
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="tab-pane" id="dResumenSolicitud">
+
+            </div>
         </div>
 
         <center><button class="btn btn-info"> Salir </button> </center>
 
 
-        <div class="modal fade" id="modal-4" data-backdrop="static">
+
+
+
+        <div class="modal fade" id="dmensajeReenvioGestor" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -212,9 +313,9 @@
                         <div class="col-lg-9">
                             Seleccionar área de atención para la solicitud <br/><br/>
                             <div style="padding-left: 30px;">
-                            <input type="radio" checked value="1" name="opcionSubcategoria"> Soporte técnico / videostreaming<br/>
-                            <input type="radio" checked value="2" name="opcionSubcategoria"> Estadistica e informática<br/>
-                            <input type="radio" checked value="3" name="opcionSubcategoria"> Redes / telecomunicaciones                    
+                                <input type="radio" checked value="1" name="opcionSubcategoria"> Soporte técnico / videostreaming<br/>
+                                <input type="radio" checked value="2" name="opcionSubcategoria"> Estadistica e informática<br/>
+                                <input type="radio" checked value="3" name="opcionSubcategoria"> Redes / telecomunicaciones                    
                             </div>
                         </div>
 
@@ -227,7 +328,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal fade" id="dConfirmarReenvio" data-backdrop="static">
             <div class="modal-dialog" style="width: 400px;">
                 <div class="modal-content" >
@@ -243,19 +344,311 @@
                         <div class="col-lg-9" >
                             <br/>
                             <br/>
-                            
+
                             Esta seguro que desea enviar la solicitud <br/><br/>
                         </div>
 
                     </div>
-                    
+
                     <div class="modal-footer">
                         <center>
-                        <button type="button" class="btn btn-info" data-dismiss="modal">    Si   </button>
-                        <button type="button" class="btn btn-info" data-dismiss="modal">    No   </button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">    Si   </button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">    No   </button>
                         </center>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="dConsultarCatalogo" data-backdrop="static">
+            <div class="modal-dialog" >
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Catálago</h4>
+                    </div>
+
+                    <div class="modal-body row" style="padding: 20px 40px 40px 40px; ">
+                        <div class="form-group">
+                            <label class="col-lg-3"> Nombre de la categoria </label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="iNombreCategoriaV" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de la categoria a buscar">
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="button" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
+                            </div>
+                        </div>
+                        <br/><br/>
+                        <div>
+                            <table class="table table-bordered datatable dataTable" id="tbListaCatalogo" role="grid" aria-describedby="table-1_info">
+                                <thead>
+                                    <tr>
+
+                                        <th style="text-align: center;">Catagoria</th>
+                                        <th style="text-align: center;">Descripción</th>
+                                        <th style="text-align: center;">Cantidad</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Impresora</td>
+                                        <td>Impresora</td>
+                                        <td>54</td>                                            
+                                    </tr>
+                                    <tr>
+                                        <td>Impresora</td>
+                                        <td>Impresora</td>
+                                        <td>54</td>                                            
+                                    </tr>
+                                    <tr>
+                                        <td>Impresora</td>
+                                        <td>Impresora</td>
+                                        <td>54</td>                                            
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer"><center>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                        </center>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="dRegistarActividad" data-backdrop="static">
+            <div class="modal-dialog" style="width: 70%;">
+                <div class="modal-content">
+
+                    <div class="modal-header" >
+                        <h4 class="modal-title">Mensaje de confirmación</h4>
+                    </div>
+
+                    <div class="modal-body row" style="padding: 20px 40px 40px 40px; ">
+                        <center> <h1> Detalle de Actividad N° 00001</h1></center><br/>
+
+
+                        <div class="form-horizontal validate ">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Solicitante</label>
+
+                                <div class="col-sm-7">
+                                    <input type="text" disabled class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Titulo</label>
+                                <div class="col-sm-7">
+                                    <input type="text" disabled class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Fecha estimada</label>
+                                <label class="col-sm-1 control-label">Inicio</label>
+                                <div class="col-sm-2">
+                                    <input type="text"  disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                </div>
+                                <label class="col-sm-2 control-label">Finalización</label>
+                                <div class="col-sm-2">
+                                    <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Fecha real</label>
+                                <label class="col-sm-1 control-label">Inicio</label>
+                                <div class="col-sm-2">
+                                    <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                </div>
+                                <label class="col-sm-2 control-label">Finalización</label>
+                                <div class="col-sm-2">
+                                    <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Descripción</label>
+
+                                <div class="col-sm-7">
+
+                                    <textArea cols="50px" rows="7px" disabled class="form-control"  style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resizable: none;"></textArea>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Estado</label>
+
+                                <div class="col-sm-7">
+
+                                    <select  class="selectboxit-container selectboxit-container"  style="border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 100%">
+                                <option>--- Seleccionar --</option>
+                                
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+								<option value="3">Finalizado</option>
+							
+                            </select>
+
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Prioridad</label>
+
+                                <div class="col-sm-7">
+
+                                  <select  class="selectboxit-container selectboxit-container"  style="border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 100%">
+                                <option>--- Seleccionar --</option>                                
+                                <option value="1">Alta</option>
+                                <option value="2">Media</option>
+								<option value="3">Baja</option>
+					
+								
+                            </select>
+
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Peso</label>
+
+                                <div class="col-sm-7">
+								  <select  class="selectboxit-container selectboxit-container"   style="border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 100%">
+                                <option>--- Seleccionar --</option>
+                                
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								
+                            </select>
+
+                                  
+
+                                </div>
+                            </div>
+
+                            <br/><br/>
+                                                <div style="float: right">
+
+                        <a>Agregar fila
+                            <button type="button" onclick=" agregarFilaRespGestor();">	
+                                
+                                <i class="entypo-ccw"  style="color: blue; background-color: white;"></i>
+                            </button>
+                        </a>
+                        <a>Actualizar
+                            <button type="button" >	
+                                <i class="entypo-plus-circled"  style="color: green; background-color: white;"></i>
+                            </button>
+                        </a>
+
+                        <br/>
+                        <br/>
+                    </div>
+                            
+                           
+                            
+                            <br/><br/>
+                            <div>
+                                <table class="table table-bordered datatable dataTable" id="tbListaCatalogo" role="grid" aria-describedby="table-1_info">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="text-align: center;">Buscar</th>
+                                            <th style="text-align: center;">Responsable</th>
+                                            <th style="text-align: center;">ID actividad</th>
+                                            <th style="text-align: center;">F.E Inicio</th>
+                                            <th style="text-align: center;">F.E Finalización</th>
+                                            <th style="text-align: center;">Progreso</th>
+                                            <th style="text-align: center;">Opciones</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tBodyAgregarResp">
+                            
+
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="modal-footer"><center>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                        </center>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="dGuardarCambios" data-backdrop="static">
+            <div class="modal-dialog" >
+                <div class="modal-content">
+
+                    <div class="modal-header" >
+                        <h4 class="modal-title">Mensaje de confirmación</h4>
+                    </div>
+
+                    <div class="modal-body row" style="padding: 20px 40px 40px 40px; ">
+                        <div class="col-lg-3" style="text-align: center;">
+                            <i class="entypo-help-circled" style="font-size: 60px;"> </i>
+                        </div>
+                        <div class="col-lg-9" >
+                            <br/>
+                            <br/>
+
+                            Esta seguro que desea guardar los cambios realizados <br/><br/>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><center>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                        </center>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
     {% endblock%}
+
+    {% block javascripts_unique %}
+{% javascripts 
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap-datepicker.js'
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap-timepicker.min.js'        
+        '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js' 
+        '@FisiSigriBundle/Resources/public/template/js/jquery.validate.min.js'
+
+             %}
+        <script src="{{ asset_url }}"></script>
+
+        {% endjavascripts %}{% endblock %}

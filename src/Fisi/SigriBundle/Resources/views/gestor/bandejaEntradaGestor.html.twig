@@ -1,453 +1,433 @@
 {% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
 {% block content %}
 
-    <div id="contenidoBandejaEntrada">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-        <ul class="nav nav-tabs bordered">
-            <li class="active">
-                <a href="#dSolicitudEspera" data-toggle="tab">
-                    <span class="visible-xs"><i class="entypo-home"></i></span>
-                    <span class="hidden-xs">Solicitudes en espera</span>
-                </a>
-            </li>
-            <li>
-                <a href="#dSolicitudFinalizada" data-toggle="tab">
-                    <span class="visible-xs"><i class="entypo-user"></i></span>
-                    <span class="hidden-xs">Solicitudes finalizadas</span>
-                </a>
-            </li>
-            <li>
-                <a href="#dResumenSolicitudes" data-toggle="tab">
-                    <span class="visible-xs"><i class="entypo-mail"></i></span>
-                    <span class="hidden-xs">Resumen de solicitudes</span>
-                </a>
-            </li>            
-        </ul>
 
-        <div class="tab-content">
-            <div class="tab-pane active" id="dSolicitudEspera">
 
-                <div class="panel" data-collapsed="0">
-                    <!-- panel head -->
-                    <div class="panel-heading" >
-                        <div class="panel-options" style="float: left;">				
-                            <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
-                        </div>
+    <ul class="nav nav-tabs bordered">
+        <li class="active">
+            <a href="#dSolicitudEspera" data-toggle="tab">
+                <span class="visible-xs"><i class="entypo-home"></i></span>
+                <span class="hidden-xs">Solicitudes en espera</span>
+            </a>
+        </li>
+        <li>
+            <a href="#dSolicitudFinalizada" data-toggle="tab">
+                <span class="visible-xs"><i class="entypo-user"></i></span>
+                <span class="hidden-xs">Solicitudes finalizadas</span>
+            </a>
+        </li>
+        <li>
+            <a href="#dResumenSolicitudes" data-toggle="tab">
+                <span class="visible-xs"><i class="entypo-mail"></i></span>
+                <span class="hidden-xs">Resumen de solicitudes</span>
+            </a>
+        </li>            
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="dSolicitudEspera">
+
+            <div class="panel" data-collapsed="0">
+                <!-- panel head -->
+                <div class="panel-heading" >
+                    <div class="panel-options" style="float: left;">				
+                        <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
                     </div>
+                </div>
 
-                    <!-- panel body -->
-                    <div class="panel-body" >
-                        <div class="row" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
-                            <div class="col-lg-1">
-                                <p> Periodo: </p><br/><br/>
-                                <p> Otros  :</p>
-                            </div >
-                            <div class="col-lg-1">
-                                <p> Inicio </p> <br/><br/>
-                                <p> Estado </p>
-                            </div>
-                            <div class="col-lg-2">
+                <!-- panel body -->
+                <div class="panel-body" >
+                    <div class="row" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                        <div class="col-lg-1">
+                            <p> Periodo: </p><br/><br/>
+                            <p> Otros  :</p>
+                        </div >
+                        <div class="col-lg-1">
+                            <p> Inicio </p> <br/><br/>
+                            <p> Estado </p>
+                        </div>
+                        <div class="col-lg-2">
 
-                                <div class="input-group">
-                                    <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
 
-                                    <div class="input-group-addon">
-                                        <a href="#"><i class="entypo-calendar"></i></a>
-                                    </div>
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="entypo-calendar"></i></a>
                                 </div>
-                                <br/>
-
-                                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                    <option>--- Seleccionar --</option>
-                                    <option value="0">Todos</option>
-                                    <option value="1">Sin iniciar</option>
-                                    <option value="2">Proceso</option>
-                                </select>
                             </div>
-                            <div class="col-lg-2" style="text-align: right; ">
-                                <p> Fin </p> <br/><br/>
-                                <p> Prioridad </p>
-                            </div>
-                            <div class="col-lg-2">
+                            <br/>
 
-                                <div class="input-group">
-                                    <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2" style="text-align: right; ">
+                            <p> Fin </p> <br/><br/>
+                            <p> Prioridad </p>
+                        </div>
+                        <div class="col-lg-2">
 
-                                    <div class="input-group-addon">
-                                        <a href="#"><i class="entypo-calendar"></i></a>
-                                    </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="entypo-calendar"></i></a>
                                 </div>
-                                <br/>
-                                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                    <option>--- Seleccionar --</option>
-
-                                    <option value="0">Todos</option>
-                                    <option value="1">Alta</option>
-                                    <option value="2">Media</option>
-                                    <option value="3">Baja</option>
-                                    <option value="4">Sin asignar</option>
-                                </select>
                             </div>
-                            <div class="col-lg-2" style="text-align: right;">
-                                <p><br/></p><br/><br/>
-                                <p> Unidad orgánica </p>
+                            <br/>
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
 
-                            </div>
-
-                            <div class="col-lg-2" style="text-align: center;">
-                                <button type="button" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
-                                <br/><br/>
-                                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                    <option>--- Seleccionar --</option>
-                                    <option value="0"> Todos</option>
-                                    <option value="1">AKI FATLAA**</option>
-                                    <option value="2">Proceso</option>
-                                    <option value="3">Finalizado</option>
-                                </select>
-                            </div>
+                                <option value="0">Todos</option>
+                                <option value="1">Alta</option>
+                                <option value="2">Media</option>
+                                <option value="3">Baja</option>
+                                <option value="4">Sin asignar</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2" style="text-align: right;">
+                            <p><br/></p><br/><br/>
+                            <p> Unidad orgánica </p>
 
                         </div>
+
+                        <div class="col-lg-2" style="text-align: center;">
+                            <button type="button" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
+                            <br/><br/>
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0"> Todos</option>
+                                <option value="1">AKI FATLAA**</option>
+                                <option value="2">Proceso</option>
+                                <option value="3">Finalizado</option>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
-                <br/>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="tile-stats tile-aqua">
-                            <div class="icon"><i class="entypo-mail"></i></div>
-                            <div class="num" data-start="0" data-end="10" data-postfix="" data-duration="1500" data-delay="0">0</div>
-                            <h3>Prioridad: Sin asignar</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="tile-stats tile-red">
-                            <div class="icon"><i class="entypo-mail"></i></div>
-                            <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
-
-                            <h3>Prioridad: Alta</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="tile-stats tile-orange">
-                            <div class="icon"><i class="entypo-mail"></i></div>
-                            <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
-
-                            <h3>Prioridad: Media</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="tile-stats tile-green" >
-                            <div class="icon"><i class="entypo-mail"></i></div>
-                            <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0" > 10</div>
-                            <h3>Prioridad: Baja</h3>
-                        </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="tile-stats tile-aqua">
+                        <div class="icon"><i class="entypo-mail"></i></div>
+                        <div class="num" data-start="0" data-end="10" data-postfix="" data-duration="1500" data-delay="0">0</div>
+                        <h3>Prioridad: Sin asignar</h3>
                     </div>
                 </div>
+                <div class="col-lg-3">
+                    <div class="tile-stats tile-red">
+                        <div class="icon"><i class="entypo-mail"></i></div>
+                        <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
 
-                <div class="row" style="padding: 20px;">
-                    <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
-                        <thead>
-                            <tr>
-                                <th>
-                        <div class="checkbox checkbox-replace">
-                            <input type="checkbox" id="chk-1">
-                        </div>
-                        </th>
-                        <th style="text-align: center;">N° de Solicitud</th>
-                        <th style="text-align: center;">Título</th>
-                        <th style="text-align: center;">Prioridad</th>
-                        <th style="text-align: center;">Estado</th>
-                        <th style="text-align: center;">Fecha</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    <div class="checkbox checkbox-replace">
-                                        <input type="checkbox" id="chk-21">
-                                    </div>
-                                </td>
-                                <td>0001</td>
-                                <td>Laptop Malograda</td>
-                                <td>Sin asignar</td>
-                                <td>Sin iniciar</td>
-                                <td>07/06/2015</td>                                    
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="checkbox checkbox-replace">
-                                        <input type="checkbox" id="chk-21">
-                                    </div>
-                                </td>
-                                <td>0001</td>
-                                <td>Laptop Malograda</td>
-                                <td>Sin asignar</td>
-                                <td>Sin iniciar</td>
-                                <td>07/06/2015</td>                                    
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="checkbox checkbox-replace">
-                                        <input type="checkbox" id="chk-21">
-                                    </div>
-                                </td>
-                                <td>0001</td>
-                                <td>Laptop Malograda</td>
-                                <td>Sin asignar</td>
-                                <td>Sin iniciar</td>
-                                <td>07/06/2015</td>                                    
-                            </tr>
-
-
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <div class="row"> 
-
-                    <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate">
-                        <ul class="pagination pagination-sm">
-                            <li class="prev disabled">
-                                <a href="#"><i class="entypo-left-open"></i></a>
-                            </li><li class="active"><a href="#">1</a>
-                            </li><li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li class="next"><a href="#"><i class="entypo-right-open"></i>
-                                </a></li></ul>
+                        <h3>Prioridad: Alta</h3>
                     </div>
                 </div>
+                <div class="col-lg-3">
+                    <div class="tile-stats tile-orange">
+                        <div class="icon"><i class="entypo-mail"></i></div>
+                        <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
 
-                <script type="text/javascript">
-                    jQuery(document).ready(function ($)
-                    {
-                        var table = $("#table-1").dataTable({
-                            "sPaginationType": "bootstrap",
-                            "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
-                            "oTableTools": {
-                            },
-                        });
-                    });
-
-                </script>
+                        <h3>Prioridad: Media</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="tile-stats tile-green" >
+                        <div class="icon"><i class="entypo-mail"></i></div>
+                        <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0" > 10</div>
+                        <h3>Prioridad: Baja</h3>
+                    </div>
+                </div>
             </div>
 
-
-            <div class="tab-pane" id="dSolicitudFinalizada">
-                <div class="panel" data-collapsed="0">
-                    <div class="panel-heading" >
-                        <div class="panel-options" style="float: left;">				
-                            <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
-                        </div>
+            <div class="row" style="padding: 20px;">
+                <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                    <thead>
+                        <tr>
+                            <th>
+                    <div class="checkbox checkbox-replace">
+                        <input type="checkbox" id="chk-1">
                     </div>
+                    </th>
+                    <th style="text-align: center;">N° de Solicitud</th>
+                    <th style="text-align: center;">Título</th>
+                    <th style="text-align: center;">Prioridad</th>
+                    <th style="text-align: center;">Estado</th>
+                    <th style="text-align: center;">Fecha</th>
+                    </tr>
+                    </thead>
 
-                    <!-- panel body -->
-                    <div class="panel-body" >
-                        <div class="row" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
-                            <div class="col-lg-1">
-                                <p> Periodo: </p><br/><br/>
-                                <p> Otros  :</p>
-                            </div >
-                            <div class="col-lg-1">
-                                <p> Inicio </p> <br/><br/>
-                                <p> Calificación </p>
-                            </div>
-                            <div class="col-lg-2">
 
-                                <div class="input-group">
-                                    <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+                    <tbody>
 
-                                    <div class="input-group-addon">
-                                        <a href="#"><i class="entypo-calendar"></i></a>
-                                    </div>
+                        <tr href="{{path('detalle_solicitud_gestor')}}">
+                            <td >
+                                <div class="checkbox checkbox-replace">
+                                    <input type="checkbox" id="chk-21">
                                 </div>
-                                <br/>
-
-                                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                    <option>--- Seleccionar --</option>
-                                    <option value="0">Todos</option>
-                                    <option value="1">Excelente</option>
-                                    <option value="2">Bien</option>
-                                    <option value="3">Regular</option>
-                                    <option value="4">Malo</option>
-                                    <option value="5">Sin calificar</option>
-
-                                </select>
-                            </div>
-                            <div class="col-lg-2" style="text-align: right; ">
-                                <p> Fin </p> <br/><br/>
-                                <p> Prioridad </p>
-                            </div>
-                            <div class="col-lg-2">
-
-                                <div class="input-group">
-                                    <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-                                    <div class="input-group-addon">
-                                        <a href="#"><i class="entypo-calendar"></i></a>
-                                    </div>
-                                </div>
-                                <br/>
-                                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                    <option>--- Seleccionar --</option>
-
-                                    <option value="0">Todos</option>
-                                    <option value="1">Alta</option>
-                                    <option value="2">Media</option>
-                                    <option value="3">Baja</option>
-
-                                </select>
-                            </div>
-                            <div class="col-lg-2" style="text-align: right;">
-                                <p><br/></p><br/><br/>
-                                <p> Unidad orgánica </p>
-
-                            </div>
-
-                            <div class="col-lg-2" style="text-align: center;">
-                                <button type="button" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
-                                <br/><br/>
-                                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                    <option>--- Seleccionar --</option>
-                                    <option value="0"> Todos</option>
-                                    <option value="1">AKI FATLAA**</option>
-                                    <option value="2">Proceso</option>
-                                    <option value="3">Finalizado</option>
-                                </select>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div class="row">                      
-                    <div class="col-lg-4">
-                        <div class="tile-stats tile-red">
-                            <div class="icon"><i class="entypo-mail"></i></div>
-                            <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
-
-                            <h3>Prioridad: Alta</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="tile-stats tile-orange">
-                            <div class="icon"><i class="entypo-mail"></i></div>
-                            <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
-
-                            <h3>Prioridad: Media</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="tile-stats tile-green" >
-                            <div class="icon"><i class="entypo-mail"></i></div>
-                            <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0" > 10</div>
-                            <h3>Prioridad: Baja</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="padding: 20px;">
-                    <table class="table table-bordered datatable dataTable" id="tbSolicitudFinalizadaGestor" role="grid" aria-describedby="table-1_info">
-                        <thead>
-                            <tr>
-                                <th>
-                        <div class="checkbox checkbox-replace">
-                            <input type="checkbox" id="chk-1">
-                        </div>
-                        </th>
-                        <th style="text-align: center;">N° de Solicitud</th>
-                        <th style="text-align: center;">Título</th>
-                        <th style="text-align: center;">Prioridad</th>
-                        <th style="text-align: center;">Estado</th>
-                        <th style="text-align: center;">Fecha</th>
-                        <th style="text-align: center;">Calificación</th>
+                            </td>
+                            <td>0010</td>
+                            <td>Laptop Malograda</td>
+                            <td>Sin asignar</td>
+                            <td>Sin iniciar</td>
+                            <td>07/06/2015</td>                                    
                         </tr>
-                        </thead>
 
-                        <tbody>
+                    </tbody>
 
-                            <tr>
-                                <td>
-                                    <div class="checkbox checkbox-replace">
-                                        <input type="checkbox" id="chk-21">
-                                    </div>
-                                </td>
-                                <td>0001</td>
-                                <td>Laptop Malograda</td>
-                                <td>Sin asignar</td>
-                                <td>Sin iniciar</td>
-                                <td>07/06/2015</td>                                    
-                                <td>Bueno</td>                                    
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="checkbox checkbox-replace">
-                                        <input type="checkbox" id="chk-21">
-                                    </div>
-                                </td>
-                                <td>0001</td>
-                                <td>Laptop Malograda</td>
-                                <td>Sin asignar</td>
-                                <td>Sin iniciar</td>
-                                <td>07/06/2015</td>    
-                                <td>Bueno</td>                                    
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="checkbox checkbox-replace">
-                                        <input type="checkbox" id="chk-21">
-                                    </div>
-                                </td>
-                                <td>0001</td>
-                                <td>Laptop Malograda</td>
-                                <td>Sin asignar</td>
-                                <td>Sin iniciar</td>
-                                <td>07/06/2015</td>   
-                                <td>Bueno</td>                                    
-                            </tr>
+                </table>
+                <script>
 
-
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <div class="row"> 
-
-                    <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate">
-                        <ul class="pagination pagination-sm">
-                            <li class="prev disabled">
-                                <a href="#"><i class="entypo-left-open"></i></a>
-                            </li><li class="active"><a href="#">1</a>
-                            </li><li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li class="next"><a href="#"><i class="entypo-right-open"></i>
-                                </a></li></ul>
-                    </div>
-                </div>
-
-                <script type="text/javascript">
-                    jQuery(document).ready(function ($)
-                    {
-                        var table = $("#table-1").dataTable({
-                            "sPaginationType": "bootstrap",
-                            "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
-                            "oTableTools": {
-                            },
-                        });
+                    $('tr').on("click", function () {
+                        if ($(this).attr('href') !== undefined) {
+                            document.location = $(this).attr('href');
+                        }
                     });
 
                 </script>
 
             </div>
-            
-            <div class="tab-pane" id="dResumenSolicitudes">
-                Aki entran los grafico
+
+            <div class="row"> 
+
+                <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate">
+                    <ul class="pagination pagination-sm">
+                        <li class="prev disabled">
+                            <a href="#"><i class="entypo-left-open"></i></a>
+                        </li><li class="active"><a href="#">1</a>
+                        </li><li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                            </a></li></ul>
+                </div>
             </div>
+
+            <script type="text/javascript">
+                jQuery(document).ready(function ($)
+                {
+                    var table = $("#table-1").dataTable({
+                        "sPaginationType": "bootstrap",
+                        "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                        "oTableTools": {
+                        },
+                    });
+                });
+
+            </script>
         </div>
-    {% endblock %}
+
+
+        <div class="tab-pane" id="dSolicitudFinalizada">
+            <div class="panel" data-collapsed="0">
+                <div class="panel-heading" >
+                    <div class="panel-options" style="float: left;">				
+                        <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
+                    </div>
+                </div>
+
+                <!-- panel body -->
+                <div class="panel-body" >
+                    <div class="row" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                        <div class="col-lg-1">
+                            <p> Periodo: </p><br/><br/>
+                            <p> Otros  :</p>
+                        </div >
+                        <div class="col-lg-1">
+                            <p> Inicio </p> <br/><br/>
+                            <p> Calificación </p>
+                        </div>
+                        <div class="col-lg-2">
+
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="entypo-calendar"></i></a>
+                                </div>
+                            </div>
+                            <br/>
+
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Excelente</option>
+                                <option value="2">Bien</option>
+                                <option value="3">Regular</option>
+                                <option value="4">Malo</option>
+                                <option value="5">Sin calificar</option>
+
+                            </select>
+                        </div>
+                        <div class="col-lg-2" style="text-align: right; ">
+                            <p> Fin </p> <br/><br/>
+                            <p> Prioridad </p>
+                        </div>
+                        <div class="col-lg-2">
+
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="entypo-calendar"></i></a>
+                                </div>
+                            </div>
+                            <br/>
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+
+                                <option value="0">Todos</option>
+                                <option value="1">Alta</option>
+                                <option value="2">Media</option>
+                                <option value="3">Baja</option>
+
+                            </select>
+                        </div>
+                        <div class="col-lg-2" style="text-align: right;">
+                            <p><br/></p><br/><br/>
+                            <p> Unidad orgánica </p>
+
+                        </div>
+
+                        <div class="col-lg-2" style="text-align: center;">
+                            <button type="button" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
+                            <br/><br/>
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0"> Todos</option>
+                                <option value="1">AKI FATLAA**</option>
+                                <option value="2">Proceso</option>
+                                <option value="3">Finalizado</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">                      
+                <div class="col-lg-4">
+                    <div class="tile-stats tile-red">
+                        <div class="icon"><i class="entypo-mail"></i></div>
+                        <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
+
+                        <h3>Prioridad: Alta</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="tile-stats tile-orange">
+                        <div class="icon"><i class="entypo-mail"></i></div>
+                        <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
+
+                        <h3>Prioridad: Media</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="tile-stats tile-green" >
+                        <div class="icon"><i class="entypo-mail"></i></div>
+                        <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0" > 10</div>
+                        <h3>Prioridad: Baja</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding: 20px;">
+                <table class="table table-bordered datatable dataTable" id="tbSolicitudFinalizadaGestor" role="grid" aria-describedby="table-1_info">
+                    <thead>
+                        <tr>
+                            <th>
+                    <div class="checkbox checkbox-replace">
+                        <input type="checkbox" id="chk-1">
+                    </div>
+                    </th>
+                    <th style="text-align: center;">N° de Solicitud</th>
+                    <th style="text-align: center;">Título</th>
+                    <th style="text-align: center;">Prioridad</th>
+                    <th style="text-align: center;">Estado</th>
+                    <th style="text-align: center;">Fecha</th>
+                    <th style="text-align: center;">Calificación</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>                            
+                        <tr href="{{path('detalle_solicitud_gestor')}}">                                
+                            <td>
+                                <div class="checkbox checkbox-replace">
+                                    <input type="checkbox" id="chk-21">
+                                </div>
+                            </td>
+                            <td>
+                                0004
+                            </td>
+                            <td>
+                                Laptop Malograda            
+                            </td>
+                            <td>
+                                Sin asignar
+                            </td>
+                            <td>
+                                Sin iniciar
+                            </td>
+                            <td>
+                                07/06/2015
+                            </td>                                    
+                            <td>
+                                Bueno
+                            </td>                                    
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <script>
+
+                    $('tr').on("click", function () {
+                        if ($(this).attr('href') !== undefined) {
+                            document.location = $(this).attr('href');
+                        }
+                    });
+
+                </script>
+
+            </div>
+
+            <div class="row"> 
+
+                <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate">
+                    <ul class="pagination pagination-sm">
+                        <li class="prev disabled">
+                            <a href="#"><i class="entypo-left-open"></i></a>
+                        </li><li class="active"><a href="#">1</a>
+                        </li><li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                            </a></li></ul>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                jQuery(document).ready(function ($)
+                {
+                    var table = $("#table-1").dataTable({
+                        "sPaginationType": "bootstrap",
+                        "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                        "oTableTools": {
+                        },
+                    });
+                });
+
+            </script>
+
+        </div>
+
+        <div class="tab-pane" id="dResumenSolicitudes">
+            Aki entran los grafico
+        </div>
+    </div>
+
+
+{% endblock %}

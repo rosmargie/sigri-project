@@ -1,0 +1,65 @@
+{# empty Twig template #}
+<script>
+    $(document).ready(function () {  
+    });
+    
+    function agregarFilaActGestor() {
+             i = 1;
+
+        $(".clsFilaActividad").each(function() {
+            i++;
+        });
+
+        if ($('#trFilaActividad' + i).length) {
+            i++;
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "{{path('agregarFilaGestor')}}",
+             data: {
+                fila: i
+            }
+            
+        }).done(function(msg) {
+            $("#tBodyAgregarAct").append(msg);
+         
+        });
+    }
+    
+  
+    function eliminarFila(nrofila) {
+        $("#trFilaActividad" + nrofila).remove();
+        alert("Se elimino fila");
+    }
+
+    function agregarFilaRespGestor() {
+             i = 1;
+
+        $(".clsFilaResp").each(function() {
+            i++;
+        });
+
+        if ($('#trFilaResponsable' + i).length) {
+            i++;
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "{{path('agregarFilaRespGestor')}}",
+             data: {
+                fila: i
+            }
+            
+        }).done(function(msg) {
+            $("#tBodyAgregarResp").append(msg);
+         
+        });
+    }
+    
+    
+	
+	
+    
+   
+    	</script>

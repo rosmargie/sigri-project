@@ -3,6 +3,10 @@
 namespace Fisi\SigriBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class TicketController extends Controller
 {
@@ -23,8 +27,31 @@ class TicketController extends Controller
     {
         return $this->render('FisiSigriBundle:gestor:detalleSolicitud.html.twig');
     }
-    
+	 public function agregarFilaGestorAction()
+    {
+               $nroFila = $_POST['fila'];
+               
+               
+        $arr = array(
+            'nroFila' => $nroFila
+            
+        );
+               
+        return $this->render('FisiSigriBundle:gestor:agregarFilaActividad.html.twig',$arr);
+    }
+
   
-    
-   
+   	 public function agregarFilaRespGestorAction()
+    {
+               $nroFila = $_POST['fila'];
+               
+               
+        $arr = array(
+            'nroFila' => $nroFila
+            
+        );
+               
+        return $this->render('FisiSigriBundle:gestor:agregarFilaResp.html.twig',$arr);
+    }
+
 }

@@ -8,10 +8,17 @@
         {% block stylesheets %}{% endblock %}
          {% block stylesheets_unique %}{% endblock %}
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="assets/css/skins/white.css">
+        
+                 <link href="{{ asset('bundles/fisisigri/template/css/skins/white.css')}}" rel="stylesheet" type="text/css" media="screen" >
+                 
+        
+        
     </head>
-    <body class="page-body  page-fade">
+    <body class="page-body skin-white page-container">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
         {% block javascripts_unique %}{% endblock %}
     </body>
 </html>
+

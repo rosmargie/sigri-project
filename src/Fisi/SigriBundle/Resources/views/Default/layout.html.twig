@@ -2,6 +2,8 @@
 {% block stylesheets %}
     {{ parent() }}    
 
+
+
     <link rel="stylesheet" href="{{ asset('bundles/fisisigri/css/font/entypo.eot') }}" />
 
     <style>
@@ -33,138 +35,138 @@
 
 {% endblock %}
 
+
+
 {% block body %}
     <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+        <div class="container-fluid">
+            <div class="row">
+                {% block cabecera %}
+                    <!-- Profile Info and Notifications -->
+                    <div class="col-md-6 col-sm-8 clearfix">
 
-        {% block menuPortal %}
+                        <ul class="user-info pull-left pull-none-xsm">
 
-            <div class="sidebar-menu">
-                <div class="sidebar-menu-inner">
-                    <header class="logo-env">
-                        <!-- logo -->
-                        <div class="logo">
-                            <a href="#">
-                                {% image '@FisiSigriBundle/Resources/public/template/images/logo-s.png' %}
-                                <img src="{{ asset_url }}" width="120" alt="" />
-                                {% endimage %}
-                            </a>
-                        </div>
-                        <!-- logo collapse icon -->
-                        <div class="sidebar-collapse">
-                            <a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
-                                <i class="entypo-menu"></i>
-                            </a>
-                        </div>
+                            <!-- Profile Info -->
+                            <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 
-                        <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
-                        <div class="sidebar-mobile-menu visible-xs">
-                            <a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
-                                <i class="entypo-menu"></i>
-                            </a>
-                        </div>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1@2x.png' %}
+                                    <img src="{{ asset_url }}" alt="" class="img-circle" width="44" />
+                                    {% endimage %}
+                                    Mario Alvarez
+                                </a>
 
-                    </header>
-                    {% block mainmenu %}            
+                                <ul class="dropdown-menu">
 
-                    {% endblock %}
+                                    <!-- Reverse Caret -->
+                                    <li class="caret"></li>
 
-                </div>
+                                    <!-- Profile sub-links -->
+                                    <li>
+                                        <a href="extra-timeline.html">
+                                            <i class="entypo-user"></i>
+                                            Edit Profile
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="mailbox.html">
+                                            <i class="entypo-mail"></i>
+                                            Inbox
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="extra-calendar.html">
+                                            <i class="entypo-calendar"></i>
+                                            Calendar
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="entypo-clipboard"></i>
+                                            Tasks
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+
+
+                    </div>
+
+
+                    <!-- Raw Links -->
+                    <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+                        <ul class="list-inline links-list pull-right">
+                            <li>
+                                <a href="#">
+                                    Log Out <i class="entypo-logout right"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+
+                {% endblock %}
             </div>
+        </div>
+       
 
-        {% endblock%}
-
-        <div class="main-content">
+        <div class="container-fluid" style="padding-top: 15px;">  
+            {% block pagePrincipal %}
+                {% endblock %}
             
-            {% block cabecera %}
             
             <div class="row">
-                <!-- Profile Info and Notifications -->
-                <div class="col-md-6 col-sm-8 clearfix">
 
-                    <ul class="user-info pull-left pull-none-xsm">
+                <div class="col-lg-2" style="padding-left: 2px; padding-right: 0px; border-top: solid; border-color: #f7f7f7; border-width: 1px;">
 
-                        <!-- Profile Info -->
-                        <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
+                    <div class="sidebar-menu" style="border-width:0px;">
+                        <div class="sidebar-menu-inner">
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1@2x.png' %}
-                                <img src="{{ asset_url }}" alt="" class="img-circle" width="44" />
-                                {% endimage %}
-                                Mario Alvarez
-                            </a>
+                            {% block mainmenu %}            
 
-                            <ul class="dropdown-menu">
+                            {% endblock %}
 
-                                <!-- Reverse Caret -->
-                                <li class="caret"></li>
-
-                                <!-- Profile sub-links -->
-                                <li>
-                                    <a href="extra-timeline.html">
-                                        <i class="entypo-user"></i>
-                                        Edit Profile
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="mailbox.html">
-                                        <i class="entypo-mail"></i>
-                                        Inbox
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="extra-calendar.html">
-                                        <i class="entypo-calendar"></i>
-                                        Calendar
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="entypo-clipboard"></i>
-                                        Tasks
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-
-
+                        </div>
+                    </div>
 
                 </div>
 
 
-                <!-- Raw Links -->
-                <div class="col-md-6 col-sm-4 clearfix hidden-xs">
-
-                    <ul class="list-inline links-list pull-right">
-                        <li>
-                            <a href="#">
-                                Log Out <i class="entypo-logout right"></i>
-                            </a>
-                        </li>
-                    </ul>
-
+                <div class="col-lg-10" style="border-top: solid; border-left: solid; border-color: #f7f7f7; border-width: 1px; "> 
+                    <div class="container-fluid">
+                        <div clas="row">                  
+                            <div class="main-content" style="float: right;">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                    </div>
                 </div>
+
+
 
             </div>
 
-            {% endblock %}
-                                <hr />
-
-            {% block content %}
 
 
-            {% endblock %}
         </div>
+    </div>
 
-    {% endblock %}
+{% endblock %}
 
-    {% block javascripts %}
-        {% javascripts 
-        '@FisiSigriBundle/Resources/public/template/js/jquery-1.11.0.min.js'
+{% block javascripts %}
+    {% javascripts 
+        '@FisiSigriBundle/Resources/public/template/js/jquery-1.11.1.min.js'     
         '@FisiSigriBundle/Resources/public/template/js/gsap/main-gsap.js'
         '@FisiSigriBundle/Resources/public/template/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js'
         '@FisiSigriBundle/Resources/public/template/js/bootstrap.js'
@@ -186,22 +188,12 @@
         '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js'
         '@FisiSigriBundle/Resources/public/template/js/selectboxit/jquery.selectBoxIt.min.js'
          '@FisiSigriBundle/Resources/public/template/js/jquery.multi-select.js'
-        %}
-        
-        
-        
-        
-        
-        
+    %}
+    
 
 
-
-        
-        
-        
-        
-        
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        <script>$.noConflict();</script>
-    {% endblock %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>$.noConflict();</script>
+    
+{% endblock %}

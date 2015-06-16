@@ -1,25 +1,96 @@
 {% extends 'FisiSigriBundle:Default:layout.html.twig' %}
 
+
+{% block cabecera %}
+
+    <div class="container-fluid">
+        <div class="row" style="background-color: #08c;  ">
+            <!-- Profile Info and Notifications -->
+            <div class="col-lg-6 col-sm-8 clearfix">
+
+                <ul class="user-info pull-left pull-none-xsm">
+
+                    <!-- Profile Info -->
+                    <li><!-- add class "pull-right" if you want to place this from right -->
+                       
+                  
+                        <img src="{{asset('bundles/fisisigri/imagenes/logo.png') }}" style="margin:-15px;" />
+                      
+                         
+                    </li>
+                </ul>
+            </div>
+
+                            
+<br/>
+            <!-- Raw Links -->
+            <div class="col-lg-6 col-sm-4 clearfix hidden-xs">
+
+                <ul class="list-inline links-list pull-right">
+                    <li>
+                        <b><label style="color: #ffffff; text-align: right;">
+                            Bienvenido,  <br/>
+                            Nombre del usuario
+                        </label>
+                        </b>
+                    </li>
+                    <li>                      
+
+
+                        <a href="#" class="tooltip-default" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Usuario" style=  " color: #ffffff">
+                            <i class="entypo-user " style="font-size: 30px;"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{path('menu_principal')}}" class="tooltip-default" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Menú principal" style="color: #ffffff;">
+
+                            <i class="entypo-home " style="font-size: 30px;"></i>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="#" class="tooltip-default" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Salir" style="color: #ffffff;">
+                            <i class="entypo-logout right" style="font-size: 29px;  "></i>
+                        </a>
+
+
+
+
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
 {% block mainmenu %}
-    <ul id="main-menu" class="main-menu">
-       <li>
-           <a href="{{path('bandeja_entrada_gestor_m')}}">
-               <i class="entypo-mail"></i>
-               <span class="title">Bandeja de entrada</span>
-           </a>
-       </li>
-       <li>
-           <a href="{{path('detalle_solicitud_gestor')}}">
-               <i class="entypo-list"></i>
-               <span class="title">Detalle de solicitud</span>
-           </a>
-       </li>
-       <li>
-           <a href="">
-               <i class="entypo-info-circled"> </i>
-               <span class="title"> Alertas</span>
-           </a>
-       </li>
+
+    {% include 'FisiSigriBundle:public:js/funciones.js.twig' %}    
+
+    <ul id="main-menu" class="main-menu" >
+
+
+        <li >
+            <a  href="{{path('bandeja_entrada_gestor_m')}}">
+                <i class="entypo-mail"></i>
+                <span class="title"> Bandeja de entrada </span>
+            </a>
+        </li>
+     
+        <li>
+            <a href="">
+                <i class="entypo-info-circled"> </i>
+                <span class="title"> Alertas</span>
+            </a>
+        </li>
+
     </ul>
 {% endblock %}
 

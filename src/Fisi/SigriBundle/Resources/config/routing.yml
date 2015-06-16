@@ -37,3 +37,11 @@ bandeja_entrada_gestor_m:
 detalle_solicitud_gestor:
     path: /gestor/menuPrincipal/bandejaEntrada/detalleSolicitud
     defaults: {_controller: FisiSigriBundle:Ticket:detalleSoliicitudGestor}
+    
+agregarFilaGestor:
+    path: /gestor/agregarFilaGestor
+    defaults: {_controller: FisiSigriBundle:Ticket:agregarFilaGestor}
+    
+agregarFilaRespGestor:
+    path: /gestor/agregarFilaRespGestor
+    defaults: {_controller: FisiSigriBundle:Ticket:agregarFilaRespGestor}

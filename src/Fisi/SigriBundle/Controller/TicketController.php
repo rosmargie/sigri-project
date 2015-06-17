@@ -51,6 +51,9 @@ class TicketController extends Controller {
       public function actividadesGestorAction() {
         return $this->render('FisiSigriBundle:gestor:actividadesGestor.html.twig');
     }
+      public function seguimientoGestorAction() {
+        return $this->render('FisiSigriBundle:gestor:seguimientoGestor.html.twig');
+    }
  
 
 }

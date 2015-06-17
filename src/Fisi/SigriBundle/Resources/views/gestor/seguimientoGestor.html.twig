@@ -1,0 +1,1256 @@
+{% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
+
+
+{% block mainmenu %}
+
+    {% include 'FisiSigriBundle:public:js/funciones.js.twig' %}    
+
+    <ul id="main-menu" class="main-menu" >
+        <li >
+            <a  href="{{path('actividadesGestor')}}">
+                <i class="entypo-paper-plane"></i>
+                <span class="title"> Seguimiento </span>
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+
+{% block content %}   
+
+    <script src="{{ asset('bundles/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
+
+    <ul class="nav nav-tabs bordered">
+        <li class="active">
+            <a href="#dIncidenciasS" data-toggle="tab">
+                <span class="visible-xs"><i class="entypo-home"></i></span>
+                <span class="hidden-xs">Incidencias</span>
+            </a>
+        </li>
+        <li>
+            <a href="#dRequerimientosS" data-toggle="tab">
+                <span class="visible-xs"><i class="entypo-user"></i></span>
+                <span class="hidden-xs">Requerimientos</span>
+            </a>
+        </li>                   
+        <li>
+            <a href="#dListosCerrarS" data-toggle="tab">
+                <span class="visible-xs"><i class="entypo-user"></i></span>
+                <span class="hidden-xs">Incidencia/Requerimiento (s) listos para cerrar</span>
+            </a>
+        </li>                   
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="dIncidenciasS">
+            <div class="row">
+                <div class="col-lg-5" style="border-left: solid; border-width: 1px; border-color: #f4f4f4;">
+                    <div class="panel" data-collapsed="0">
+                        <!-- panel head -->
+                        <div class="panel-heading" >
+                            <div class="panel-options" style="float: left;">				
+                                <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
+                            </div>
+                        </div>
+
+                        <!-- panel body -->
+                        <div class="panel-body" >
+                            <div class="row form-horizontal" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Unidad orgánica</div>
+                                    <div class="col-sm-8">
+                                        <select name="test" class="selectboxit-container selectboxit-container"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                            <option>------------- Seleccionar -------------</option>
+                                            <option value="0">Todos</option>                           
+                                            <option value="1">Unidad rganica 1</option>
+                                            <option value="2">Unidad rganica 2</option>
+                                            <option value="3">Unidad rganica 3</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Prioridad</div>
+                                    <div class="col-sm-8">
+                                        <select name="test" class="selectboxit-container selectboxit-container"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                            <option>------------- Seleccionar -------------</option>
+                                            <option value="0">Todos</option>                           
+                                            <option value="1">Alta</option>
+                                            <option value="2">Media</option>
+                                            <option value="3">Baja</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Estado </div>
+                                    <div class="col-sm-8">
+                                        <select name="test" class="selectboxit-container selectboxit-container"  style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                            <option>------------- Seleccionar -------------</option>
+                                            <option value="0">Todos</option>                           
+                                            <option value="1">Sin iniciar</option>
+                                            <option value="2">Proceso</option>
+                                            <option value="3">Finalizado</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Periodo </div>    
+                                    <div class="col-sm-8">
+                                        <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                        <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                            <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                            <div class="input-group-addon">
+                                                <i class="entypo-calendar"></i>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;"> </div>    
+                                    <div class="col-sm-8">
+                                        <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                        <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                            <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                            <div class="input-group-addon">
+                                                <i class="entypo-calendar"></i>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <br/>                                            <br/>
+                                    <center>
+                                        <button type="button" class="btn btn-default entypo-search" style="margin-top: 25px; width: 140px;"> Buscar </button>
+                                    </center>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row" style="padding: 20px;">
+                        <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">ID Incidencia</th>
+                                    <th style="text-align: center;">Título</th>
+                                    <th style="text-align: center;">Prioridad</th>
+                                    <th style="text-align: center;">Estado</th>                                                  
+                                </tr>
+                            </thead>
+
+
+                            <tbody >
+
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>
+
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>  
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <script>
+
+                            $('tr').on("click", function () {
+                                if ($(this).attr('href') !== undefined) {
+                                    document.location = $(this).attr('href');
+                                }
+                            });
+
+                        </script>
+
+                    </div>
+
+                    <div class="row" style="padding-right: 25px"> 
+
+                        <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate" style="padding-right: 10px;">
+                            <ul class="pagination pagination-sm">
+                                <li class="prev disabled">
+                                    <a href="#"><i class="entypo-left-open"></i></a>
+                                </li><li class="active"><a href="#">1</a>
+                                </li><li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                                    </a></li></ul>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        jQuery(document).ready(function ($)
+                        {
+                            var table = $("#table-1").dataTable({
+                                "sPaginationType": "bootstrap",
+                                "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                                "oTableTools": {
+                                },
+                            });
+                        });
+
+                    </script>
+
+
+
+
+
+                </div>
+                <div class="col-lg-7" style="border-left: solid; border-width: 1px; border-color: #f4f4f4;" >
+                    <div class="row">
+
+                        <fieldset>
+                            <legend> Resultado </legend>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <b> Resumen </b> <br/>
+                                    <div class="form-horizontal" border: solid; border-width: 1px; border-color: black; margin-top: 5px; padding-top: 20px;  margin-right: 5px;margin-left: 3px; >
+                                         <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Solicitante</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Unidad orgánica</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Titulo</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Estado</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
+                                            <div class="col-sm-7">
+                                                <textarea cols="68" rows="4" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                                                </textarea>
+                                            </div>
+                                            <br/>                                            <br/>
+                                            <center>
+                                                <a href="{{ path('bandeja_entrada_gestor_m') }}" ><button type="button" class="btn btn-default entypo-list" style="margin-top: 25px; width: 140px;"> Ver detalle </button></a>
+                                            </center>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-lg-5">
+                                    <b>Gráfico</b>
+                                    <div style="border: solid; border-color: #cccccc; border-width: 1px; width: 230px; height: 300px; margin-top: 5px; margin-left: -13px;"> 
+
+                                    </div>   
+                                </div>
+
+
+                            </div>
+
+
+                        </fieldset>
+                    </div>
+
+                    <div class="row">
+                        <br/>
+                        <b> Actividad (es) </b>
+
+
+                        <div class="row" style="padding: 20px;">
+                            <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                                <thead>
+                                    <tr>
+
+                                        <th style="text-align: center;">Responsable</th>
+                                        <th style="text-align: center;">ID Activ.</th>
+                                        <th style="text-align: center;">F.E Inicio</th>
+                                        <th style="text-align: center;">F.E Fin</th>            
+                                        <th style="text-align: center;">F.R Inicio</th>
+                                        <th style="text-align: center;">F.R Fin</th>            
+                                        <th style="text-align: center;">Progreso</th>            
+                                        <th style="text-align: center;">Opción</th>            
+                                    </tr>
+                                </thead>
+
+                                <tbody >
+
+                                    <tr>
+
+                                        <td style="background-color: white;">Mario</td>
+                                        <td style="background-color: white;">1</td>
+                                        <td style="background-color: white;">07/06/2015</td>                                    
+                                        <td style="background-color: white;">08/06/2015</td>                                    
+                                        <td style="background-color: white;">07/06/2015</td>                                    
+                                        <td style="background-color: white;">08/06/2015</td>                                    
+                                        <td style="background-color: white;">40%</td>
+                                        <td>
+                                            <button type="button" class="btn btn-gold" onclick="jQuery('#detalleActividadSeguimiento').modal('show', {backdrop: 'static'});"   >		
+                                                <i class="entypo-pencil"></i>
+                                            </button>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                            <script>
+
+                                $('tr').on("click", function () {
+                                    if ($(this).attr('href') !== undefined) {
+                                        document.location = $(this).attr('href');
+                                    }
+                                });
+
+                            </script>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+                        <b>Progreso</b>
+                        <div class="form-horizontal"> 
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Responsable</div>
+                                <div class="col-sm-8">
+                                    <select name="test" class="selectboxit-container selectboxit-container"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                        <option>--- Seleccionar --</option>
+
+                                        <option value="1">Responsable 1</option>
+                                        <option value="2">Responsable 2</option>
+                                        <option value="3">Responsable 3</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div> 
+
+
+                        <div style="padding: 10px;">
+
+                            Linea de tiempo
+
+                            <ul class="cbp_tmtimeline">
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
+
+                                    <div class="cbp_tmicon bg-success">
+                                        <i class="entypo-feather"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                        <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-08T13:22"><span>01:22 PM</span> <span>Yesterday</span></time>
+
+                                    <div class="cbp_tmicon bg-secondary">
+                                        <i class="entypo-suitcase"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Job Meeting</a></h2>
+                                        <p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-11-26T12:22"><span>12:22 PM</span> <span>Two weeks ago</span></time>
+
+                                    <div class="cbp_tmicon bg-info">
+                                        <i class="entypo-location"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
+
+                                        <blockquote>Great place, feeling like in home.</blockquote>
+
+
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="tab-pane active" id="dRequerimientosS">
+
+
+
+
+            <div class="row">
+                <div class="col-lg-5" style="border-left: solid; border-width: 1px; border-color: #f4f4f4;">
+                    <div class="panel" data-collapsed="0">
+                        <!-- panel head -->
+                        <div class="panel-heading" >
+                            <div class="panel-options" style="float: left;">				
+                                <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
+                            </div>
+                        </div>
+
+                        <!-- panel body -->
+                        <div class="panel-body" >
+                            <div class="row form-horizontal" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Unidad orgánica</div>
+                                    <div class="col-sm-8">
+                                        <select name="test" class="selectboxit-container selectboxit-container"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                            <option>------------- Seleccionar -------------</option>
+                                            <option value="0">Todos</option>                           
+                                            <option value="1">Unidad rganica 1</option>
+                                            <option value="2">Unidad rganica 2</option>
+                                            <option value="3">Unidad rganica 3</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Prioridad</div>
+                                    <div class="col-sm-8">
+                                        <select name="test" class="selectboxit-container selectboxit-container"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                            <option>------------- Seleccionar -------------</option>
+                                            <option value="0">Todos</option>                           
+                                            <option value="1">Alta</option>
+                                            <option value="2">Media</option>
+                                            <option value="3">Baja</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Estado </div>
+                                    <div class="col-sm-8">
+                                        <select name="test" class="selectboxit-container selectboxit-container"  style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                            <option>------------- Seleccionar -------------</option>
+                                            <option value="0">Todos</option>                           
+                                            <option value="1">Sin iniciar</option>
+                                            <option value="2">Proceso</option>
+                                            <option value="3">Finalizado</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Periodo </div>    
+                                    <div class="col-sm-8">
+                                        <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                        <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                            <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                            <div class="input-group-addon">
+                                                <i class="entypo-calendar"></i>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;"> </div>    
+                                    <div class="col-sm-8">
+                                        <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                        <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                            <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                            <div class="input-group-addon">
+                                                <i class="entypo-calendar"></i>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <br/>                                            <br/>
+                                    <center>
+                                        <button type="button" class="btn btn-default entypo-search" style="margin-top: 25px; width: 140px;"> Buscar </button>
+                                    </center>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row" style="padding: 20px;">
+                        <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">ID Incidencia</th>
+                                    <th style="text-align: center;">Título</th>
+                                    <th style="text-align: center;">Prioridad</th>
+                                    <th style="text-align: center;">Estado</th>                                                  
+                                </tr>
+                            </thead>
+
+
+                            <tbody >
+
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>
+
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>  
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <script>
+
+                            $('tr').on("click", function () {
+                                if ($(this).attr('href') !== undefined) {
+                                    document.location = $(this).attr('href');
+                                }
+                            });
+
+                        </script>
+
+                    </div>
+
+                    <div class="row" style="padding-right: 25px"> 
+
+                        <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate" style="padding-right: 10px;">
+                            <ul class="pagination pagination-sm">
+                                <li class="prev disabled">
+                                    <a href="#"><i class="entypo-left-open"></i></a>
+                                </li><li class="active"><a href="#">1</a>
+                                </li><li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                                    </a></li></ul>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        jQuery(document).ready(function ($)
+                        {
+                            var table = $("#table-1").dataTable({
+                                "sPaginationType": "bootstrap",
+                                "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                                "oTableTools": {
+                                },
+                            });
+                        });
+
+                    </script>
+
+
+
+
+
+                </div>
+                <div class="col-lg-7" style="border-left: solid; border-width: 1px; border-color: #f4f4f4;" >
+                    <div class="row">
+
+                        <fieldset>
+                            <legend> Resultado </legend>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <b> Resumen </b> <br/>
+                                    <div class="form-horizontal" border: solid; border-width: 1px; border-color: black; margin-top: 5px; padding-top: 20px;  margin-right: 5px;margin-left: 3px; >
+                                         <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Solicitante</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Unidad orgánica</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Titulo</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Estado</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
+                                            <div class="col-sm-7">
+                                                <textarea cols="68" rows="4" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                                                </textarea>
+                                            </div>
+                                            <br/>                                            <br/>
+                                            <center>
+                                                <a href="{{ path('bandeja_entrada_gestor_m') }}" ><button type="button" class="btn btn-default entypo-list" style="margin-top: 25px; width: 140px;"> Ver detalle </button></a>
+                                            </center>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-lg-5">
+                                    <b>Gráfico</b>
+                                    <div style="border: solid; border-color: #cccccc; border-width: 1px; width: 230px; height: 300px; margin-top: 5px; margin-left: -13px;"> 
+
+                                    </div>   
+                                </div>
+
+
+                            </div>
+
+
+                        </fieldset>
+                    </div>
+
+                    <div class="row">
+                        <br/>
+                        <b> Actividad (es) </b>
+
+
+                        <div class="row" style="padding: 20px;">
+                            <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                                <thead>
+                                    <tr>
+
+                                        <th style="text-align: center;">Responsable</th>
+                                        <th style="text-align: center;">ID Activ.</th>
+                                        <th style="text-align: center;">F.E Inicio</th>
+                                        <th style="text-align: center;">F.E Fin</th>            
+                                        <th style="text-align: center;">F.R Inicio</th>
+                                        <th style="text-align: center;">F.R Fin</th>            
+                                        <th style="text-align: center;">Progreso</th>            
+                                        <th style="text-align: center;">Opción</th>            
+                                    </tr>
+                                </thead>
+
+                                <tbody >
+
+                                    <tr>
+
+                                        <td style="background-color: white;">Mario</td>
+                                        <td style="background-color: white;">1</td>
+                                        <td style="background-color: white;">07/06/2015</td>                                    
+                                        <td style="background-color: white;">08/06/2015</td>                                    
+                                        <td style="background-color: white;">07/06/2015</td>                                    
+                                        <td style="background-color: white;">08/06/2015</td>                                    
+                                        <td style="background-color: white;">40%</td>
+                                        <td>
+                                            <button type="button" class="btn btn-gold" onclick="jQuery('#detalleActividadSeguimiento').modal('show', {backdrop: 'static'});"   >		
+                                                <i class="entypo-pencil"></i>
+                                            </button>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                            <script>
+
+                                $('tr').on("click", function () {
+                                    if ($(this).attr('href') !== undefined) {
+                                        document.location = $(this).attr('href');
+                                    }
+                                });
+
+                            </script>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+                        <b>Progreso</b>
+                        <div class="form-horizontal"> 
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Responsable</div>
+                                <div class="col-sm-8">
+                                    <select name="test" class="selectboxit-container selectboxit-container"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                        <option>--- Seleccionar --</option>
+
+                                        <option value="1">Responsable 1</option>
+                                        <option value="2">Responsable 2</option>
+                                        <option value="3">Responsable 3</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div> 
+
+
+                        <div style="padding: 10px;">
+
+                            Linea de tiempo
+
+                            <ul class="cbp_tmtimeline">
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
+
+                                    <div class="cbp_tmicon bg-success">
+                                        <i class="entypo-feather"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                        <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-08T13:22"><span>01:22 PM</span> <span>Yesterday</span></time>
+
+                                    <div class="cbp_tmicon bg-secondary">
+                                        <i class="entypo-suitcase"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Job Meeting</a></h2>
+                                        <p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-11-26T12:22"><span>12:22 PM</span> <span>Two weeks ago</span></time>
+
+                                    <div class="cbp_tmicon bg-info">
+                                        <i class="entypo-location"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
+
+                                        <blockquote>Great place, feeling like in home.</blockquote>
+
+
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+        <div class="tab-pane active" id="dListosCerrarS">
+
+            <div class="row">
+                <div class="col-lg-5" style="border-left: solid; border-width: 1px; border-color: #f4f4f4;">
+
+                    <div class="row" style="padding: 20px;">
+                        <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">ID Incidencia</th>
+                                    <th style="text-align: center;">Título</th>
+                                    <th style="text-align: center;">Prioridad</th>
+                                    <th style="text-align: center;">Estado</th>                                                  
+                                </tr>
+                            </thead>
+
+
+                            <tbody >
+
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>
+
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>  
+                                <tr>
+
+                                    <td>0001</td>
+                                    <td>Laptop Malograda</td>
+                                    <td>Alta</td>
+                                    <td>Proceso</td>                                                  
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <script>
+
+                            $('tr').on("click", function () {
+                                if ($(this).attr('href') !== undefined) {
+                                    document.location = $(this).attr('href');
+                                }
+                            });
+
+                        </script>
+
+                    </div>
+
+
+                </div>
+                <div class="col-lg-7" style="border-left: solid; border-width: 1px; border-color: #f4f4f4;" >
+                    <div class="row">
+
+                        <fieldset>
+                            <legend> Resultado </legend>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <b> Resumen </b> <br/>
+                                    <div class="form-horizontal" border: solid; border-width: 1px; border-color: black; margin-top: 5px; padding-top: 20px;  margin-right: 5px;margin-left: 3px; >
+                                         <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Solicitante</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Unidad orgánica</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Titulo</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Estado</div>
+                                            <div class="col-sm-7">
+                                                <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-1 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
+                                            <div class="col-sm-7">
+                                                <textarea cols="68" rows="4" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                                                </textarea>
+                                            </div>
+                                            <br/>                                            <br/>
+                                            <center>
+                                                <a href="{{ path('bandeja_entrada_gestor_m') }}" ><button type="button" class="btn btn-default entypo-list" style="margin-top: 25px; width: 140px;"> Ver detalle </button></a>
+                                            </center>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-lg-5">
+                                    <fieldset>
+                                        <legend> Editar </legend>
+                                        <div style="border: solid; border-color: green; border-width: 1px; border-radius: 15px; margin: 5px;  padding: 10px;">
+                                            <h5> Confirmar terminó de solicitud</h5>
+                                            <br>
+                                            <center>
+                                                <select  class="selectboxit-container selectboxit-container"  style="border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 100%">
+                                                    <option>--- Seleccionar --</option>
+                                                    <option value="1">Finalizado</option>
+                                                </select>
+                                                <button class="btn btn-success" style="margin-top: 25px;">
+                                                    Aceptar
+                                                </button>
+                                                
+                                            </center>
+                                             <br/>
+                                             
+                                             <div class="alert alert-success" style="text-align: justify;">
+                                                <i class="entypo-info" style="color: #3300ff; margin-top: 15px;">
+                                                    
+                                                </i>
+                                                <strong>Primero ! </strong> 
+                                                debe verificar que todas las actvidades esten finalizadas.
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </fieldset>
+                    </div>
+
+                    <div class="row">
+                        <br/>
+                        <b> Actividad (es) </b>
+
+
+                        <div class="row" style="padding: 20px;">
+                            <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                                <thead>
+                                    <tr>
+
+                                        <th style="text-align: center;">Responsable</th>
+                                        <th style="text-align: center;">ID Activ.</th>
+                                        <th style="text-align: center;">F.E Inicio</th>
+                                        <th style="text-align: center;">F.E Fin</th>            
+                                        <th style="text-align: center;">F.R Inicio</th>
+                                        <th style="text-align: center;">F.R Fin</th>            
+                                        <th style="text-align: center;">Progreso</th>            
+                                        <th style="text-align: center;">Opción</th>            
+                                    </tr>
+                                </thead>
+
+                                <tbody >
+
+                                    <tr>
+
+                                        <td style="background-color: white;">Mario</td>
+                                        <td style="background-color: white;">1</td>
+                                        <td style="background-color: white;">07/06/2015</td>                                    
+                                        <td style="background-color: white;">08/06/2015</td>                                    
+                                        <td style="background-color: white;">07/06/2015</td>                                    
+                                        <td style="background-color: white;">08/06/2015</td>                                    
+                                        <td style="background-color: white;">40%</td>
+                                        <td>
+                                            <button type="button" class="btn btn-gold" onclick="jQuery('#detalleActividadSeguimiento').modal('show', {backdrop: 'static'});"   >		
+                                                <i class="entypo-pencil"></i>
+                                            </button>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                            <script>
+
+                                $('tr').on("click", function () {
+                                    if ($(this).attr('href') !== undefined) {
+                                        document.location = $(this).attr('href');
+                                    }
+                                });
+
+                            </script>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+                        <b>Progreso</b>
+                        <div class="form-horizontal"> 
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Responsable</div>
+                                <div class="col-sm-8">
+                                    <select name="test" class="selectboxit-container selectboxit-container"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                        <option>--- Seleccionar --</option>
+
+                                        <option value="1">Responsable 1</option>
+                                        <option value="2">Responsable 2</option>
+                                        <option value="3">Responsable 3</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div> 
+
+
+                        <div style="padding: 10px;">
+
+                            Linea de tiempo
+
+                            <ul class="cbp_tmtimeline">
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
+
+                                    <div class="cbp_tmicon bg-success">
+                                        <i class="entypo-feather"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                        <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-08T13:22"><span>01:22 PM</span> <span>Yesterday</span></time>
+
+                                    <div class="cbp_tmicon bg-secondary">
+                                        <i class="entypo-suitcase"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Job Meeting</a></h2>
+                                        <p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-11-26T12:22"><span>12:22 PM</span> <span>Two weeks ago</span></time>
+
+                                    <div class="cbp_tmicon bg-info">
+                                        <i class="entypo-location"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
+
+                                        <blockquote>Great place, feeling like in home.</blockquote>
+
+
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="detalleActividadSeguimiento" data-backdrop="static">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <center> 
+                    <h2>
+                        Detalle de actividad N° 00001
+                    </h2>
+                </center>
+                <div class="modal-body row" style="padding: 20px 40px 40px 40px; ">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Solicitante</label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Titulo</label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Estado</label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="margin-left: 50px;">Fecha estimada</label>
+                            <label class="col-sm-1 control-label">Inicio</label>
+                            <div class="col-sm-3">
+                                <input type="text"  disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            </div>
+                            <label class="col-sm-1 control-label" style="margin-left: 5px;">Fin</label>
+                            <div class="col-sm-3">
+                                <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="margin-left: 50px;">Fecha real</label>
+                            <label class="col-sm-1 control-label">Inicio</label>
+                            <div class="col-sm-3">
+                                <input type="text"  disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            </div>
+                            <label class="col-sm-1 control-label" style="margin-left: 5px;">Fin</label>
+                            <div class="col-sm-3">
+                                <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Prioridad</label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Peso</label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Responsable</label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" class="form-control" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
+                            <div class="col-sm-8">
+                                <textarea cols="68" rows="4" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                                </textarea>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+                <div style="margin-top: -20px; margin-bottom: 35px;"><center>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                    </center>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock%}
+

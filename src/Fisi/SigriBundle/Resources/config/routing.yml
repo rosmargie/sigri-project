@@ -54,3 +54,7 @@ bandejaAlertasGestor:
 actividadesGestor:
     path:   /gestor/menuPrincipal/actividades
     defaults: {_controller: FisiSigriBundle:Ticket:actividadesGestor}
+
+seguimientoGestor:
+    path:   /gestor/menuPrincipal/seguimiento
+    defaults: {_controller: FisiSigriBundle:Ticket:seguimientoGestor}

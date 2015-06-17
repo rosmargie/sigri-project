@@ -1,0 +1,805 @@
+{% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
+
+
+
+{% block mainmenu %}
+
+    {% include 'FisiSigriBundle:public:js/funciones.js.twig' %}    
+
+    <ul id="main-menu" class="main-menu" >
+        <li >
+            <a  href="{{path('actividadesGestor')}}">
+                <i class="entypo-paper-plane"></i>
+                <span class="title"> Actividades </span>
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}   
+
+    <div class="row">
+        <div class="col-lg-6">
+            <fieldset>
+                <legend> Información </legend>
+                <div class="row">
+
+                    <div class="col-lg-9">
+
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Jefe superior</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Responsable</div>
+                                <div class="col-sm-8">
+                                    <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                        <option value="0">------ Seleccionar ------</option>
+                                        <option value="1">Responsable 1</option>
+                                        <option value="2">Responsable 2</option>
+                                        <option value="3">Responsable 3</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Cargo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Correo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx@xxxx.com" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Teléfono</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx xxx xxx" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div style="font-size: 90px; ">
+                            <i class="entypo-user" style="margin-left: -25px;"> </i> 
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-lg-6">
+            <fieldset>
+                <legend> Gráfico estadistico</legend>
+                <div clas="row">
+                    <div class="col-lg-4">
+                        Fecha estimada
+                    </div>
+                    <div class="col-lg-4">
+                        Fecha real
+                    </div>
+                    <div class="col-lg-4">
+                        Estado
+                    </div>
+
+
+                </div>
+            </fieldset>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="row">
+        <ul class="nav nav-tabs bordered">
+            <li class="active">
+                <a href="#dListaActProceso" data-toggle="tab">
+                    <span class="visible-xs"><i class="entypo-home"></i></span>
+                    <span class="hidden-xs">Lista de actividades en proceso</span>
+                </a>
+            </li>
+            <li>
+                <a href="#dListaActFinalizadas" data-toggle="tab">
+                    <span class="visible-xs"><i class="entypo-user"></i></span>
+                    <span class="hidden-xs">Lista de actividades finalizadas</span>
+                </a>
+            </li>                   
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="dListaActProceso">
+                <div class="row" >
+                    <div class="col-lg-6" style="background-color: white;">
+
+                        <div class="panel" data-collapsed="0">
+                            <!-- panel head -->
+                            <div class="panel-heading" >
+                                <div class="panel-options" style="float: left;">				
+                                    <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
+                                </div>
+                            </div>
+
+                            <!-- panel body -->
+                            <div class="panel-body" >
+                                <div class="row form-horizontal" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Prioridad</div>
+                                        <div class="col-sm-8">
+                                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                                <option>--- Seleccionar --</option>
+                                                <option value="0">Todos</option>                           
+                                                <option value="1">Alta</option>
+                                                <option value="2">Media</option>
+                                                <option value="3">Baja</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Estado </div>
+                                        <div class="col-sm-8">
+                                            <select name="test" class="selectboxit-container selectboxit-container control-label"  style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                                <option>--- Seleccionar --</option>
+                                                <option value="0">Todos</option>                           
+                                                <option value="1">Sin iniciar</option>
+                                                <option value="2">Proceso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Periodo </div>    
+                                        <div class="col-sm-8">
+                                            <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                            <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                                <div class="input-group-addon">
+                                                    <i class="entypo-calendar"></i>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;"> </div>    
+                                        <div class="col-sm-8">
+                                            <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                            <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                                <div class="input-group-addon">
+                                                    <i class="entypo-calendar"></i>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <br/>                                            <br/>
+                                        <center>
+                                            <button type="button" class="btn btn-default entypo-search" style="margin-top: 25px; width: 140px;"> Buscar </button>
+                                        </center>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding: 20px;">
+                            <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                                <thead>
+                                    <tr>
+
+                                        <th style="text-align: center;">ID Actividad</th>
+                                        <th style="text-align: center;">Título</th>
+                                        <th style="text-align: center;">Prioridad</th>
+                                        <th style="text-align: center;">Estado</th>
+                                        <th style="text-align: center;">F.E Inicio</th>
+                                        <th style="text-align: center;">F.E Fin</th>            
+                                    </tr>
+                                </thead>
+
+
+                                <tbody >
+
+                                    <tr>
+
+                                        <td>0001</td>
+                                        <td>Laptop Malograda</td>
+                                        <td>Alta</td>
+                                        <td>Proceso</td>
+                                        <td>07/06/2015</td>                                    
+                                        <td>08/06/2015</td>                                    
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>0001</td>
+                                        <td>Laptop Malograda</td>
+                                        <td>Alta</td>
+                                        <td>Proceso</td>
+                                        <td>07/06/2015</td>                                    
+                                        <td>08/06/2015</td>                                    
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>0001</td>
+                                        <td>Laptop Malograda</td>
+                                        <td>Alta</td>
+                                        <td>Proceso</td>
+                                        <td>07/06/2015</td>                                    
+                                        <td>08/06/2015</td>                                    
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                            <script>
+
+                                $('tr').on("click", function () {
+                                    if ($(this).attr('href') !== undefined) {
+                                        document.location = $(this).attr('href');
+                                    }
+                                });
+
+                            </script>
+
+                        </div>
+
+                        <div class="row" style="padding-right: 25px"> 
+
+                            <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate" style="padding-right: 10px;">
+                                <ul class="pagination pagination-sm">
+                                    <li class="prev disabled">
+                                        <a href="#"><i class="entypo-left-open"></i></a>
+                                    </li><li class="active"><a href="#">1</a>
+                                    </li><li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                                        </a></li></ul>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            jQuery(document).ready(function ($)
+                            {
+                                var table = $("#table-1").dataTable({
+                                    "sPaginationType": "bootstrap",
+                                    "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                                    "oTableTools": {
+                                    },
+                                });
+                            });
+
+                        </script>
+
+
+                    </div>
+
+
+
+
+                    <div class="col-lg-6" style="border-left: solid;  border-color: #f7f7f7; border-width:  1px;">
+
+                        <fieldset >
+                            <legend>Detalle</legend>
+                            <div class="form-horizontal validate " style=" padding-left: 25px;  ">
+                                <div class="form-group">
+                                    <div class="col-sm-2  control-label"  style="font-size: 12px; width: 130px;">ID actividad</div>
+                                    <div class="col-sm-8">
+                                        <input type="text"  value="ID Actividad" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-2  control-label"  style="font-size: 12px; width: 130px;">Solicitante </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Titulo</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Titulo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Estado</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" style="margin-left: 40px;">Fecha estimada</label>
+                                    <label class="col-sm-1 control-label">Inicio</label>
+                                    <div class="col-sm-3">
+                                        <input type="text"  disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                    <label class="col-sm-1 control-label" style="margin-left: 5px;">Fin</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" style="margin-left: 40px;">Fecha real</label>
+                                    <label class="col-sm-1 control-label">Inicio</label>
+                                    <div class="col-sm-3">
+                                        <input type="text"  disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                    <label class="col-sm-1 control-label" style="margin-left: 5px;">Fin</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Prioridad</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
+                                    <div class="col-sm-8">
+                                        <textarea cols="68" rows="4" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </fieldset>
+
+
+                        <fieldset >
+                            <legend>Progreso</legend>
+                            Linea de tiempo
+
+                            <ul class="cbp_tmtimeline">
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
+
+                                    <div class="cbp_tmicon bg-success">
+                                        <i class="entypo-feather"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                        <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-08T13:22"><span>01:22 PM</span> <span>Yesterday</span></time>
+
+                                    <div class="cbp_tmicon bg-secondary">
+                                        <i class="entypo-suitcase"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Job Meeting</a></h2>
+                                        <p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-11-26T12:22"><span>12:22 PM</span> <span>Two weeks ago</span></time>
+
+                                    <div class="cbp_tmicon bg-info">
+                                        <i class="entypo-location"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
+
+                                        <blockquote>Great place, feeling like in home.</blockquote>
+
+                                
+                                    </div>
+                                </li>
+
+                                
+                            </ul>
+
+
+
+
+                        </fieldset>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+            <div class="tab-pane" id="dListaActFinalizadas">
+
+                 <div class="row" >
+                    <div class="col-lg-6" style="background-color: white;">
+
+                        <div class="panel" data-collapsed="0">
+                            <!-- panel head -->
+                            <div class="panel-heading" >
+                                <div class="panel-options" style="float: left;">				
+                                    <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
+                                </div>
+                            </div>
+
+                            <!-- panel body -->
+                            <div class="panel-body" >
+                                <div class="row form-horizontal" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Prioridad</div>
+                                        <div class="col-sm-8">
+                                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px; width: 90%;">
+                                                <option>--- Seleccionar --</option>
+                                                <option value="0">Todos</option>                           
+                                                <option value="1">Alta</option>
+                                                <option value="2">Media</option>
+                                                <option value="3">Baja</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Estado </div>
+                                        <div class="col-sm-8">
+                                           <input type="text" value="Finalizado" disabled class="form-control" style="width: 90%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Periodo </div>    
+                                        <div class="col-sm-8">
+                                            <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                            <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                                <div class="input-group-addon">
+                                                    <i class="entypo-calendar"></i>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;"> </div>    
+                                        <div class="col-sm-8">
+                                            <label class="col-sm-1" style="margin-left: -15px;"> Inicio </label>
+
+                                            <div class="col-sm-10 input-group" style="margin-left: 20px;">
+
+                                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                                <div class="input-group-addon">
+                                                    <i class="entypo-calendar"></i>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <br/>                                            <br/>
+                                        <center>
+                                            <button type="button" class="btn btn-default entypo-search" style="margin-top: 25px; width: 140px;"> Buscar </button>
+                                        </center>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding: 20px;">
+                            <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                                <thead>
+                                    <tr>
+
+                                        <th style="text-align: center;">ID Actividad</th>
+                                        <th style="text-align: center;">Título</th>
+                                        <th style="text-align: center;">Prioridad</th>
+                                        <th style="text-align: center;">Estado</th>
+                                        <th style="text-align: center;">F.E Inicio</th>
+                                        <th style="text-align: center;">F.E Fin</th>            
+                                    </tr>
+                                </thead>
+
+
+                                <tbody >
+
+                                    <tr>
+
+                                        <td>0001</td>
+                                        <td>Laptop Malograda</td>
+                                        <td>Alta</td>
+                                        <td>Proceso</td>
+                                        <td>07/06/2015</td>                                    
+                                        <td>08/06/2015</td>                                    
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>0001</td>
+                                        <td>Laptop Malograda</td>
+                                        <td>Alta</td>
+                                        <td>Proceso</td>
+                                        <td>07/06/2015</td>                                    
+                                        <td>08/06/2015</td>                                    
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>0001</td>
+                                        <td>Laptop Malograda</td>
+                                        <td>Alta</td>
+                                        <td>Proceso</td>
+                                        <td>07/06/2015</td>                                    
+                                        <td>08/06/2015</td>                                    
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                            <script>
+
+                                $('tr').on("click", function () {
+                                    if ($(this).attr('href') !== undefined) {
+                                        document.location = $(this).attr('href');
+                                    }
+                                });
+
+                            </script>
+
+                        </div>
+
+                        <div class="row" style="padding-right: 25px"> 
+
+                            <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate" style="padding-right: 10px;">
+                                <ul class="pagination pagination-sm">
+                                    <li class="prev disabled">
+                                        <a href="#"><i class="entypo-left-open"></i></a>
+                                    </li><li class="active"><a href="#">1</a>
+                                    </li><li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                                        </a></li></ul>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            jQuery(document).ready(function ($)
+                            {
+                                var table = $("#table-1").dataTable({
+                                    "sPaginationType": "bootstrap",
+                                    "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                                    "oTableTools": {
+                                    },
+                                });
+                            });
+
+                        </script>
+
+
+                    </div>
+
+
+
+
+                    <div class="col-lg-6" style="border-left: solid;  border-color: #f7f7f7; border-width:  1px;">
+
+                        <fieldset >
+                            <legend>Detalle</legend>
+                            <div class="form-horizontal validate " style=" padding-left: 25px;  ">
+                                <div class="form-group">
+                                    <div class="col-sm-2  control-label"  style="font-size: 12px; width: 130px;">ID actividad</div>
+                                    <div class="col-sm-8">
+                                        <input type="text"  value="ID Actividad" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-2  control-label"  style="font-size: 12px; width: 130px;">Solicitante </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Titulo</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Titulo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Estado</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" style="margin-left: 40px;">Fecha estimada</label>
+                                    <label class="col-sm-1 control-label">Inicio</label>
+                                    <div class="col-sm-3">
+                                        <input type="text"  disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                    <label class="col-sm-1 control-label" style="margin-left: 5px;">Fin</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" style="margin-left: 40px;">Fecha real</label>
+                                    <label class="col-sm-1 control-label">Inicio</label>
+                                    <div class="col-sm-3">
+                                        <input type="text"  disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                    <label class="col-sm-1 control-label" style="margin-left: 5px;">Fin</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" disabled class="form-control" style="background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Prioridad</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
+                                    <div class="col-sm-8">
+                                        <textarea cols="68" rows="4" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
+                                
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </fieldset>
+
+
+                        <fieldset >
+                            <legend>Progreso</legend>
+                            Linea de tiempo
+
+                            <ul class="cbp_tmtimeline">
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
+
+                                    <div class="cbp_tmicon bg-success">
+                                        <i class="entypo-feather"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                        <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-12-08T13:22"><span>01:22 PM</span> <span>Yesterday</span></time>
+
+                                    <div class="cbp_tmicon bg-secondary">
+                                        <i class="entypo-suitcase"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Job Meeting</a></h2>
+                                        <p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <time class="cbp_tmtime" datetime="2014-11-26T12:22"><span>12:22 PM</span> <span>Two weeks ago</span></time>
+
+                                    <div class="cbp_tmicon bg-info">
+                                        <i class="entypo-location"></i>
+                                    </div>
+
+                                    <div class="cbp_tmlabel">
+                                        <h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
+
+                                        <blockquote>Great place, feeling like in home.</blockquote>
+
+                                
+                                    </div>
+                                </li>
+
+                                
+                            </ul>
+
+
+
+
+                        </fieldset>
+
+                    </div>
+
+
+
+                </div>
+                
+                
+                
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+{% endblock%}

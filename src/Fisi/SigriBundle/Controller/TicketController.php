@@ -47,5 +47,10 @@ class TicketController extends Controller {
     public function bandejaAlertasGestorAction() {
         return $this->render('FisiSigriBundle:gestor:bandejaAlertasGestor.html.twig');
     }
+    
+      public function actividadesGestorAction() {
+        return $this->render('FisiSigriBundle:gestor:actividadesGestor.html.twig');
+    }
+ 
 
 }

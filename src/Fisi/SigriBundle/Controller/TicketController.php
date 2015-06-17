@@ -8,50 +8,44 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
-class TicketController extends Controller
-{
-    public function indexAction()
-    {
+class TicketController extends Controller {
+
+    public function indexAction() {
         return $this->render('FisiSigriBundle::index.html.twig');
     }
-    
-    public function menuPrincipalAction()
-    {
+
+    public function menuPrincipalAction() {
         return $this->render('FisiSigriBundle:gestor:menuPrincipalGestor.html.twig');
     }
-    public function bandejaEntradaGestorAction()
-    {
+
+    public function bandejaEntradaGestorAction() {
         return $this->render('FisiSigriBundle:gestor:bandejaEntradaGestor.html.twig');
     }
-    public function detalleSoliicitudGestorAction()
-    {
+
+    public function detalleSoliicitudGestorAction() {
         return $this->render('FisiSigriBundle:gestor:detalleSolicitud.html.twig');
     }
-	 public function agregarFilaGestorAction()
-    {
-               $nroFila = $_POST['fila'];
-               
-               
+
+    public function agregarFilaGestorAction() {
+        $nroFila = $_POST['fila'];
         $arr = array(
             'nroFila' => $nroFila
-            
         );
-               
-        return $this->render('FisiSigriBundle:gestor:agregarFilaActividad.html.twig',$arr);
+
+        return $this->render('FisiSigriBundle:gestor:agregarFilaActividad.html.twig', $arr);
     }
 
-  
-   	 public function agregarFilaRespGestorAction()
-    {
-               $nroFila = $_POST['fila'];
-               
-               
+    public function agregarFilaRespGestorAction() {
+        $nroFila = $_POST['fila'];
         $arr = array(
             'nroFila' => $nroFila
-            
         );
-               
-        return $this->render('FisiSigriBundle:gestor:agregarFilaResp.html.twig',$arr);
+
+        return $this->render('FisiSigriBundle:gestor:agregarFilaResp.html.twig', $arr);
+    }
+
+    public function bandejaAlertasGestorAction() {
+        return $this->render('FisiSigriBundle:gestor:bandejaAlertasGestor.html.twig');
     }
 
 }

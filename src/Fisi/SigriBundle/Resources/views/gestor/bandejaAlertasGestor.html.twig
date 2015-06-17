@@ -1,0 +1,142 @@
+{% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
+{% block content %}   
+
+    <script src="{{ asset('bundles/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
+
+    <center><h1> Lista de Alertas </h1> </center>
+
+
+    <div class="panel" data-collapsed="0">
+        <!-- panel head -->
+        <div class="panel-heading" >
+            <div class="panel-options" style="float: left;">				
+                <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
+            </div>
+        </div>
+
+        <!-- panel body -->
+        <div class="panel-body" >
+            <div class="row" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                <label class="col-lg-1"> Periodo: </label>
+                <label class="col-lg-1"> Inicio </label>
+                <div class="col-lg-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                        <div class="input-group-addon">
+                            <a href="#"><i class="entypo-calendar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                        <div class="input-group-addon">
+                            <a href="#"><i class="entypo-calendar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <label class="col-lg-1"> Estado: </label>
+                <div class="col-lg-1">
+                    <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                        <option>--- Seleccionar --</option>
+                        <option value="0">Todos</option>                           
+                        <option value="1">Leidos</option>
+                        <option value="2">Sin leer</option>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-default entypo-search" style="width: 140px; float: right;"> Buscar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <div class="row" style="padding: 20px;">
+        <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+            <thead>
+                <tr>
+                    <th>
+            <div class="checkbox checkbox-replace">
+                <input type="checkbox" id="chk-1">
+            </div>
+            </th>
+            <th style="text-align: center;">Remitente</th>
+            <th style="text-align: center;">Título</th>
+            <th style="text-align: center;">Estado</th>
+            <th style="text-align: center;">Fecha</th>
+            <th style="text-align: center;">Hora</th>
+            <th style="text-align: center;">Opción</th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+                    <td >
+                        <div class="checkbox checkbox-replace">
+                            <input type="checkbox" id="chk-21">
+                        </div>
+                    </td>
+                    <td>Mario</td>
+                    <td>Laptop Malograda</td>
+                    <td>Sin leer</td>
+                    <td>07/06/2015</td>                                    
+                    <td>10:00</td>                                    
+                    <td><center>
+                        <button type="button" class="btn btn-danger">		
+                            <i class="entypo-trash"></i>
+                        </button>
+            </center>
+                    </td>                                    
+                </tr>
+
+            </tbody>
+
+        </table>
+        <script>
+
+            $('tr').on("click", function () {
+                if ($(this).attr('href') !== undefined) {
+                    document.location = $(this).attr('href');
+                }
+            });
+
+        </script>
+
+    </div>
+
+    <div class="row"> 
+
+        <div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate" style="padding-right: 10px;">
+            <ul class="pagination pagination-sm">
+                <li class="prev disabled">
+                    <a href="#"><i class="entypo-left-open"></i></a>
+                </li><li class="active"><a href="#">1</a>
+                </li><li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                    </a></li></ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($)
+        {
+            var table = $("#table-1").dataTable({
+                "sPaginationType": "bootstrap",
+                "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                "oTableTools": {
+                },
+            });
+        });
+
+    </script>
+
+
+
+{% endblock%}

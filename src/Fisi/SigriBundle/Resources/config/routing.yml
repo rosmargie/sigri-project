@@ -45,3 +45,8 @@ agregarFilaGestor:
 agregarFilaRespGestor:
     path: /gestor/agregarFilaRespGestor
     defaults: {_controller: FisiSigriBundle:Ticket:agregarFilaRespGestor}
+
+bandejaAlertasGestor:
+    path: /gestor/menuPrincipal/bandejaAlertas
+    defaults: {_controller: FisiSigriBundle:Ticket:bandejaAlertasGestor}
+  

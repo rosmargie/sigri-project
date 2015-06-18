@@ -3,6 +3,8 @@
 namespace Fisi\SigriBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Fisi\SigriBundle\Dao\EmpleadoDao;
+
 
 class UserController extends Controller
 {     
@@ -10,13 +12,24 @@ class UserController extends Controller
     {
         return $this->render('FisiSigriBundle:solicitante:solicitudessolicitante.html.twig');
     }
+     public function CrearSolicitudAction()
+    {
+       
+    }
     public function NotificacionesSolicitateAction()
     {
         return $this->render('FisiSigriBundle:solicitante:notificaciones.html.twig');
     }
       public function SolicitarSolicitanteAction()
     {
-        return $this->render('FisiSigriBundle:solicitante:solicitar.html.twig');
+          //obtener empleado
+          $empleadoDao = new EmpleadoDao;
+          $empleado=$empleadoDao->getEmpleado(1);
+          //crear solicitud
+          
+          
+          
+        return $this->render('FisiSigriBundle:solicitante:solicitar.html.twig',array("empleado"=>$empleado));
     }
     
    public function MostrarBEPAction()

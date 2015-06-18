@@ -1,4 +1,9 @@
 services:
+    fisi_sigri.fisisigri_listener:
+        class: Fisi\SigriBundle\EventListener\FisisigriListener
+        arguments: [ @service_container ]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
 #    fisi_sigri.example:
 #        class: Fisi\SigriBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]

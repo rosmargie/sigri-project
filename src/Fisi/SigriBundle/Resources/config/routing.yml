@@ -58,3 +58,19 @@ actividadesGestor:
 seguimientoGestor:
     path:   /gestor/menuPrincipal/seguimiento
     defaults: {_controller: FisiSigriBundle:Ticket:seguimientoGestor}
+
+manteminientoCatalogoGestor:
+    path:   /gestor/menuPrincipal/mantenimientoCatalogo
+    defaults: {_controller: FisiSigriBundle:Ticket:mantenimientoCatalogoGestor}
+
+registrarCategoriaV:
+    path:   /gestor/registrarCategoria
+    defaults: {_controller: FisiSigriBundle:Ticket:registrarCategoriaV}
+
+editarCategoriaV:
+    path:   /gestor/editarCategoria
+    defaults: {_controller: FisiSigriBundle:Ticket:editarCategoriaV}
+
+eliminarCategoriaV:
+    path:   /gestor/eliminarCategoria
+    defaults: {_controller: FisiSigriBundle:Ticket:eliminarCategoriaV}

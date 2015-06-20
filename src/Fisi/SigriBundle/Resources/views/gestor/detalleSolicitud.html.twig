@@ -144,12 +144,7 @@
                         <div class="form-group col-sm-4 label label-success control-label"  style="font-size: 12px; ">Tipo </div>
                         <div  class="form-group" style="padding: 20px 20px 0px 20px;">
 
-                            <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
-                                <option value="0">--- Seleccionar --</option>
-                                <option value="1">Requerimiento</option>
-                                <option value="2">Incidencia</option>
-
-                            </select>
+                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
 
                         </div>
 
@@ -157,14 +152,21 @@
                         <div class="form-group col-sm-4 label label-success control-label "  style="font-size: 12px; ">Categoria </div>
                         <div  class="form-group" style="padding: 20px 20px 0px 20px;">
 
-                            <input type="text"  style="width: 100%;" >
+                            <input type="text" disabled style="width: 100%;" >
 
                         </div>
                         <div class="col-sm-4"></div>
                         <div class=" form-group col-sm-4 label label-success control-label"  style="font-size: 12px; ">Sub-categoria </div>
                         <div  class="form-group" style="padding: 20px 20px 0px 20px;">
 
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
+                            
+                            
+                             <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                <option value="0">--- Seleccionar --</option>
+                                <option value="1">Requerimiento</option>
+                                <option value="2">Incidencia</option>
+
+                            </select>
 
                         </div>
 
@@ -313,9 +315,9 @@
                         <div class="col-lg-9">
                             Seleccionar área de atención para la solicitud <br/><br/>
                             <div style="padding-left: 30px;">
-                                <input type="radio" checked value="1" name="opcionSubcategoria"> Soporte técnico / videostreaming<br/>
-                                <input type="radio" checked value="2" name="opcionSubcategoria"> Estadistica e informática<br/>
-                                <input type="radio" checked value="3" name="opcionSubcategoria"> Redes / telecomunicaciones                    
+                                <input type="radio" checked value="1" name="opcionTipo"> Soporte técnico / videostreaming<br/>
+                                <input type="radio" checked value="2" name="opcionTipo"> Estadistica e informática<br/>
+                                <input type="radio" checked value="3" name="opcionTipo"> Redes / telecomunicaciones                    
                             </div>
                         </div>
 

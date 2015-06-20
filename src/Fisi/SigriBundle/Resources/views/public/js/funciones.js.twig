@@ -1,6 +1,8 @@
 {# empty Twig template #}
 <script>
     $(document).ready(function () {  
+        
+         registrarCategoriaV();
     });
     
     function agregarFilaActGestor() {
@@ -57,6 +59,45 @@
         });
     }
     
+    function registrarCategoriaV() {
+            
+        
+        $.ajax({
+            type: "POST",
+            url: "{{path('registrarCategoriaV')}}"
+            
+        }).done(function(msg) {
+            $("#dRegistro").html(msg);
+         
+        });
+    }
+    
+    function editarCategoriaV() {
+            
+        alert("Editar");
+        $.ajax({
+            type: "POST",
+            url: "{{path('editarCategoriaV')}}"
+        }).done(function(msg) {
+            alert("Editar dentro");
+            $("#dRegistro").html(msg);
+         
+        });
+    }
+    
+    function eliminarCategoriaV() {
+           alert("Eliminar"); 
+        
+        $.ajax({
+            type: "POST",
+            url: "{{path('eliminarCategoriaV')}}"
+         
+            
+        }).done(function(msg) {
+            $("#dRegistro").html(msg);
+         
+        });
+    }
   
     
    

@@ -55,5 +55,24 @@ class TicketController extends Controller {
         return $this->render('FisiSigriBundle:gestor:seguimientoGestor.html.twig');
     }
  
+      public function mantenimientoCatalogoGestorAction() {
+        return $this->render('FisiSigriBundle:gestor:mantenimientoCatalogoGestor.html.twig');
+    }
+ 
+      public function registrarCategoriaVAction() {
+        return $this->render('FisiSigriBundle:gestor:registrarCategoria.html.twig');
+    }
+ 
+      public function editarCategoriaVAction() {
+          
+          print_r("entro a edtar?");
+        return $this->render('FisiSigriBundle:gestor:editarCategoria.html.twig');
+        
+    }
+ 
+      public function eliminarCategoriaVAction() {
+        return $this->render('FisiSigriBundle:gestor:eliminarCategoria.html.twig');
+    }
+ 
 
 }

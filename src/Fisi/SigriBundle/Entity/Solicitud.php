@@ -54,7 +54,7 @@ class Solicitud {
      */
     protected $hora_reporte;
    /**
-     * @ORM\Column(type="string",name="DOCUMENTO",length=45)
+     * @ORM\Column(type="string",name="DOCUMENTO",length=100)
      */
     protected $documento;
     
@@ -82,7 +82,6 @@ class Solicitud {
      * @ORM\ManyToOne(targetEntity="Empleado")
      * @ORM\JoinColumn(name="EMPLEADO_ID_EMPLEADO", referencedColumnName="ID_EMPLEADO")
      */
-    
     protected $empleado;
     /*Objeto categoria 1..m*/
     /**

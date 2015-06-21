@@ -1,5 +1,8 @@
 <?php
 namespace Fisi\SigriBundle\Dao;
+
+use Doctrine\ORM\EntityRepository;  
+use Doctrine\ORM\NoResultException;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +14,11 @@ namespace Fisi\SigriBundle\Dao;
  *
  * @author Usuario
  */
-class SolicitudDao {
-    //put your code here
- 
+class SolicitudDao extends BaseDao {
+    
+public function crearSolicitud($solicitud){
+    
+    $this->entityManager->persist($solicitud);
+    $this->entityManager->flush();
+}
 }

@@ -17,8 +17,8 @@ use Doctrine\ORM\NoResultException;
 class EmpleadoDao extends BaseDao{
         
     public function getEmpleado($id){
-        $empleado = $this->entityManager->find("FisiSigriBundle:Empleado",2);
-        return $empleado->getUnidadOrganica()->getNombre();
+        $empleado = $this->entityManager->find("FisiSigriBundle:Empleado",$id);
+        return $empleado;
         
     }
 }

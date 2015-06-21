@@ -73,6 +73,15 @@ class TicketController extends Controller {
       public function eliminarCategoriaVAction() {
         return $this->render('FisiSigriBundle:gestor:eliminarCategoria.html.twig');
     }
+  
+    public function reportesGestorAction() {
+        return $this->render('FisiSigriBundle:gestor:reportesGestor.html.twig');
+    }
+ 
+  
+    public function mantenimientoPersonalAction() {
+        return $this->render('FisiSigriBundle:gestor:mantenimientoPersonal.html.twig');
+    }
  
 
 }

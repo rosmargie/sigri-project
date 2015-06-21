@@ -74,3 +74,11 @@ editarCategoriaV:
 eliminarCategoriaV:
     path:   /gestor/eliminarCategoria
     defaults: {_controller: FisiSigriBundle:Ticket:eliminarCategoriaV}
+
+reportesGestor:
+    path:   /gestor/menuPrincipal/reportes
+    defaults: {_controller: FisiSigriBundle:Ticket:reportesGestor}
+
+mantenimientoPersonal:
+    path:   /gestor/menuPrincipal/manteminientoPersonal
+    defaults: {_controller: FisiSigriBundle:Ticket:mantenimientoPersonal}

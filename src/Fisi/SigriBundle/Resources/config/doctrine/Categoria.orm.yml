@@ -1,0 +1,19 @@
+Fisi\SigriBundle\Entity\Categoria:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombreCategoria:
+            type: string
+            length: '25'
+            column: Nombre_categoria
+        descripcionCategoria:
+            type: string
+            length: '50'
+            column: Descripcion_categoria
+    lifecycleCallbacks: {  }

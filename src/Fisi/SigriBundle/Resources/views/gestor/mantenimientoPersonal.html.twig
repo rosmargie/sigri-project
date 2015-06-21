@@ -1,0 +1,280 @@
+{% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
+
+
+
+{% block mainmenu %}
+
+    {% include 'FisiSigriBundle:public:js/funciones.js.twig' %}    
+
+    <ul id="main-menu" class="main-menu" >
+        <li >
+            <a  href="{{path('actividadesGestor')}}">
+                <i class="entypo-layout"></i>
+                <span class="title"> Mantenimiento de personal </span>
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}   
+
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <fieldset>
+                <legend> Información </legend>
+                <div class="row">
+
+                    <div class="col-lg-9">
+
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Jefe superior</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Responsable</div>
+                                <div class="col-sm-8">
+                                    <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                        <option value="0">------ Seleccionar ------</option>
+                                        <option value="1">Responsable 1</option>
+                                        <option value="2">Responsable 2</option>
+                                        <option value="3">Responsable 3</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Cargo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Correo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx@xxxx.com" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Teléfono</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx xxx xxx" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div style="font-size: 90px; ">
+                            <i class="entypo-user" style="margin-left: -25px;"> </i> 
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+        </div>
+    
+        <div class="col-lg-6">
+            <br/><br/>
+            <center>
+            <a class="btn btn-success"  onclick="jQuery('#registrarPersonal').modal('show', {backdrop: 'static'});"  > Registrar nuevo</a> <br/><br/><br/>
+            <a class="btn btn-success" onclick="jQuery('#editarPersonal').modal('show', {backdrop: 'static'});"> Editar personal</a> <br/><br/><br/>
+            <a class="btn btn-success" onclick="jQuery('#eliminarPersonal').modal('show', {backdrop: 'static'});"> Eliminar personal</a
+            </center>
+            
+        </div>
+        
+        
+    </div>
+    <br/>
+    
+    
+    <div class="modal fade" id="registrarPersonal" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Registrar personal</h4>
+                    </div>
+
+                    <div class="modal-body row">
+                 <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Jefe superior</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Responsable</div>
+                                <div class="col-sm-8">
+                                    <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
+                                        <option value="0">------ Seleccionar ------</option>
+                                        <option value="1">Responsable 1</option>
+                                        <option value="2">Responsable 2</option>
+                                        <option value="3">Responsable 3</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Cargo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del cargo"  style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Correo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx@xxxx.com" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Teléfono</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx xxx xxx" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <center>
+                             <button type="button" class="btn btn-info" data-dismiss="modal">    Aceptar   </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-info" data-dismiss="modal">    Cancelar   </button>
+                
+            </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    <div class="modal fade" id="editarPersonal" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar personal</h4>
+                    </div>
+
+                    <div class="modal-body row">
+         
+                           <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Jefe superior</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Cargo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del cargo"  style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Correo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx@xxxx.com" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Teléfono</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx xxx xxx" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <center>
+                             <button type="button" class="btn btn-info" data-dismiss="modal">    Aceptar   </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-info" data-dismiss="modal">    Cancelar   </button>
+                
+            </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    <div class="modal fade" id="eliminarPersonal" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Eliminar     personal</h4>
+                    </div>
+
+                    <div class="modal-body row">
+         
+                                 <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Jefe superior</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del gestor a cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Cargo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="Nombre del cargo"  disable style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Correo</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx@xxxx.com" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1  control-label"  style="font-size: 12px; width: 130px;">Teléfono</div>
+                                <div class="col-sm-8">
+                                    <input type="text" value="xxx xxx xxx" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <center>
+                             <button type="button" class="btn btn-info" data-dismiss="modal">    Aceptar   </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-info" data-dismiss="modal">    Cancelar   </button>
+                
+            </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    
+{% endblock%}

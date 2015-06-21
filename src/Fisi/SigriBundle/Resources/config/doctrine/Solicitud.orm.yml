@@ -1,0 +1,56 @@
+Fisi\SigriBundle\Entity\Solicitud:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: string
+            length: '30'
+            column: Titulo
+        tipo:
+            type: string
+            length: '30'
+            column: Tipo
+        estado:
+            type: string
+            length: '12'
+            column: Estado
+        fechaReporte:
+            type: date
+            column: Fecha_reporte
+        fechaReserva:
+            type: date
+            column: Fecha_reserva
+        horaReporte:
+            type: time
+            column: Hora_reporte
+        documento:
+            type: string
+            length: '100'
+            column: Documento
+        descripcion:
+            type: string
+            length: '500'
+            column: Descripcion
+        calificacion:
+            type: string
+            length: '10'
+            column: Calificacion
+        prioridad:
+            type: string
+            length: '5'
+            column: Prioridad
+        subCategoria:
+            type: string
+            length: '15'
+            column: Sub_categoria
+        ip:
+            type: string
+            length: '20'
+            column: Ip
+    lifecycleCallbacks: {  }

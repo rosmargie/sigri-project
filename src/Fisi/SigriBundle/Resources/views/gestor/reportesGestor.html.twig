@@ -1,0 +1,346 @@
+{% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
+
+
+{% block mainmenu %}
+
+    {% include 'FisiSigriBundle:public:js/funciones.js.twig' %}    
+
+    <ul id="main-menu" class="main-menu" >
+        <li >
+            <a  href="{{path('actividadesGestor')}}">
+                <i class="entypo-shuffle"></i>
+                <span class="title"> Reportes </span>
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <div class="row">
+        <div class="col-lg-5" style="padding-right: 30px;">
+            <div class="row">
+                <div class="col-lg-4"  style="border: solid; border-color: #ff3366;  border-radius: 10px;  height: 100px; text-align: center; margin-left: -15px;" >
+                    <h1 style="color: #ff3366"> 5 </h1>
+                    <h4> Solicitudes </h4>
+                </div>
+                <div class="col-lg-4" style="border: solid; border-color: #4fbd4f;  border-radius: 10px;  height: 100px; text-align: center; margin-left: 8px;" >
+                    <h1  style="color: #4fbd4f"> 10 </h1>
+                    <h4> Incidencias </h4>
+                </div>
+                <div class="col-lg-4"  style="border: solid; border-color: #006dcc; border-radius: 10px;  height: 100px; text-align: center; margin-left: 7px; " >
+                    <h1  style="color: #006dcc"> 12 </h1>
+                    <h4> Requerimientos </h4>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+
+                <fieldset>
+                    <legend> Tiempo real VS. tiempo estimado </legend>
+                    <div style="height: 332px; width: 438px; border: solid; border-color: #cccccc; border-width: 1px; margin-left: -15px;">
+
+                    </div>
+
+                </fieldset>  
+
+
+            </div>
+        </div>
+        <div class="col-lg-7">            
+            <div class="row" style="margin-top: -30px;">
+                <div class="col-lg-6" style="padding: 5px;">
+                    <fieldset>
+                        <legend> Tipo </legend>
+                        <div style="height: 210px; border: solid; border-color: #cccccc; border-width: 1px;  ">
+
+                        </div>
+
+                    </fieldset>                   
+
+                </div>
+
+                <div class="col-lg-6" style="padding: 5px;">
+                    <fieldset>
+                        <legend> Categoria </legend>
+                        <div style="height: 210px; border: solid; border-color: #cccccc; border-width: 1px;  ">
+
+                        </div>
+
+                    </fieldset>                   
+
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" style="padding: 5px;">
+                    <fieldset>
+                        <legend> Unidad orgánica </legend>
+                        <div style="height: 210px; border: solid; border-color: #cccccc; border-width: 1px;  ">
+
+                        </div>
+
+                    </fieldset>
+
+
+                </div>
+
+                <div class="col-lg-6" style="padding: 5px;">
+                    <fieldset>
+                        <legend> Sub-categoria </legend>
+                        <div style="height: 210px; border: solid; border-color: #cccccc; border-width: 1px;  ">
+
+                        </div>
+
+                    </fieldset>                   
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="panel" data-collapsed="0">
+            <!-- panel head -->
+            <div class="panel-heading" >
+                <div class="panel-options" style="float: left;">				
+                    <a href="#" data-rel="collapse" >Búsqueda avanzada</a>
+                </div>
+            </div>
+
+            <!-- panel body -->
+            <div class="panel-body" >
+
+                <div class="row" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
+                    <div style="padding: 17px;">
+                             <div class="row">
+                        
+                        <label class="col-lg-1" style="margin-left: -5px;"> Periodo: </label>
+                        <label class="col-lg-1"> Inicio </label>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="entypo-calendar"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-lg-1"> Fin </label>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="entypo-calendar"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-lg-1"> Estado </label>
+                        <div class="col-lg-2">
+                              <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
+                        </div>
+
+                    </div>
+                    <br/>
+                      <div class="row">
+                        
+                        <label class="col-lg-1" style="margin-left: -5px;"> Otros: </label>
+                        <label class="col-lg-1"> Prioridad </label>
+                        <div class="col-lg-2">
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                        <label class="col-lg-1"> Calificación </label>
+                        <div class="col-lg-2">
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                        <label class="col-lg-1"> Personal </label>
+                        <div class="col-lg-2">
+                              <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                   
+                    </div>
+                
+                    <br/>
+                      <div class="row">
+                        
+                        <label class="col-lg-1" >  </label>
+                        <label class="col-lg-1"> Tipo </label>
+                        <div class="col-lg-2">
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                        <label class="col-lg-1"> Categoria </label>
+                        <div class="col-lg-2">
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                        <label class="col-lg-1"> Sub-categoria </label>
+                        <div class="col-lg-2">
+                              <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+                   
+                    </div>
+                
+                    <br/>
+                      <div class="row">
+                        
+                        <label class="col-lg-1" >  </label>
+                        <label class="col-lg-1"> Unidad orgánica </label>
+                        <div class="col-lg-2">
+                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                <option>--- Seleccionar --</option>
+                                <option value="0">Todos</option>
+                                <option value="1">Sin iniciar</option>
+                                <option value="2">Proceso</option>
+                            </select>
+                        </div>
+             
+                   
+                    </div>
+                        
+                    </div>
+                
+                </div>                        
+
+                
+            </div>
+        </div>
+        <br/>
+
+    </div>
+
+    <h1>Resultado</h1>
+    <br/>
+
+    <div class="row">
+        <center>
+            <h2>Gráfico estadistico</h2>
+        </center>
+        <div style="border: solid; border-color: #4fbd4f;  border-radius: 10px;  height: 400px; text-align: center; margin-left: -15px;" >
+
+        </div>
+
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="row">
+
+        <center>
+            <h2>Tabla de contenido</h2>
+        </center
+        <div class="row" style="padding: 20px;">
+
+
+            <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
+                <thead>
+                    <tr>
+
+                        <th style="text-align: center;">N° de Solicitud</th>
+                        <th style="text-align: center;">Título</th>
+                        <th style="text-align: center;">Prioridad</th>
+                        <th style="text-align: center;">Estado</th>
+                        <th style="text-align: center;">Fecha</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    <tr >
+
+                        <td>0010</td>
+                        <td>Laptop Malograda</td>
+                        <td>Sin asignar</td>
+                        <td>Sin iniciar</td>
+                        <td>07/06/2015</td>                                    
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+        <div class="row"> 
+
+            <div style="float:right; padding-right: 25px;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate" >
+                <ul class="pagination pagination-sm">
+                    <li class="prev disabled">
+                        <a href="#"><i class="entypo-left-open"></i></a>
+                    </li><li class="active"><a href="#">1</a>
+                    </li><li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li class="next"><a href="#"><i class="entypo-right-open"></i>
+                        </a></li></ul>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($)
+            {
+                var table = $("#table-1").dataTable({
+                    "sPaginationType": "bootstrap",
+                    "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+                    "oTableTools": {
+                    },
+                });
+            });
+
+        </script>
+    </div>
+
+{% endblock %}

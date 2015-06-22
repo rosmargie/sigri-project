@@ -6,6 +6,14 @@ solicitudes_usuario:
     path:     /solicitante/solicitudes
     defaults: { _controller: FisiSigriBundle:User:SolicitudesSolicitante }
 
+solicitud_usuario:
+    path:     /solicitante/solicitud
+    defaults: { _controller: FisiSigriBundle:User:Solicitud }
+
+solicitud_calificar:
+    path:     /solicitante/calificar
+    defaults: { _controller: FisiSigriBundle:User:SolicitudCalificar }
+
 notificaciones_usuario:
     path:     /solicitante/notificaciones
     defaults: { _controller: FisiSigriBundle:User:NotificacionesSolicitate }

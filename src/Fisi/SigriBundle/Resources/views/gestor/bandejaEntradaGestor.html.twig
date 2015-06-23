@@ -4,7 +4,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
-
     <ul class="nav nav-tabs bordered">
         <li class="active">
             <a href="#dSolicitudEspera" data-toggle="tab">
@@ -149,37 +148,42 @@
                 <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
                     <thead>
                         <tr>
-                            <th>
+                            <th style="width: 5%;">
                     <div class="checkbox checkbox-replace">
                         <input type="checkbox" id="chk-1">
                     </div>
                     </th>
-                    <th style="text-align: center;">N° de Solicitud</th>
-                    <th style="text-align: center;">Título</th>
-                    <th style="text-align: center;">Prioridad</th>
-                    <th style="text-align: center;">Estado</th>
-                    <th style="text-align: center;">Fecha</th>
+                    <th style="text-align: center; width: 5%;">N° de Solicitud</th>
+                    <th style="text-align: center; width: 30%;">Título</th>
+                    <th style="text-align: center; width: 20%;">Prioridad</th>
+                    <th style="text-align: center; width: 20%;">Estado</th>
+                    <th style="text-align: center; width: 20%;">Fecha</th>
                     </tr>
                     </thead>
 
 
                     <tbody>
 
-                        <tr href="{{path('detalle_solicitud_gestor')}}">
-                            <td >
-                                <div class="checkbox checkbox-replace">
-                                    <input type="checkbox" id="chk-21">
-                                </div>
-                            </td>
-                            <td>0010</td>
-                            <td>Laptop Malograda</td>
-                            <td>Sin asignar</td>
-                            <td>Sin iniciar</td>
-                            <td>07/06/2015</td>                                    
-                        </tr>
-
+                        {% for solicitud in solicitudesAll %} 
+                            
+                            
+                            <tr href="{{asset('app_dev.php/gestor/menuPrincipal/bandejaEntrada/detalleSolicitud')}}/{{solicitud.id_solicitud}}">
+                                <td style="width: 5%;">
+                                    <div class="checkbox checkbox-replace">
+                                        <input type="checkbox" id="chk-21">
+                                    </div>
+                                </td>
+                                <td style="text-align: center; width: 5%;">{{solicitud.id_solicitud}}</td>
+                                <td style=" width: 30%;">{{solicitud.titulo}}</td>
+                                <td style=" width: 20%;">
+                               
+                                  {{solicitud.prioridad}}
+                                </td>
+                                <td style=" width: 20%;">{{solicitud.estado}}</td>
+                                <td style="width: 20%;">21&/34/2421</td> 
+                            </tr>
+                        {% endfor %}
                     </tbody>
-
                 </table>
                 <script>
 
@@ -354,7 +358,7 @@
                     </thead>
 
                     <tbody>                            
-                        <tr href="{{path('detalle_solicitud_gestor')}}">                                
+                        <tr >                                
                             <td>
                                 <div class="checkbox checkbox-replace">
                                     <input type="checkbox" id="chk-21">
@@ -409,18 +413,6 @@
                 </div>
             </div>
 
-            <script type="text/javascript">
-                jQuery(document).ready(function ($)
-                {
-                    var table = $("#table-1").dataTable({
-                        "sPaginationType": "bootstrap",
-                        "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
-                        "oTableTools": {
-                        },
-                    });
-                });
-
-            </script>
 
         </div>
 

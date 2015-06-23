@@ -1,10 +1,7 @@
 {% extends 'FisiSigriBundle:Default:gestorLayout.html.twig' %}
 {% block content %}   
 
-    <script src="{{ asset('bundles/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
-   
-
-
+    <script src="{{ asset('bundles/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>   
     <div class="row" style="border:solid; border-width: 1px; border-color: #f7f7f7; border-radius: 10px;">           
 
         <div class="row" style="text-align: center; padding-top: 5px;">
@@ -28,7 +25,7 @@
                 </a>
             </div>          
             <div class="icon col-lg-3" style="font-size: 60px;">            
-                <a  onclick="jQuery('#dGuardarCambios').modal('show', {backdrop: 'static'});"  >
+                <a   onclick="jQuery('#dGuardarCambios').modal('show', {backdrop: 'static'});"  >
                     <i class="entypo-floppy"></i>
                     <span style="font-size: 12px;"> Guardar cambios</span>
                 </a>                
@@ -48,7 +45,7 @@
                         <div class="form-group">
                             <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">ID solicitud</div>
                             <div class="col-sm-9">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                <input type="text"  value="{{solicitud.id_solicitud}}" disabled style="width: 15%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px; " >
                             </div>
                         </div>
 
@@ -56,45 +53,43 @@
                         <div class="form-group">
                             <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Solicitante </div>
                             <div class="col-sm-9">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                <input type="text" value="{{solicitud.empleado.getApellido_paterno()}} {{solicitud.empleado.getApellido_materno()}},  {{solicitud.empleado.getNombre()}}" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px;" >
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Unidad orgánica</div>
                             <div class="col-sm-9">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                <input type="text" value="{{solicitud.empleado.unidadOrganica.getNombre()}}" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px;">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Dirección IP</div>
                             <div class="col-sm-9">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                                <input type="text" value="{{solicitud.ip}}" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px;">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Titulo</div>
                             <div class="col-sm-9">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                <input type="text" value="{{solicitud.titulo}}" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px;" >
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-3 control-label"  style="font-size: 12px; width: 130px;">Fecha de reporte </div>
                             <div class="col-sm-9">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;" >
+                                <input type="text" value="fatal" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px;" >
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">Fecha de reserva </div>
                             <div class="col-sm-9">
-                                <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;"  >
+                                <input type="date" value="falta" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px;"  >
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-3 control-label" style="font-size: 12px; width: 130px;">Descripción</div>
                             <div class="col-sm-9">
-                                <textarea cols="68" rows="12" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none;">
-                                
-                                </textarea>
+                                <textarea cols="68"  rows="12" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none; padding-left: 5px;">{{solicitud.descripcion}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -121,63 +116,69 @@
 
                 <fieldset >
                     <legend>Registro de incidencia / requerimiento</legend>
-                    <div  style="border: solid; border-color: green; border-width: 1px; border-radius: 20px; padding-top: 10px;">
+                    <div   style="border: solid; border-color: green; border-width: 1px; border-radius: 20px; padding-top: 10px;">
                         <div class="col-sm-4"></div>
                         <div class=" form-group col-sm-4  label label-success control-label"  style="font-size: 12px; ">Estado </div>
                         <div  class="form-group" style="padding: 20px 20px 0px 20px;">
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px;">
+                            <input type="text" value="{{solicitud.estado}}" disabled style="width: 100%;  padding-left: 5px; background-color: #ccffcc;">
                         </div>
 
-                        <div class="col-sm-4"></div>
-                        <div class="form-group col-sm-4 label label-success control-label "  style="font-size: 12px; ">Prioridad </div>  
-                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
-                            <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
-                                <option value="0">--- Seleccionar --</option>
-                                <option value="1">Alta</option>
-                                <option value="2">Media</option>
-                                <option value="3">Baja</option>
-
-                            </select>
-
-                        </div>  
                         <div class="col-sm-4"></div>
                         <div class="form-group col-sm-4 label label-success control-label"  style="font-size: 12px; ">Tipo </div>
                         <div  class="form-group" style="padding: 20px 20px 0px 20px;">
 
-                            <input type="text" value="Nombre del solicitante" disabled style="width: 100%;" >
+                            <input type="text" value="{{solicitud.tipo}}" disabled style="width: 100%; background-color: #ccffcc;" >
 
                         </div>
 
-                        <div class="col-sm-4"></div>
-                        <div class="form-group col-sm-4 label label-success control-label "  style="font-size: 12px; ">Categoria </div>
-                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
 
-                            <input type="text" disabled style="width: 100%;" >
-
+                        <form role="form" id="formRegistrarReqInc" name="formRegistrarReqInc" method="post"  class="form-horizontal validate ">                                
+                            <div class="form-group">
+                            <div class="col-sm-3  control-label"  style="font-size: 12px; width: 130px;">ID solicitud</div>
+                            <div class="col-sm-9">
+                                <input type="text" name="iIdSolicitud" value="{{solicitud.id_solicitud}}" disabled style="width: 15%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; padding-left: 5px; " >
+                            </div>
                         </div>
-                        <div class="col-sm-4"></div>
-                        <div class=" form-group col-sm-4 label label-success control-label"  style="font-size: 12px; ">Sub-categoria </div>
-                        <div  class="form-group" style="padding: 20px 20px 0px 20px;">
-
                             
-                            
-                             <select class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%;">
-                                <option value="0">--- Seleccionar --</option>
-                                <option value="1">Requerimiento</option>
-                                <option value="2">Incidencia</option>
+                             <div class="form-group">
+                    <label class="col-sm-3 control-label">Probando</label>
 
-                            </select>
+                    <div class="col-sm-5">
 
-                        </div>
+                        <input type="text" class="form-control" name="probando" data-validate="required,titulo" data-message-required="Datos Obligatorios" placeholder="Ingresar titulo de incidencia">
 
 
                     </div>
-
-
-
+                </div>
+                            
+                            <div class="col-sm-4"></div>
+                            <div class="form-group col-sm-4 label label-success control-label "  style="font-size: 12px; ">Prioridad </div>  
+                            <div  class="form-group" style="padding: 20px 20px 0px 20px; ">
+                                <select value="{{solicitud.prioridad}}" name="slcPrioridad" class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%; background-color: #ccffcc;">
+                                    <option value="0" style="background-color: #ccffcc;">--- Seleccionar --</option>
+                                    <option value="Alta" style="background-color: #ccffcc;">Alta</option>
+                                    <option value="Media" style="background-color: #ccffcc;">Media</option>
+                                    <option value="Baja" style="background-color: #ccffcc;">Baja</option>
+                                </select>
+                            </div>  
+                            <div class="col-sm-4"></div> 
+                            <div class="form-group col-sm-4 label label-success control-label "  style="font-size: 12px; ">Categoria </div>
+                            <div  class="form-group" style="padding: 20px 20px 0px 20px; ">
+                                <input type="text" name="iCategoria"  id="tdCambiar{{solicitud.id_solicitud}}" value="{{solicitud.categoria.getNombre_categoria()}}" disabled style="width: 100%; background-color: #ccffcc;" >
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class=" form-group col-sm-4 label label-success control-label"  style="font-size: 12px; ">Sub-categoria </div>
+                            <div  class="form-group" style="padding: 20px 20px 0px 20px;">
+                                <select value="{{solicitud.sub_categoria}}" name="slcSubCategoria" class="selectboxit-container selectboxit-container"  data-first-option="false" style=" width: 100%; background-color: #ccffcc;">
+                                    <option value="0">--- Seleccionar --</option>
+                                    <option value="Requerimiento">Requerimiento</option>
+                                    <option value="Incidencia">Incidencia</option>
+                                </select>
+                            </div>
+                        </form>
+                                    
+                    </div>
                 </fieldset>
-
-
             </div>
 
         </div>
@@ -226,12 +227,12 @@
 
                         <a>Agregar fila
                             <button type="button" onclick="agregarFilaActGestor();">	
-                                <i class="entypo-plus-circled"  style="color: blue; background-color: width;"></i>
+                                <i class="entypo-plus-circled"  style="color: blue; background-color: white;"> </i>
                             </button>
                         </a>
                         <a>Actualizar
                             <button type="button" >	
-                                <i class="entypo-ccw"  style="color: green; background-color: width;"></i>
+                                <i class="entypo-ccw"  style="color: green; background-color: white;">  </i>
                             </button>
                         </a>
 
@@ -262,32 +263,6 @@
 
 
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
             <div class="tab-pane" id="dResumenSolicitud">
 
@@ -390,24 +365,27 @@
                                         <th style="text-align: center;">Descripción</th>
                                         <th style="text-align: center;">Cantidad</th>
 
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Impresora</td>
-                                        <td>Impresora</td>
-                                        <td>54</td>                                            
-                                    </tr>
-                                    <tr>
-                                        <td>Impresora</td>
-                                        <td>Impresora</td>
-                                        <td>54</td>                                            
-                                    </tr>
-                                    <tr>
-                                        <td>Impresora</td>
-                                        <td>Impresora</td>
-                                        <td>54</td>                                            
-                                    </tr>
+                                    {% for categoria in categorias %}
+                                        <tr >
+                                            <td>{{categoria.nombre_categoria}}</td>
+                                            <td >{{categoria.descripcion_categoria}}</td>                                        
+
+                                            <td> 
+
+
+                                                <button  type="button" class="btn btn-info" data-dismiss="modal"  onclick="cambiar('{{solicitud.id_solicitud}}', '{{categoria.nombre_categoria}}');" >
+                                                    Aceptar
+                                                </button>
+
+                                            </td>
+
+
+                                        </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
 
@@ -630,7 +608,7 @@
                         </div>
                     </div>
                     <div class="modal-footer"><center>
-                            <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+                            <a href="{{asset('app_dev.php/gestor/menuPrincipal/bandejaEntrada/detalleSolicitud')}}/{{solicitud.id_solicitud}}" class="btn btn-info" >Aceptar</a>
                             <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
                         </center>
                     </div>
@@ -644,13 +622,13 @@
     {% endblock%}
 
     {% block javascripts_unique %}
-{% javascripts 
+        {% javascripts 
         '@FisiSigriBundle/Resources/public/template/js/bootstrap-datepicker.js'
         '@FisiSigriBundle/Resources/public/template/js/bootstrap-timepicker.min.js'        
         '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js' 
         '@FisiSigriBundle/Resources/public/template/js/jquery.validate.min.js'
 
-             %}
+        %}
         <script src="{{ asset_url }}"></script>
 
-        {% endjavascripts %}{% endblock %}
+    {% endjavascripts %}{% endblock %}

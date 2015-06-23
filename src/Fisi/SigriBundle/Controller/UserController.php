@@ -19,7 +19,7 @@ class UserController extends Controller
     public function SolicitarSolicitanteAction(Request $request)
     {       //obtener empleado
             $empleadoDao = new EmpleadoDao;
-            $empleado=$empleadoDao->getEmpleado(2);
+            $empleado=$empleadoDao->getEmpleado(1);
             
           if ( $request->getMethod() == 'POST'){
             //obtiene la informacion del formulario
@@ -45,6 +45,7 @@ class UserController extends Controller
     
     public function MostrarBEGAction()
     {
+      
         return $this->render('FisiSigriBundle:gestor:bandejaEntrGestor.html.twig');
     }
     

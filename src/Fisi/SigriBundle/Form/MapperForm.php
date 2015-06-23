@@ -14,7 +14,8 @@ use Fisi\SigriBundle\Entity\Solicitud;
  * @author Usuario
  */
 class MapperForm {
-    
+ 
+
     public static function convertirFormANuevaSolicitud($data, $estado, $empleado,$ip){
         $solicitud = new Solicitud();
         $solicitud->setTitulo($data['titulo']);

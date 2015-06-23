@@ -35,7 +35,7 @@ class Categoria {
      * @ORM\Column(type="string",name="DESCRIPCION_CATEGORIA", length=50)
      */ 
     protected $descripcion_categoria;
-    
+
     public function getId_categoria() {
         return $this->id_categoria;
     }

@@ -91,3 +91,7 @@ reportesGestor:
 mantenimientoPersonal:
     path:   /gestor/menuPrincipal/manteminientoPersonal
     defaults: {_controller: FisiSigriBundle:Ticket:mantenimientoPersonal}
+
+registrarInicReq:
+    path:   /gestor/menuPrincipal/bandejaEntrada/reg
+    defaults: {_controller: FisiSigriBundle:Ticket:registrarInicReq}

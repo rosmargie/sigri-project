@@ -1,7 +1,7 @@
 <?php
 
 namespace Fisi\SigriBundle\Entity;
-<<<<<<< HEAD
+
 
 use Fisi\SigriBundle\Entity\Categoria;
 use Fisi\SigriBundle\Entity\Empleado;
@@ -19,10 +19,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @author Usuario
  */
 
-=======
-use Doctrine\ORM\Mapping as ORM;
-
->>>>>>> master
 /**
  * @ORM\Entity
  * @ORM\Table(name="solicitud")

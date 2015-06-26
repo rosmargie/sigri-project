@@ -6,9 +6,13 @@
     });
     
     function cambiar(id, nombre){
-       $("#tdCambiar"+id).attr("value",nombre);      
-        
+       $("#tdCambiar"+id).attr("value",nombre);              
     }
+    function deshabilitarConsultarCatalogo(){
+        $("btnConsultarCatalogo").attr(":disabled"); 
+    }
+    
+    
     
     function agregarFilaActGestor() {
              i = 1;

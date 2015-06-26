@@ -51,14 +51,10 @@ class UserController extends Controller
     }
      
     public function SolicitarSolicitanteAction(Request $request)
-<<<<<<< HEAD
-    {       //obtener empleado
-            $empleadoDao = new EmpleadoDao;
-            $empleado=$empleadoDao->getEmpleado(1);
-=======
+
 {       //obtiene el empleado actual
         $empleado = $this->obtenerEmpleadoActual();
->>>>>>> master
+
             
         if ( $request->getMethod() == 'POST'){
             //obtiene la informacion del formulario
@@ -117,10 +113,7 @@ class UserController extends Controller
      public function GestionarActividadAction()
     {
         return $this->render('FisiSigriBundle:personal:gestionActividad.html.twig');
-    }
-    
-   
-    
+    }    
     
     
    

@@ -24,7 +24,8 @@ class CategoriaDao extends BaseDao {
     }
     
     public function buscarCategoriaNombre($nombre) {        
-         $categoria = $this->entityManager->getRepository('FisiSigriBundle:Categoria')->findOneByNombre_categoria($nombre);         
+            $categoria = $this->entityManager->getRepository('FisiSigriBundle:Categoria')->findOneBy(array('nombre_categoria' => $nombre));         
+         
         return $categoria;
     }
     
@@ -36,3 +37,4 @@ class CategoriaDao extends BaseDao {
     }
 
 }
+    

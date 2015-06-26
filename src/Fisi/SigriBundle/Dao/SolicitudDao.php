@@ -51,7 +51,7 @@ class SolicitudDao extends BaseDao {
                     ->setParameter('idempleado', $empleado->getId_empleado());
         }
         
-        //si el estado existe (no es TODOS) se agrega a la query
+        //si el estado existe (no es TODOS) se agrega a la query....todos=null)
         if ($filtro['estado'] != null){
             $qb->andWhere($qb->expr()->eq('s.estado', ':estado'))
                 ->setParameter('estado', strtoupper($filtro['estado']));

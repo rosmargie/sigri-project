@@ -12,7 +12,7 @@
                     <label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>
                     <div class="col-sm-2" >
                         <div class="input-group">
-                            <input type="text" class="form-control datepicker" name="f_inicio" data-format="dd/mm/yyyy" value="{% if filtro.f_inicio %}{{filtro.f_inicio|date("m/d/Y")}}{% endif %}">
+                            <input type="text" class="form-control datepicker" name="f_inicio" data-format="dd/mm/yyyy" value="{% if filtro.f_inicio %}{{filtro.f_inicio|date("d/m/Y")}}{% endif %}">
                             <div class="input-group-addon">
                                 <a href="#"><i class="entypo-calendar"></i></a>
                             </div>
@@ -23,7 +23,7 @@
                     <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
                     <div class="col-sm-2" >
                         <div class="input-group">
-                            <input type="text" class="form-control datepicker" name="f_fin" data-format="dd/mm/yyyy" value="{% if filtro.f_fin %}{{filtro.f_fin|date("m/d/Y")}}{% endif %}">
+                            <input type="text" class="form-control datepicker" name="f_fin" data-format="dd/mm/yyyy" value="{% if filtro.f_fin %}{{filtro.f_fin|date("d/m/Y")}}{% endif %}">
                             <div class="input-group-addon">
                                 <a href="#"><i class="entypo-calendar"></i></a>
                             </div>

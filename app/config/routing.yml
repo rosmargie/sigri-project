@@ -1,4 +1,11 @@
 fisi_sigri:
     resource: "@FisiSigriBundle/Resources/config/routing.yml"
     prefix:   /
+    
+login:
+    pattern: /login
+    defaults: { _controller: FisiSigriBundle:Default:login }
+    
+login_check:
+    pattern: /login_check
 

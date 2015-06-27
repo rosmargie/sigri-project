@@ -48,7 +48,7 @@ class SolicitudDao extends BaseDao {
              
             //query base con el id del empleado
             $qb->where($qb->expr()->eq('s.empleado', ':idempleado'))
-                    ->setParameter('idempleado', $empleado->getId_empleado());
+                    ->setParameter('idempleado', $empleado->getIdempleado());
         }
         
         //si el estado existe (no es TODOS) se agrega a la query....todos=null)
@@ -58,12 +58,12 @@ class SolicitudDao extends BaseDao {
         }
         //si existe una fecha de inicio en el filtro se agrega a la query
         if (array_key_exists('f_inicio', $filtro) && $filtro['f_inicio'] != null){
-            $qb->andWhere($qb->expr()->gte('s.fecha_reporte', ':f_inicio'))
+            $qb->andWhere($qb->expr()->gte('s.fechareporte', ':f_inicio'))
             ->setParameter(':f_inicio', $filtro['f_inicio']);
         }
         //si existe una fecha fin en el filtro se agrega a la query
         if (array_key_exists('f_fin', $filtro) && $filtro['f_fin'] != null){
-            $qb->andWhere($qb->expr()->lte('s.fecha_reporte', ':f_fin'))
+            $qb->andWhere($qb->expr()->lte('s.fechareporte', ':f_fin'))
             ->setParameter(':f_fin', $filtro['f_fin']);
         }
         
@@ -89,7 +89,7 @@ class SolicitudDao extends BaseDao {
 
                 //query base con el id del empleado
                 $qb->where($qb->expr()->eq('s.empleado', ':idempleado'))
-                        ->setParameter('idempleado', $empleado->getId_empleado());
+                        ->setParameter('idempleado', $empleado->getIdempleado());
             }
             
             $qb->andWhere($qb->expr()->eq('s.estado', ':estado'))

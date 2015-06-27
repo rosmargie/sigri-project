@@ -28,11 +28,13 @@ class Solicitud {
      * @ORM\Column(type="integer", name="ID_SOLICITUD")
      * @ORM\GeneratedValue(strategy="AUTO") 
      */
-    protected $id_solicitud;
+    protected $idsolicitud;
     /**
      * @ORM\Column(type="string",name="TITULO", length=30)
      */
-    protected $titulo;
+   
+
+      protected $titulo;
      /**
      * @ORM\Column(type="string",name="TIPO", length=30)
      */
@@ -42,19 +44,19 @@ class Solicitud {
      */
     protected $estado;
     /**
-     * @ORM\Column(type="date",name="FECHA_REPORTE")
+     * @ORM\Column(type="date",name="FECHA_REPORTE",nullable=true)
      */
-    protected $fecha_reporte;
+    protected $fechareporte;
     /**
-     * @ORM\Column(type="date",name="FECHA_RESERVA")
+     * @ORM\Column(type="date",name="FECHA_RESERVA",nullable=true)
      */
-    protected $fecha_reserva;
+    protected $fechareserva;
     /**
      * @ORM\Column(type="time",name="HORA_REPORTE")
      */
-    protected $hora_reporte;
+    protected $horareporte;
    /**
-     * @ORM\Column(type="string",name="DOCUMENTO",length=100)
+     * @ORM\Column(type="string",name="DOCUMENTO",length=100,nullable=true)
      */
     protected $documento;
     
@@ -63,16 +65,16 @@ class Solicitud {
      */
     protected $descripcion;
     /**
-     * @ORM\Column(type="string",name="CALIFICACION", length=10)
+     * @ORM\Column(type="string",name="CALIFICACION", length=10,nullable=true)
      */
     protected $calificacion;
     /**
-     * @ORM\Column(type="string",name="PRIORIDAD", length=5)
+     * @ORM\Column(type="string",name="PRIORIDAD", length=5,nullable=true)
      */
     protected $prioridad;/**
-     * @ORM\Column(type="string",name="SUB_CATEGORIA", length=15)
+     * @ORM\Column(type="string",name="SUB_CATEGORIA", length=15,nullable=true)
      */
-    protected $sub_categoria;
+    protected $subcategoria;
     /**
      * @ORM\Column(type="string",name="IP", length=20)
      */
@@ -89,8 +91,16 @@ class Solicitud {
      * @ORM\JoinColumn(name="CATEGORIA_ID_CATEGORIA", referencedColumnName="ID_CATEGORIA")
      */
     protected $categoria;
-    
-    public function getCategoria() {
+  
+    public function getIdsolicitud() {
+        return $this->idsolicitud;
+    }
+
+    public function setIdsolicitud($idsolicitud) {
+        $this->idsolicitud = $idsolicitud;
+    }
+
+            public function getCategoria() {
         return $this->categoria;
     }
 
@@ -106,9 +116,7 @@ class Solicitud {
         $this->empleado = $empleado;
     }
 
-        public function getId_solicitud() {
-        return $this->id_solicitud;
-    }
+    
 
     public function getTitulo() {
         return $this->titulo;
@@ -122,18 +130,9 @@ class Solicitud {
         return $this->estado;
     }
 
-    public function getFecha_reporte() {
-        return $this->fecha_reporte;
-    }
+  
 
-    public function getFecha_reserva() {
-        return $this->fecha_reserva;
-    }
-
-    public function getHora_reporte() {
-        return $this->hora_reporte;
-    }
-
+  
     public function getDocumento() {
         return $this->documento;
     }
@@ -150,17 +149,13 @@ class Solicitud {
         return $this->prioridad;
     }
 
-    public function getSub_categoria() {
-        return $this->sub_categoria;
-    }
+   
 
     public function getIp() {
         return $this->ip;
     }
 
-    public function setId_solicitud($id_solicitud) {
-        $this->id_solicitud = $id_solicitud;
-    }
+  
 
     public function setTitulo($titulo) {
         $this->titulo = $titulo;
@@ -174,18 +169,32 @@ class Solicitud {
         $this->estado = $estado;
     }
 
-    public function setFecha_reporte($fecha_reporte) {
-        $this->fecha_reporte = $fecha_reporte;
+    public function getFechareporte() {
+        return $this->fechareporte;
     }
 
-    public function setFecha_reserva($fecha_reserva) {
-        $this->fecha_reserva = $fecha_reserva;
+    public function getFechareserva() {
+        return $this->fechareserva;
     }
 
-    public function setHora_reporte($hora_reporte) {
-        $this->hora_reporte = $hora_reporte;
+    public function setFechareporte($fechareporte) {
+        $this->fechareporte = $fechareporte;
     }
 
+    public function setFechareserva($fechareserva) {
+        $this->fechareserva = $fechareserva;
+    }
+
+    
+    public function getHorareporte() {
+        return $this->horareporte;
+    }
+
+    public function setHorareporte($horareporte) {
+        $this->horareporte = $horareporte;
+    }
+
+    
     public function setDocumento($documento) {
         $this->documento = $documento;
     }
@@ -202,10 +211,15 @@ class Solicitud {
         $this->prioridad = $prioridad;
     }
 
-    public function setSub_categoria($sub_categoria) {
-        $this->sub_categoria = $sub_categoria;
+    public function getSubcategoria() {
+        return $this->subcategoria;
     }
 
+    public function setSubcategoria($subcategoria) {
+        $this->subcategoria = $subcategoria;
+    }
+
+    
     public function setIp($ip) {
         $this->ip = $ip;
     }

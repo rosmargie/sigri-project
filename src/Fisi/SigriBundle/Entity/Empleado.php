@@ -28,7 +28,7 @@ class Empleado {
      * @ORM\Column(type="integer", name="ID_EMPLEADO")
      * @ORM\GeneratedValue(strategy="AUTO") 
      */
-    protected $id_empleado;
+    protected $idempleado;
 
     /**
      * @ORM\Column(type="string",name="NOMBRE", length=25)
@@ -38,12 +38,12 @@ class Empleado {
     /**
      * @ORM\Column(type="string",name="APELLIDO_PATERNO", length=25)
      */
-    protected $apellido_paterno;
+    protected $apellidopaterno;
 
     /**
      * @ORM\Column(type="string",name="APELLIDO_MATERNO", length=25)
      */
-    protected $apellido_materno;
+    protected $apellidomaterno;
 
     /**
      * @ORM\Column(type="string",name="TELEFONO", length=9)
@@ -65,8 +65,22 @@ class Empleado {
      * @ORM\JoinColumn(name="UNIDAD_ORGANICA_ID_UNIDAD_ORGANICA", referencedColumnName="ID_UNIDAD_ORGANICA")
      */
     protected $unidadOrganica;
+    public function getApellidopaterno() {
+        return $this->apellidopaterno;
+    }
+    public function getApellidomaterno() {
+        return $this->apellidomaterno;
+    }
 
-    public function getUnidadOrganica() {
+    public function setApellidomaterno($apellidomaterno) {
+        $this->apellidomaterno = $apellidomaterno;
+    }
+
+        public function setApellidopaterno($apellidopaterno) {
+        $this->apellidopaterno = $apellidopaterno;
+    }
+
+        public function getUnidadOrganica() {
         return $this->unidadOrganica;
     }
 
@@ -74,20 +88,17 @@ class Empleado {
         $this->unidadOrganica = $unidadOrganica;
     }
 
-    public function getId_empleado() {
-        return $this->id_empleado;
+    public function getIdempleado() {
+        return $this->idempleado;
     }
 
+    public function setIdempleado($idempleado) {
+        $this->idempleado = $idempleado;
+    }
+
+    
     public function getNombre() {
         return $this->nombre;
-    }
-
-    public function getApellido_paterno() {
-        return $this->apellido_paterno;
-    }
-
-    public function getApellido_materno() {
-        return $this->apellido_materno;
     }
 
     public function getTelefono() {
@@ -102,21 +113,13 @@ class Empleado {
         return $this->direccion;
     }
 
-    public function setId_empleado($id_empleado) {
-        $this->id_empleado = $id_empleado;
-    }
+
 
     public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
 
-    public function setApellido_paterno($apellido_paterno) {
-        $this->apellido_paterno = $apellido_paterno;
-    }
 
-    public function setApellido_materno($apellido_materno) {
-        $this->apellido_materno = $apellido_materno;
-    }
 
     public function setTelefono($telefono) {
         $this->telefono = $telefono;

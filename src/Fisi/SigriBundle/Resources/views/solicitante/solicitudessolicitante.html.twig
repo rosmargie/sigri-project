@@ -98,15 +98,15 @@
                             <input type="checkbox" id="chk-21">
                         </div>
                     </td>
-                    <td>{{ solicitud.id_solicitud }}</td>
+                    <td>{{ solicitud.idsolicitud }}</td>
                     <td>{{ solicitud.titulo }}</td>
                     <td>{{ solicitud.estado }}</td>
 
-                    <td>{{ solicitud.fecha_reporte|date("d/m/Y")  }}</td>
+                    <td>{{ solicitud.fechareporte|date("d/m/Y")  }}</td>
                     <td>{{ solicitud.calificacion }}</td>
                     <td>
                         {% if solicitud.estado == 'FINALIZADO' and not solicitud.calificacion  %}
-                        <a href="#" href="#" onclick="obtenerSolicitud({{ solicitud.id_solicitud }});return false;" class="btn btn-default">Editar</a>
+                        <a href="#" href="#" onclick="obtenerSolicitud({{ solicitud.idsolicitud }});return false;" class="btn btn-default">Editar</a>
                         {% endif%}
                     </td>
                 </tr>
@@ -218,14 +218,14 @@
                 data: {'id': id},
                 dataType: 'json',
                 success: function(solicitud) {
-                    jQuery("#m_id").text("Solicitud N°" + solicitud.id_solicitud);
-                    jQuery("#m_id_value").val(solicitud.id_solicitud); 
+                    jQuery("#m_id").text("Solicitud N°" + solicitud.idsolicitud);
+                    jQuery("#m_id_value").val(solicitud.idsolicitud); 
                     jQuery("#m_titulo").val(solicitud.titulo);
                     jQuery("#m_tipo").val(solicitud.tipo);
                     jQuery("#m_estado").val(solicitud.estado);
-                    jQuery("#m_frep").val((new Date(solicitud.fecha_reporte.timestamp * 1000)).format("dd/mm/yyyy"));                
-                    if(solicitud.fecha_reserva ===! null){
-                        jQuery("#m_fres").val((new Date(solicitud.fecha_reserva.timestamp * 1000)).format("dd/mm/yyyy"));                
+                    jQuery("#m_frep").val((new Date(solicitud.fechareporte.timestamp * 1000)).format("dd/mm/yyyy"));                
+                    if(solicitud.fechareserva ===! null){
+                        jQuery("#m_fres").val((new Date(solicitud.fechareserva.timestamp * 1000)).format("dd/mm/yyyy"));                
                     }
                     jQuery("#m_desc").val(solicitud.descripcion);
                     jQuery("#modal-2").modal('show');

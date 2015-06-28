@@ -1,0 +1,30 @@
+admin_rol:
+    path:     /
+    defaults: { _controller: "FisiSigriBundle:Crud\Rol:index" }
+
+admin_rol_show:
+    path:     /{id}/show
+    defaults: { _controller: "FisiSigriBundle:Crud\Rol:show" }
+
+admin_rol_new:
+    path:     /new
+    defaults: { _controller: "FisiSigriBundle:Crud\Rol:new" }
+
+admin_rol_create:
+    path:     /create
+    defaults: { _controller: "FisiSigriBundle:Crud\Rol:create" }
+    methods:  POST
+
+admin_rol_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FisiSigriBundle:Crud\Rol:edit" }
+
+admin_rol_update:
+    path:     /{id}/update
+    defaults: { _controller: "FisiSigriBundle:Crud\Rol:update" }
+    methods:  [POST, PUT]
+
+admin_rol_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FisiSigriBundle:Crud\Rol:delete" }
+    methods:  [POST, DELETE]

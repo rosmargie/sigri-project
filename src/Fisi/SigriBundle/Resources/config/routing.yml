@@ -1,6 +1,34 @@
+fisi_sigri_admin_rol:
+    resource: "@FisiSigriBundle/Resources/config/routing/rol.yml"
+    prefix:   /admin/rol
+
+fisi_sigri_admin_empleado:
+    resource: "@FisiSigriBundle/Resources/config/routing/empleado.yml"
+    prefix:   /admin/empleado
+
+fisi_sigri_admin_personaloti:
+    resource: "@FisiSigriBundle/Resources/config/routing/personaloti.yml"
+    prefix:   /admin/personaloti
+        
+fisi_sigri_login:
+    path:     /login
+    defaults: { _controller: FisiSigriBundle:Default:login }
+    
+fisi_sigri_login_check:
+    path:     /login_check
+    defaults: { _controller: FisiSigriBundle:Default:login }
+    
+fisi_sigri_logout:
+    path:     /logout    
+
 fisi_sigri_homepage:
     path:     /
     defaults: { _controller: FisiSigriBundle:Default:index }
+    
+fisi_sigri_admin_menu:
+    path: /admin/menu
+    defaults: { _controller: FisiSigriBundle:Default:AdminMenu }
+    
     
 solicitudes_usuario:
     path:     /solicitante/solicitudes

@@ -43,7 +43,7 @@
                     <header class="logo-env">
                         <!-- logo -->
                         <div class="logo">
-                            <a href="#">
+                            <a href="{{ path("fisi_sigri_homepage") }}">
                                 {% image '@FisiSigriBundle/Resources/public/template/images/logo-s.png' %}
                                 <img src="{{ asset_url }}" width="120" alt="" />
                                 {% endimage %}
@@ -75,7 +75,7 @@
 
         <div class="main-content">
             
-            {% block cabecera %}
+        {% block cabecera %}
             
             <div class="row">
                 <!-- Profile Info and Notifications -->
@@ -86,12 +86,12 @@
                         <!-- Profile Info -->
                         <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 
-                          <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1@2x.png' %}
                                 <img src="{{ asset_url }}" alt="" class="img-circle" width="44" />
                                 {% endimage %}
-                                Mario Alvarez
-                            </a>-->
+                                Bienvenid@, {{ app.security.getToken().getUser().getNombre()|capitalize }}
+                            </a>
 
                             <ul class="dropdown-menu">
 
@@ -140,9 +140,18 @@
                 <div class="col-md-6 col-sm-4 clearfix hidden-xs">
 
                     <ul class="list-inline links-list pull-right">
+                        
+                        {% if is_granted('ROLE_GESTOR') %}
                         <li>
-                            <a href="#">
-                                Log Out <i class="entypo-logout right"></i>
+                            <a href="{{path("fisi_sigri_homepage")}}">
+                                Menú Principal <i class="entypo-home"></i>
+                            </a>
+                        </li>
+                        
+                        {% endif %}
+                        <li>
+                            <a href="{{path("fisi_sigri_logout")}}">
+                                Cerrar Sesión<i class="entypo-logout right"></i>
                             </a>
                         </li>
                     </ul>

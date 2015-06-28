@@ -1,0 +1,30 @@
+admin_personaloti:
+    path:     /
+    defaults: { _controller: "FisiSigriBundle:Crud\PersonalOTI:index" }
+
+admin_personaloti_show:
+    path:     /{id}/show
+    defaults: { _controller: "FisiSigriBundle:Crud\PersonalOTI:show" }
+
+admin_personaloti_new:
+    path:     /new
+    defaults: { _controller: "FisiSigriBundle:Crud\PersonalOTI:new" }
+
+admin_personaloti_create:
+    path:     /create
+    defaults: { _controller: "FisiSigriBundle:Crud\PersonalOTI:create" }
+    methods:  POST
+
+admin_personaloti_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FisiSigriBundle:Crud\PersonalOTI:edit" }
+
+admin_personaloti_update:
+    path:     /{id}/update
+    defaults: { _controller: "FisiSigriBundle:Crud\PersonalOTI:update" }
+    methods:  [POST, PUT]
+
+admin_personaloti_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FisiSigriBundle:Crud\PersonalOTI:delete" }
+    methods:  [POST, DELETE]

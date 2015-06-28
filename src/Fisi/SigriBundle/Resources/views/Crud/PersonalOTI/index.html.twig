@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PersonalOTI list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Idpersonaloti</th>
+                <th>Cargo</th>
+                <th>Jefesuperior</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_personaloti_show', { 'id': entity.idpersonaloti }) }}">{{ entity.idpersonaloti }}</a></td>
+                <td>{{ entity.cargo }}</td>
+                <td>{{ entity.jefesuperior }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_personaloti_show', { 'id': entity.idpersonaloti }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_personaloti_edit', { 'id': entity.idpersonaloti }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_personaloti_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

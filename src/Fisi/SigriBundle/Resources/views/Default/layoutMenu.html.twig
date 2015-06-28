@@ -1,0 +1,57 @@
+
+{% extends 'FisiSigriBundle:Default:layout.html.twig' %}
+
+{% block menuPortal %}
+{% endblock%}
+
+{% block cabecera %}
+    
+    
+    
+    <div class="container-fluid">
+    <div class="row" style="background-color: #133783;">
+        <!-- Profile Info and Notifications -->
+        <div class="col-md-6 col-sm-8 clearfix">
+
+            <ul class="user-info pull-left pull-none-xsm">
+
+                <!-- Profile Info -->
+                <li class="profile-info dropdown" ><!-- add class "pull-right" if you want to place this from right -->
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" color: #ffffff">
+                        {% image '@FisiSigriBundle/Resources/public/template/images/thumb-1@2x.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-circle" width="44" />
+                        {% endimage %}
+                        Bienvenid@, {{ app.security.getToken().getUser().getNombre()|capitalize }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Raw Links -->
+        <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+            <ul class="list-inline links-list pull-right">
+                
+                {% block opcionesMenu %}
+                {% endblock%}
+                
+                <li>
+                    <a href="{{path("fisi_sigri_logout")}}" style=" color: #ffffff">
+                        Cerrar Sesión <i class="entypo-logout right "></i>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+

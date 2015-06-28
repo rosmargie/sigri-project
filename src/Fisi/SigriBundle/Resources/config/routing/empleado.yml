@@ -1,0 +1,30 @@
+admin_empleado:
+    path:     /
+    defaults: { _controller: "FisiSigriBundle:Crud\Empleado:index" }
+
+admin_empleado_show:
+    path:     /{id}/show
+    defaults: { _controller: "FisiSigriBundle:Crud\Empleado:show" }
+
+admin_empleado_new:
+    path:     /new
+    defaults: { _controller: "FisiSigriBundle:Crud\Empleado:new" }
+
+admin_empleado_create:
+    path:     /create
+    defaults: { _controller: "FisiSigriBundle:Crud\Empleado:create" }
+    methods:  POST
+
+admin_empleado_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FisiSigriBundle:Crud\Empleado:edit" }
+
+admin_empleado_update:
+    path:     /{id}/update
+    defaults: { _controller: "FisiSigriBundle:Crud\Empleado:update" }
+    methods:  [POST, PUT]
+
+admin_empleado_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FisiSigriBundle:Crud\Empleado:delete" }
+    methods:  [POST, DELETE]

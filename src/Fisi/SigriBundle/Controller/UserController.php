@@ -19,7 +19,7 @@ class UserController extends Controller
     private function obtenerEmpleadoActual(){
         //obtener empleado
         $empleadoDao = new EmpleadoDao;
-        $empleado=$empleadoDao->getEmpleado(2); //Aca se tiene que modificar por el id del usuario actual
+        $empleado=$empleadoDao->getEmpleado($this->getUser()->getIdEmpleado()); //Aca se tiene que modificar por el id del usuario actual
         return $empleado;
     }
     

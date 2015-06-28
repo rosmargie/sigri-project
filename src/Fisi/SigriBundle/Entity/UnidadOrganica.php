@@ -58,6 +58,11 @@ class UnidadOrganica {
     public function setAnexo($anexo) {
         $this->anexo = $anexo;
     }
-
-
+    
+public function getUnidadOrganica(){
+    return $this->getNombre();
+}
+ public function __toString() {
+     return $this->getUnidadOrganica();
+ }
 }

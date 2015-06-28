@@ -24,12 +24,12 @@ class MapperForm {
         $solicitud->setEstado($estado);
         //en las fechas se convierten los textos en objetos DateTime
         $fechaActual = new \DateTime();
-        $solicitud->setFecha_reporte(\DateTime::createFromFormat('d/m/Y', $fechaActual->format('d/m/Y')));
+        $solicitud->setFechareporte(\DateTime::createFromFormat('d/m/Y', $fechaActual->format('d/m/Y')));
         //en caso de que fecha reserva sea diferente de null recien se crea el objeto DateTime
         if($data['fechareserva'] != null ){
-            $solicitud->setFecha_reserva(\DateTime::createFromFormat('d/m/Y',$data['fechareserva'] )); 
+            $solicitud->setFechareserva(\DateTime::createFromFormat('d/m/Y',$data['fechareserva'] )); 
         }
-        $solicitud->setHora_reporte(\DateTime::createFromFormat('g:i:s A', $fechaActual->format('g:i:s A')));        
+        $solicitud->setHorareporte(\DateTime::createFromFormat('g:i:s A', $fechaActual->format('g:i:s A')));        
         $solicitud->setDescripcion($data['descripcion']);      
         $solicitud->setIp($ip);
         $solicitud->setEmpleado($empleado);

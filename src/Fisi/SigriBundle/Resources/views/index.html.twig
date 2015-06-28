@@ -1,8 +1,17 @@
-login!!
+{% extends 'FisiSigriBundle:Default:layoutMenu.html.twig' %}
 
-<a href="{{ path('consultar_usuario') }}">Usuario</a>
-<a href="{{ path('bandeja_entrada_personal') }}">Analista</a>
-<a href="{{ path('bandeja_entrada_gestor') }}">Gestor</a>
+{% block title %}Menu Principal{% endblock %}
 
-
- 
+{% block content %}
+   
+   <a href="{{ path("solicitudes_usuario") }}"> Ir como Solicitante </a>
+   <br />
+   <a href="{{ path("menu_principal") }}"> Menu Gestor </a>
+   <br />
+   <a href="{{ path("fisi_sigri_admin_menu") }}"> Menu Administrador </a>
+   <br />
+   {% if is_granted('ROLE_PERSONALOTI') %} 
+   <a href="{{ path("bandeja_entrada_personal") }}"> Ir como Personal OTI </a>
+   {% endif %}
+    
+{% endblock %}

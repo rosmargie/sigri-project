@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Empleado list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Idempleado</th>
+                <th>Nombre</th>
+                <th>Apellidopaterno</th>
+                <th>Apellidomaterno</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Direccion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_empleado_show', { 'id': entity.idempleado }) }}">{{ entity.idempleado }}</a></td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.apellidopaterno }}</td>
+                <td>{{ entity.apellidomaterno }}</td>
+                <td>{{ entity.telefono }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.direccion }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_empleado_show', { 'id': entity.idempleado }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_empleado_edit', { 'id': entity.idempleado }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_empleado_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

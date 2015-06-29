@@ -1,12 +1,158 @@
-{# proyecto/src/MDW/BlogBundle/Resources/views/Security/login.html.twig #}
-{% if error %}
-<div>{{ error.message }}</div>
- 
-{% endif %}
-<form action="{{ path('fisi_sigri_login_check') }}" method="post"><label for="username">Username:</label>
- <input id="username" type="text" name="_username" value="{{ last_username }}" />
- <label for="password">Password:</label>
- <input id="password" type="password" name="_password" />
- 
- <input type="submit" name="login" />
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SIGRI - Iniciar Sesión</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="{{ asset('bundles/fisisigri/css/font/entypo.eot') }}" />
+
+        <style>
+            @font-face {
+                font-family: 'entypo';
+                src: url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.eot?71205724')}}}');
+                src: url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.eot?71205724#iefix')}}') format('embedded-opentype'),
+                    url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.woff')}}') format('woff'),
+                    url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.ttf?71205724')}}') format('truetype'),
+                    url('{{asset('bundles/fisisigri/template/css/font-icons/entypo/font/entypo.svg?71205724#entypo')}}') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+
+        {% stylesheets 
+            '@FisiSigriBundle/Resources/public/template/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css'
+            '@FisiSigriBundle/Resources/public/template/css/font-icons/entypo/css/entypo.css'
+            '@FisiSigriBundle/Resources/public/template/css/bootstrap.css'
+            '@FisiSigriBundle/Resources/public/template/css/neon-core.css'
+            '@FisiSigriBundle/Resources/public/template/css/neon-theme.css'
+            '@FisiSigriBundle/Resources/public/template/css/neon-forms.css'
+            '@FisiSigriBundle/Resources/public/template/js/selectboxit/jquery.selectBoxIt.css'
+
+        %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+        <link href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic" type="text/css" rel="stylesheet" />
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="assets/css/skins/white.css">
+        
+                 <link href="{{ asset('bundles/fisisigri/template/css/skins/white.css')}}" rel="stylesheet" type="text/css" media="screen" >
+                 
+        
+            </head>
+    <body class="login-page loaded login-form-fall-init">
+        <div class="login-container">
+
+            <div class="login-header login-caret">
+
+                <div class="login-content">
+
+                    <a href="index.html" class="logo">
+                        {% image '@FisiSigriBundle/Resources/public/template/images/logo-s.png' %}
+                        <img src="{{ asset_url }}" width="120" alt="" />
+                        {% endimage %}
+                    </a>
+
+
+                </div>
+
+            </div>
+
+            <div class="login-progressbar">
+                <div></div>
+            </div>
+
+            <div class="login-form">
+
+                <div class="login-content">
+
+                    {% if error %}
+                        <div class="form-login-error">
+                            <h3>Invalid login</h3>
+                            <div>{{ error.message }}</div>
+                        </div>                            
+                    {% endif %}
+
+                    <form method="post" role="form" id="form_login" action="{{ path('fisi_sigri_login_check') }}">
+
+                        <div class="form-group">
+
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-user"></i>
+                                </div>
+
+                                <input type="text" class="form-control" name="_username" value="{{ last_username }}" id="username" placeholder="Username" autocomplete="off" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-key"></i>
+                                </div>
+
+                                <input type="password" class="form-control" name="_password" id="password" placeholder="Password" autocomplete="off" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block btn-login" name="login">
+                                <i class="entypo-login"></i>
+                                Login In
+                            </button>
+                        </div>
+
+
+
+
+
+                    </form>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+                        
+        
+        {% javascripts 
+        '@FisiSigriBundle/Resources/public/template/js/jquery-1.11.0.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/gsap/main-gsap.js'
+        '@FisiSigriBundle/Resources/public/template/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap.js'
+        '@FisiSigriBundle/Resources/public/template/js/joinable.js'
+        '@FisiSigriBundle/Resources/public/template/js/resizeable.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-api.js'
+        '@FisiSigriBundle/Resources/public/template/js/jvectormap/jquery-jvectormap-1.2.2.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/jvectormap/jquery-jvectormap-europe-merc-en.js'
+        '@FisiSigriBundle/Resources/public/template/js/jquery.sparkline.min.js'
+ '@FisiSigriBundle/Resources/public/template/js/jquery.validate.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/rickshaw/vendor/d3.v3.js'
+        '@FisiSigriBundle/Resources/public/template/js/rickshaw/rickshaw.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/raphael-min.js'
+        '@FisiSigriBundle/Resources/public/template/js/morris.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/toastr.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-chat.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-custom.js'
+        '@FisiSigriBundle/Resources/public/template/js/neon-login.js'
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap-datepicker.js'
+        '@FisiSigriBundle/Resources/public/template/js/bootstrap-timepicker.min.js'        
+        '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js'
+        '@FisiSigriBundle/Resources/public/template/js/selectboxit/jquery.selectBoxIt.min.js'
+         '@FisiSigriBundle/Resources/public/template/js/jquery.multi-select.js'
+    %}        
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>$.noConflict();</script>
+    </body>
+</html>
+
+
+
+

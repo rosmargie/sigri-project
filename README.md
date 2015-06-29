@@ -63,7 +63,7 @@ Agregar la nueva informacion de usuarios para poder acceder:
 
   Los usuarios de prueba son:
 
-  usuario: prueba_solicitante, password: 7894561234
+  usuario: prueba_solicitante, password: 789456123
 
   usuario: prueba_gestor, password: 789456
 

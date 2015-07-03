@@ -1,22 +1,31 @@
 {# empty Twig template #}
 <script>
-    $(document).ready(function () {  
+    jQuery(document).ready(function () {  
         
          registrarCategoriaV();
     });
     
+    function cambiar(id, nombre){
+       jQuery("#tdCambiar"+id).attr("value",nombre);              
+    }
+    function deshabilitarConsultarCatalogo(){
+        jQuery("btnConsultarCatalogo").attr(":disabled"); 
+    }
+    
+    
+    
     function agregarFilaActGestor() {
              i = 1;
 
-        $(".clsFilaActividad").each(function() {
+        jQuery(".clsFilaActividad").each(function() {
             i++;
         });
 
-        if ($('#trFilaActividad' + i).length) {
+        if (jQuery('#trFilaActividad' + i).length) {
             i++;
         }
         
-        $.ajax({
+        jQuery.ajax({
             type: "POST",
             url: "{{path('agregarFilaGestor')}}",
              data: {
@@ -24,29 +33,29 @@
             }
             
         }).done(function(msg) {
-            $("#tBodyAgregarAct").append(msg);
+            jQuery("#tBodyAgregarAct").append(msg);
          
         });
     }
     
   
     function eliminarFila(nrofila) {
-        $("#trFilaActividad" + nrofila).remove();
+        jQuery("#trFilaActividad" + nrofila).remove();
         alert("Se elimino fila");
     }
 
     function agregarFilaRespGestor() {
              i = 1;
 
-        $(".clsFilaResp").each(function() {
+        jQuery(".clsFilaResp").each(function() {
             i++;
         });
 
-        if ($('#trFilaResponsable' + i).length) {
+        if (jQuery('#trFilaResponsable' + i).length) {
             i++;
         }
         
-        $.ajax({
+        jQuery.ajax({
             type: "POST",
             url: "{{path('agregarFilaRespGestor')}}",
              data: {
@@ -54,7 +63,7 @@
             }
             
         }).done(function(msg) {
-            $("#tBodyAgregarResp").append(msg);
+            jQuery("#tBodyAgregarResp").append(msg);
          
         });
     }
@@ -62,12 +71,12 @@
     function registrarCategoriaV() {
             
         
-        $.ajax({
+        jQuery.ajax({
             type: "POST",
             url: "{{path('registrarCategoriaV')}}"
             
         }).done(function(msg) {
-            $("#dRegistro").html(msg);
+            jQuery("#dRegistro").html(msg);
          
         });
     }
@@ -75,12 +84,12 @@
     function editarCategoriaV() {
             
         alert("Editar");
-        $.ajax({
+        jQuery.ajax({
             type: "POST",
             url: "{{path('editarCategoriaV')}}"
         }).done(function(msg) {
             alert("Editar dentro");
-            $("#dRegistro").html(msg);
+            jQuery("#dRegistro").html(msg);
          
         });
     }
@@ -88,13 +97,13 @@
     function eliminarCategoriaV() {
            alert("Eliminar"); 
         
-        $.ajax({
+        jQuery.ajax({
             type: "POST",
             url: "{{path('eliminarCategoriaV')}}"
          
             
         }).done(function(msg) {
-            $("#dRegistro").html(msg);
+            jQuery("#dRegistro").html(msg);
          
         });
     }

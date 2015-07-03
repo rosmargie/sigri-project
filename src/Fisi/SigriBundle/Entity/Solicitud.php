@@ -19,7 +19,7 @@ class Solicitud {
      */
    
 
-      protected $titulo;
+    protected $titulo;
      /**
      * @ORM\Column(type="string",name="TIPO", length=30)
      */
@@ -85,7 +85,7 @@ class Solicitud {
         $this->idsolicitud = $idsolicitud;
     }
 
-            public function getCategoria() {
+    public function getCategoria() {
         return $this->categoria;
     }
 
@@ -101,8 +101,6 @@ class Solicitud {
         $this->empleado = $empleado;
     }
 
-    
-
     public function getTitulo() {
         return $this->titulo;
     }
@@ -114,9 +112,6 @@ class Solicitud {
     public function getEstado() {
         return $this->estado;
     }
-
-  
-
   
     public function getDocumento() {
         return $this->documento;
@@ -133,14 +128,10 @@ class Solicitud {
     public function getPrioridad() {
         return $this->prioridad;
     }
-
    
-
     public function getIp() {
         return $this->ip;
     }
-
-  
 
     public function setTitulo($titulo) {
         $this->titulo = $titulo;

@@ -4,7 +4,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
-
     <ul class="nav nav-tabs bordered">
         <li class="active">
             <a href="#dSolicitudEspera" data-toggle="tab">
@@ -40,73 +39,63 @@
                 <!-- panel body -->
                 <div class="panel-body" >
                     <div class="row" style="border-color: #cccccc; border-style: solid; border-width: 1px; padding-bottom: 15px; padding-top: 15px;">
-                        <div class="col-lg-1">
-                            <p> Periodo: </p><br/><br/>
-                            <p> Otros  :</p>
-                        </div >
-                        <div class="col-lg-1">
-                            <p> Inicio </p> <br/><br/>
-                            <p> Estado </p>
-                        </div>
-                        <div class="col-lg-2">
-
-                            <div class="input-group">
-                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-                                <div class="input-group-addon">
-                                    <a href="#"><i class="entypo-calendar"></i></a>
-                                </div>
+                        <form role="form" method="post" id="buscarSolicitude_G" name="buscarSolicitude_G" action="{{ path('bandeja_entrada_gestor_m') }}">
+                            <div class="col-lg-1">
+                                <p> Periodo: </p><br/><br/>
+                                <p> Otros  :</p>
+                            </div >
+                            <div class="col-lg-1">
+                                <p> Inicio </p> <br/><br/>
+                                <p> Estado </p>
                             </div>
-                            <br/>
-
-                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                <option>--- Seleccionar --</option>
-                                <option value="0">Todos</option>
-                                <option value="1">Sin iniciar</option>
-                                <option value="2">Proceso</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-2" style="text-align: right; ">
-                            <p> Fin </p> <br/><br/>
-                            <p> Prioridad </p>
-                        </div>
-                        <div class="col-lg-2">
-
-                            <div class="input-group">
-                                <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-                                <div class="input-group-addon">
-                                    <a href="#"><i class="entypo-calendar"></i></a>
+                            <div class="col-lg-2">
+                                <div class="input-group">                                                                       
+                                    <input type="text" class="form-control datepicker" name="f_inicioG" data-format="dd/mm/yyyy" value="{% if filtro.f_inicioG %}{{filtro.f_inicioG|date("m/d/Y")}}{% endif %}">
+                                    <div class="input-group-addon">
+                                        <a href="#"><i class="entypo-calendar"></i></a>
+                                    </div>
                                 </div>
+                                <br/>                                
+                                <select name="estadoG" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                    {% for estado in estados %}
+                                        <option value="{{estado.valor}}" {% if estado.seleccionado %}{{"selected"}}{% endif %}> {{estado.etiqueta}}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
-                            <br/>
-                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                <option>--- Seleccionar --</option>
-
-                                <option value="0">Todos</option>
-                                <option value="1">Alta</option>
-                                <option value="2">Media</option>
-                                <option value="3">Baja</option>
-                                <option value="4">Sin asignar</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-2" style="text-align: right;">
-                            <p><br/></p><br/><br/>
-                            <p> Unidad orgánica </p>
-
-                        </div>
-
-                        <div class="col-lg-2" style="text-align: center;">
-                            <button type="button" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
-                            <br/><br/>
-                            <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                                <option>--- Seleccionar --</option>
-                                <option value="0"> Todos</option>
-                                <option value="1">AKI FATLAA**</option>
-                                <option value="2">Proceso</option>
-                                <option value="3">Finalizado</option>
-                            </select>
-                        </div>
+                            <div class="col-lg-2" style="text-align: right; ">
+                                <p> Fin </p> <br/><br/>
+                                <p> Prioridad </p>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" name="f_finG" data-format="dd/mm/yyyy" value="{% if filtro.f_finG %}{{filtro.f_finG|date("m/d/Y")}}{% endif %}">
+                                    <div class="input-group-addon">
+                                        <a href="#"><i class="entypo-calendar"></i></a>
+                                    </div>
+                                </div>
+                                <br/>
+                             
+                                <select name="prioridadG" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                    {% for prioridad in prioridades %}                                    
+                                        <option value="{{prioridad.valor}}" {% if prioridad.seleccionado %} {{"selected"}}{% endif %} >{{prioridad.etiqueta}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-lg-2" style="text-align: right;">
+                                <p><br/></p><br/><br/>
+                                <p> Unidad orgánica </p>
+                            </div>
+                            <div class="col-lg-2" style="text-align: center;">
+                                <button type="submit" class="btn btn-default entypo-search" style="width: 140px;"> Buscar </button>
+                                <br/><br/>
+                                <select name="unidadOrganicaG" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                                    <option value="" selected >--- Todos --</option>
+                                    {% for unidadOrganica in unidadesOrganicas %}
+                                        <option value="{{unidadOrganica.id}}"> {{unidadOrganica.nombre}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
@@ -148,38 +137,38 @@
             <div class="row" style="padding: 20px;">
                 <table class="table table-bordered datatable dataTable" id="tbSolicitudProcesoGestor" role="grid" aria-describedby="table-1_info">
                     <thead>
-                        <tr>
-                            <th>
-                    <div class="checkbox checkbox-replace">
-                        <input type="checkbox" id="chk-1">
-                    </div>
-                    </th>
-                    <th style="text-align: center;">N° de Solicitud</th>
-                    <th style="text-align: center;">Título</th>
-                    <th style="text-align: center;">Prioridad</th>
-                    <th style="text-align: center;">Estado</th>
-                    <th style="text-align: center;">Fecha</th>
+                        <tr>                      
+                    <th style="text-align: center; width: 5%;">N° de Solicitud</th>
+                    <th style="text-align: center; width: 45%;">Título</th>
+                    
+                    <th style="text-align: center; width: 15%;">Estado</th>
+                    <th style="text-align: center; width: 20%;">Fecha</th>
                     </tr>
                     </thead>
 
 
                     <tbody>
 
-                        <tr href="{{path('detalle_solicitud_gestor')}}">
-                            <td >
-                                <div class="checkbox checkbox-replace">
-                                    <input type="checkbox" id="chk-21">
-                                </div>
-                            </td>
-                            <td>0010</td>
-                            <td>Laptop Malograda</td>
-                            <td>Sin asignar</td>
-                            <td>Sin iniciar</td>
-                            <td>07/06/2015</td>                                    
-                        </tr>
+                        {% for solicitud in solicitudes %} 
 
+                            <tr href="{{asset('app_dev.php/gestor/menuPrincipal/bandejaEntrada/detalleSolicitud')}}/{{solicitud.idsolicitud}}">
+                           
+                                <td style="text-align: center; width: 5%;">{{solicitud.idsolicitud}}</td>
+                                <td style=" width: 45%;">{{solicitud.titulo}}</td>
+                               
+                                <td style=" width: 15%; text-align: center;">
+                                    {% if solicitud.estado == "PENDIENTE"%}
+                                        <div class="label label-warning" style="color: black; font-size: 12px;">{{solicitud.estado}}</div>
+                                {% endif %}
+                                {% if solicitud.estado == "Proceso"%}
+                                        <div class="label label-success" style="color: black; font-size: 12px;">{{solicitud.estado}}</div>
+                                {% endif %}
+                              
+                                </td>
+                                <td style="width: 20%; text-align: center;">{{solicitud.fechareporte|date("d/m/Y")}}</td> 
+                            </tr>
+                        {% endfor %}
                     </tbody>
-
                 </table>
                 <script>
 
@@ -188,7 +177,6 @@
                             document.location = $(this).attr('href');
                         }
                     });
-
                 </script>
 
             </div>
@@ -354,7 +342,7 @@
                     </thead>
 
                     <tbody>                            
-                        <tr href="{{path('detalle_solicitud_gestor')}}">                                
+                        <tr >                                
                             <td>
                                 <div class="checkbox checkbox-replace">
                                     <input type="checkbox" id="chk-21">
@@ -409,18 +397,6 @@
                 </div>
             </div>
 
-            <script type="text/javascript">
-                jQuery(document).ready(function ($)
-                {
-                    var table = $("#table-1").dataTable({
-                        "sPaginationType": "bootstrap",
-                        "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
-                        "oTableTools": {
-                        },
-                    });
-                });
-
-            </script>
 
         </div>
 

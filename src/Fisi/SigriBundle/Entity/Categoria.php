@@ -28,7 +28,7 @@ class Categoria {
      */
     protected $idcategoria;
      /**
-     * @ORM\Column(type="string",name="NOMBRE_CATEGORIA", length=25)
+     * @ORM\Column(type="string",name="NOMBRE_CATEGORIA", length=25 ,nullable=true)
      */
     protected $nombrecategoria;
      /**

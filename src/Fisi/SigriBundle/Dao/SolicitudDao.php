@@ -109,5 +109,68 @@ class SolicitudDao extends BaseDao {
         //actualizar en la DB
         $this->entityManager->flush();
     }
+    
+    public function mostrarAllSolicitudes() {
+        $solicitud = $this->entityManager->getRepository('FisiSigriBundle:Solicitud')->findAll();
+        return $solicitud;
+    }   
+    
+    /***
+     * Se va consultar las solicitudes para el gestor
+     */
+    public function obtenerSolicitudesG($filtro, $empleado = null){
+        $qb = $this->entityManager->createQueryBuilder();
+        $qb->from('FisiSigriBundle:Solicitud', 's')
+                    ->select('s');        
+        //si es que la llamada viene de un solicitante se agrega su ID para buscar solo sus solicitudes
+        if ($empleado != null){
+            /*consulta del empleado*/
+             
+            //query base con el id del empleado
+            $qb->where($qb->expr()->eq('s.empleado', ':idempleado'))
+                    ->setParameter('idempleado', $empleado->getIdempleado());
+        }        
+        //si el estado existe (no es TODOS) se agrega a la query
+        if ($filtro['estadoG'] != null){
+            $qb->andWhere($qb->expr()->eq('s.estado', ':estadoG'))
+                ->setParameter('estadoG', strtoupper($filtro['estadoG']));
+        }
+        //si la prioridad existe (no es TODOS) se agrega a la query
+        if ($filtro['prioridadG'] != null){
+            $qb->andWhere($qb->expr()->eq('s.prioridad', ':prioridadG'))
+                ->setParameter('prioridadG', strtoupper($filtro['prioridadG']));
+        }        
+        //si existe una fecha de inicio en el filtro se agrega a la query
+        if (array_key_exists('f_inicioG', $filtro) && $filtro['f_inicioG'] != null){
+            $qb->andWhere($qb->expr()->gte('s.fecha_reporte', ':f_inicioG'))
+            ->setParameter(':f_inicioG', $filtro['f_inicioG']);
+        }
+        //si existe una fecha fin en el filtro se agrega a la query
+        if (array_key_exists('f_finG', $filtro) && $filtro['f_finG'] != null){
+            $qb->andWhere($qb->expr()->lte('s.fecha_reporte', ':f_finG'))
+            ->setParameter(':f_finG', $filtro['f_finG']);
+        }
+   
+        
+        
+        return $qb->getQuery()->getArrayResult();
+    }
+    
+    /*
+     * Aqui se va a registrar la incidencia/Requerimiento es decir actualizar algunos campos de solicitud
+     */
+    public function registroIncReq($idSolicitud, $prioridad,$categoria , $subCategoria){        
+        //obtener la solicitud
+        $solicitud = $this->obtenerSolicitud($idSolicitud);
+        //Actualizar prioridad
+        $solicitud->setPrioridad(strtoupper($prioridad));
+        //Actualizar categoria
+        $solicitud->setCategoria($categoria);
+        //Actualizar sub-categoria
+        $solicitud->setSubcategoria($subCategoria);
+        
+        //actualizar en la DB
+        $this->entityManager->flush();
+    }
 
 }

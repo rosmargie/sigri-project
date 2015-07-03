@@ -21,4 +21,12 @@ class EmpleadoDao extends BaseDao{
         return $empleado;
         
     }
+    
+    public function mostrarEmpleados($id_empleado){
+        
+        $empleado = $this->entityManager->find("FisiSigriBundle:Empleado",$id_empleado);
+        return $empleado;    
+            
+        
+    }
 }

@@ -71,7 +71,7 @@ bandeja_entrada_gestor_m:
     defaults: {_controller: FisiSigriBundle:Ticket:bandejaEntradaGestor}
     
 detalle_solicitud_gestor:
-    path: /gestor/menuPrincipal/bandejaEntrada/detalleSolicitud
+    path: /gestor/menuPrincipal/bandejaEntrada/detalleSolicitud/{idSolicitud}
     defaults: {_controller: FisiSigriBundle:Ticket:detalleSoliicitudGestor}
     
 agregarFilaGestor:
@@ -118,3 +118,8 @@ reportesGestor:
 mantenimientoPersonal:
     path:   /gestor/menuPrincipal/manteminientoPersonal
     defaults: {_controller: FisiSigriBundle:Ticket:mantenimientoPersonal}
+
+registrarInicReq:
+    path:   /gestor/menuPrincipal/bandejaEntrada/reg
+    defaults: {_controller: FisiSigriBundle:Ticket:registrarInicReq}
+

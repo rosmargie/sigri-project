@@ -78,7 +78,9 @@ class UserController extends Controller
         $solicitud = $solicitudDao->obtenerSolicitud($idsolicitud);
         //convertir la solicitud a json para enviarlo al metodo ajax
         $encoders = array(new XmlEncoder(), new JsonEncoder());
-        $normalizers = array(new GetSetMethodNormalizer());
+        $normalizer = new GetSetMethodNormalizer();
+        $normalizer->setIgnoredAttributes(array('empleado'));
+        $normalizers = array($normalizer);
         $serializer = new Serializer($normalizers, $encoders);
         $jsonContent = $serializer->serialize($solicitud, 'json');
         //responder la peticion con un jsonobject

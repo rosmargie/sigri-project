@@ -67,4 +67,51 @@ class MapperForm {
         }
         return $filtro;
     }
+      public static function convertirFormAFiltroBASolicitud($data){
+        $filtro = array();
+        //Se convierte la fecha inicio en texto a un objeto tipo DateTime
+        if(array_key_exists('f_inicioG',$data) &&  ["f_inicioG"] != null){
+            $filtro["f_inicioG"] = \DateTime::createFromFormat('d/m/Y', 
+                    $data["f_inicioG"]);
+        }else{
+            $filtro["f_inicioG"] = null;
+        }         
+        //Se convierte la fecha fin en texto a un objeto tipo DateTime
+        if(array_key_exists('f_finG',$data) && $data["f_finG"] != null){
+            $filtro["f_finG"] = \DateTime::createFromFormat('d/m/Y', 
+                    $data["f_finG"]);
+        
+            }else{
+            $filtro["f_finG"] = null;
+        }   
+
+        //Los valores del estado de la interfaz son numericos, aqui se crea el 
+        //equivalente textual
+        if ($data["estadoG"] == null){
+            $filtro["estadoG"] = null;
+        }else{
+            if($data["estadoG"] == 1){
+                $filtro["estadoG"] = "PENDIENTE";
+            }elseif($data["estadoG"] == 2){
+                $filtro["estadoG"] = "PROCESO";
+            }
+        }
+        //Los valores de la prioridad de la interfaz son numericos, aqui se crea el
+        //equivalente textual
+        if($data["prioridadG"] == null){
+            $filtro["prioridadG"] = null;
+        }else{
+            if($data["prioridadG"] == 1){
+                $filtro["prioridadG"] = "ALTA";
+            }elseif($data["prioridadG"] == 2){
+                $filtro["prioridadG"] = "MEDIA";
+            }elseif($data["prioridadG"] == 3){
+                $filtro["prioridadG"] = "BAJA";
+            }elseif($data["prioridadG"] == 4){
+                //prioridadG SINIC equivale a sin iniciar
+                $filtro["prioridadG"] = "SINIC";
+            }
+        }
+        return $filtro;
+        }
 }

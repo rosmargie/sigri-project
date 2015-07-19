@@ -67,6 +67,8 @@ class MapperForm {
         }
         return $filtro;
     }
+    
+    
       public static function convertirFormAFiltroBASolicitud($data){
         $filtro = array();
         //Se convierte la fecha inicio en texto a un objeto tipo DateTime
@@ -114,4 +116,36 @@ class MapperForm {
         }
         return $filtro;
         }
+        
+        public static function convertirFormAFiltroActividad($data){
+        $filtro = array();
+        //Se convierte la fecha inicio en texto a un objeto tipo DateTime
+        if(array_key_exists('f_inicio',$data) &&  ["f_inicio"] != null){
+            $filtro["f_inicio"] = \DateTime::createFromFormat('d/m/Y', 
+                    $data["f_inicio"]);
+        }else{
+            $filtro["f_inicio"] = null;
+        }         
+        //Se convierte la fecha fin en texto a un objeto tipo DateTime
+        if(array_key_exists('f_fin',$data) && $data["f_fin"] != null){
+            $filtro["f_fin"] = \DateTime::createFromFormat('d/m/Y', 
+                    $data["f_fin"]);
+        }else{
+            $filtro["f_fin"] = null;
+        }   
+        //Los valores del estado de la interfaz son numericos, aqui se crea el 
+        //equivalente textual
+        if ($data["prioridad"] == null){
+            $filtro["prioridad"] = null;
+        }else{
+            if($data["prioridad"] == 1){
+                $filtro["prioridad"] = "ALTA";
+            }elseif($data["prioridad"] == 2){
+                $filtro["prioridad"] = "MEDIA";
+            }elseif($data["prioridad"] == 3){
+                $filtro["prioridad"] = "BAJA";
+            }
+        }
+        return $filtro;
+    }
 }

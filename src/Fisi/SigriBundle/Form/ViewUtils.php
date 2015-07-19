@@ -62,7 +62,7 @@ class ViewUtils {
     
     public static function obtenerListaPrioridades($prioridadActual){
         $listaPrioridades = array();
-        $prioridades = array(array("Todas",""), array("Alta",1),array("Media",2),                             array("Baja",3),
+        $prioridades = array(array("Todas",""), array("Alta",1),array("Media",2),array("Baja",3),
                              array("Sin asignar",4)            
         );
         foreach ($prioridades as $prioridad){
@@ -79,10 +79,10 @@ class ViewUtils {
         return $listaPrioridades;
     }
     
-    public static function obtenerListaPriorizar($prioridadActual){
+    
+    public static function obtenerListaPrioridadesAsignadas($prioridadActual){
         $listaPrioridades = array();
-        $prioridades = array(array("------Seleccionar-------",0),array("Alta",1),array("Media",2),
-                            array("Baja",3)            
+        $prioridades = array(array("Todas",""),array("Alta",1),array("Media",2),array("Baja",3)            
         );
         foreach ($prioridades as $prioridad){
             $os = new OptionSelect();

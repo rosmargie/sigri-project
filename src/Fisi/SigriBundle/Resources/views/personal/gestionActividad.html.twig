@@ -3,155 +3,146 @@
 {% block content %}
 
     <!--Datos de la actividad><-->
-    
-   
-<center><h1>N° Actividad : 6546 </h1></center>
+
+
+    <center><h1>N° Actividad {{actividad.idactividad}} </h1></center>
     <center><div class="panel-body">
- <form role="form" class="form-horizontal ">
+            <form role="form" class="form-horizontal ">
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Solicitante</label>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Solicitante</label>
 
-                            <div class="col-sm-5">
+                    <div class="col-sm-5">
 
-                                <input type="text" class="form-control daterange" disabled placeholder=" Maryori Cueva Veliz"/> 
+                        <input type="text" class="form-control daterange" disabled value="{{actividad.solicitud.empleado.nombre}}"/> 
+                        <input type="hidden" value="{{actividad.idactividad}}" id="idactividad"/>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Título</label>
+
+                    <div class="col-sm-5">
+
+                        <input type="text" class="form-control daterange" disabled  value="{{actividad.tituloact}}"/> 
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Estado</label>
+
+                    <div class="col-sm-5">
+
+                        <input type="text" class="form-control daterange" disabled value="{{actividad.estadoact}}"/> 
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Fecha Estimada</label>
+
+                    <div class="form-group">
+                        <div class="form-group" style="
+                             margin-left: 0px;
+                             margin-right: 30px;
+                             border-right-width: 100px;
+                             padding-left: 235px;
+                             border-left-width: 50px;
+                             " >
+                            <label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>	
+
+                            <div class="col-sm-3" >
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" data-format="dd/mm/yyyy" value="{% if actividad.fechaeinicio %}{{actividad.fechaeinicio|date("d/m/Y")}}{% endif %}" disabled>
+
+                                    <div class="input-group-addon">
+                                        <a href="#"><i class="entypo-calendar"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Título</label>
-
-                            <div class="col-sm-5">
-
-                                <input type="text" class="form-control daterange" disabled placeholder=" Laptop Malograda"/> 
 
 
-                            </div>
-                        </div>
+                            <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Estado</label>
+                            <div class="col-sm-3" >
+                                <div class="input-group">
+                                    <input type="text" class="form-control "  data-format="dd/mm/yyyy" value="{% if actividad.fechaefin%}{{actividad.fechaefin|date("d/m/Y")}}{% endif %}" disabled>
 
-                            <div class="col-sm-5">
-
-                                <input type="text" class="form-control daterange" disabled placeholder="Iniciado"/> 
-
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Fecha Estimada</label>
-						
-                            <div class="form-group">
-                                <div class="form-group" style="
-								    margin-left: 0px;
-								    margin-right: 30px;
-								    border-right-width: 100px;
-								    padding-left: 235px;
-								    border-left-width: 50px;
-								" >
-                                	<label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>
-
-                                <div class="col-sm-2" >
-                                    <div class="input-group">
-                                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-                                        <div class="input-group-addon">
-                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                        </div>
+                                    <div class="input-group-addon">
+                                        <a href="#"><i class="entypo-calendar"></i></a>
                                     </div>
                                 </div>
 
-
-                                <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
-
-                                <div class="col-sm-2" >
-                                    <div class="input-group">
-                                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-                                        <div class="input-group-addon">
-                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="form-group">
-                             <label class="col-sm-3 control-label">Fecha Real</label>
-
-                               <div class="form-group">
-                               	<div class="form-group" style="
-								    margin-left: 0px;
-								    margin-right: 30px;
-								    border-right-width: 100px;
-								    padding-left: 235px;
-								    border-left-width: 50px;
-								" >
-                                <label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>
-
-                                <div class="col-sm-2" >
-                                    <div class="input-group">
-                                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-                                        <div class="input-group-addon">
-                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
-
-                                <div class="col-sm-2" >
-                                    <div class="input-group">
-                                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-                                        <div class="input-group-addon">
-                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                           <label class="col-sm-3 control-label">Prioridad</label>
+                </div>
 
-                                <div class="col-sm-5">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Fecha Real</label>
 
-                                    <input type="text" class="form-control daterange" disabled placeholder="Alta"/>
+                    <div class="form-group">
+                        <div class="form-group" style="
+                             margin-left: 0px;
+                             margin-right: 30px;
+                             border-right-width: 100px;
+                             padding-left: 235px;
+                             border-left-width: 50px;
+                             " >
+                            <label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>
 
+                            <div class="col-sm-3" >
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" data-format="dd/mm/yyyy" value="{% if actividad.fecharinicio %}{{actividad.fecharinicio|date("d/m/Y")}}{% endif %}" disabled>
+
+                                    <div class="input-group-addon">
+                                        <a href="#"><i class="entypo-calendar"></i></a>
+                                    </div>
                                 </div>
+                            </div>
+
+
+                            <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
+
+                            <div class="col-sm-3" >
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" data-format="dd/mm/yyyy" value="{% if actividad.fecharfin %}{{actividad.fecharfin|date("d/m/Y")}}{% endif %}" disabled>
+
+                                    <div class="input-group-addon">
+                                        <a href="#"><i class="entypo-calendar"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+                    </div>
+                </div>
 
-                         <div class="form-group">
-                                <label class="col-sm-3 control-label">Responsable</label>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Prioridad</label>
 
-                                <div class="col-sm-5">
+                    <div class="col-sm-5">
 
-                                    <input type="text" class="form-control daterange" disabled placeholder="Mario Alvarez"/> 
+                        <input type="text" class="form-control daterange" disabled value="{{actividad.prioridadact}}"/>
 
-                                </div>
-                            </div>
+                    </div>
+                </div>
 
-                         <div class="form-group">
-                                <label class="col-sm-3 control-label">Descripción</label>
 
-                                <div class="col-sm-5">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Descripción</label>
 
-                                    <textarea class="form-control" id="field-ta" disabled placeholder="Desde hace días la laptop se reinica solita y no ejecuta  ningún documebto de excel, ni word, etc"></textarea>
+                    <div class="col-sm-5">
 
-                                </div>
-                            </div>
-  </form>
+                        <textarea class="form-control" id="field-ta" disabled  >{{actividad.descripcionact}}</textarea>
+
+                    </div>
+                </div>
+            </form>
 
 
         </div></center>
@@ -164,22 +155,24 @@
     <!--Desarrollo de Actividad><-->
 
     <center><h1>Desarrollo de Actividad </h1></center>
-    <center><div class="panel-body">
 
-            <form role="form" class="form-horizontal form-groups-bordered">
+    {% if actividad.estadoact != "FINALIZADO" %}
 
-                <div class="col-sm-offset-3 col-sm-5" style=" margin-left: 300px;">						
+        <center><div class="panel-body">
 
-                    <button type="button" class="btn btn-default">Iniciar Actividad</button>
-                    <button type="button" class="btn btn-default">Finalizar Actividad</button>
-                </div>
-            </form>
+                <form role="form" class="form-horizontal form-groups-bordered">
 
+                    <div class="col-sm-offset-3 col-sm-5" style=" margin-left: 300px;">						
+                        {% if actividad.estadoact != "PROCESO" %}
+                            <button type="button" class="btn btn-default" id="iniciarAct">Iniciar Actividad</button>
+                        {% endif %}
+                        <button type="button" class="btn btn-default"id="finalizarAct">Finalizar Actividad</button>
+                    </div>
+                </form>
+            </div>
+        </center>
 
-
-
-        </div></center>
-
+    {% endif %}
 
     <br>
     <br>
@@ -190,59 +183,52 @@
     <br>
     <br>
 
+
+    {% if actividad.estadoact != "FINALIZADO" %}
+        <center><div class="panel-body">
+
+                <form role="form" class="form-horizontal form-groups-bordered">
+
+                    <div class="col-sm-offset-3 col-sm-5" style=" margin-left: 300px;">                     
+
+                        <a href="javascript:;"  onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default">Registrar avance</a>
+
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </center>
+    {% endif %}
+
     <div class="timeline-centered" style="
          margin-left: 0px;
          margin-right: 100px;
          ">
 
-        <article class="timeline-entry">
+        {% for avance in avances %}
 
-            <div class="timeline-entry-inner">
-                <time class="timeline-time" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
+            <article class="timeline-entry">
 
-                <div class="timeline-icon bg-success">
-                    <i class="entypo-feather"></i>
+                <div class="timeline-entry-inner">
+                    <time class="timeline-time" datetime="2014-12-09T03:45"><span>{% if avance.fechaavance %}{{avance.fechaavance|date("H:i")}}{% endif %}</span> <span>{% if avance.fechaavance %}{{avance.fechaavance|date("d/m/Y")}}{% endif %}</span></time>
+
+                    <div class="timeline-icon bg-success">
+                        <i class="entypo-feather"></i>
+                    </div>
+
+                    <div class="timeline-label">
+
+                        <p>{{avance.descripcionavc}}</p>
+                        <p>{{avance.progresoavc}}%</p>
+
+                    </div>
                 </div>
 
-                <div class="timeline-label">
-                    <h2><a href="#">Mario Alvarez</a> <span>posted a status update</span></h2>
-                    <p>Se realizó una limpieza interna de la laptop</p>
-                </div>
-            </div>
-
-        </article>
-        <article class="timeline-entry">
-
-            <div class="timeline-entry-inner">
-                <time class="timeline-time" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
-
-                <div class="timeline-icon bg-success">
-                    <i class="entypo-feather"></i>
-                </div>
-
-                <div class="timeline-label">
-                    <h2><a href="#">Mario Alvarez</a> <span>posted a status update</span></h2>
-                    <p>Solicitó cd de reparación de Windows</p>
-                </div>
-            </div>
-
-        </article>
-        <article class="timeline-entry">
-
-            <div class="timeline-entry-inner">
-                <time class="timeline-time" datetime="2014-12-09T03:45"><span>03:45 AM</span> <span>Today</span></time>
-
-                <div class="timeline-icon bg-success">
-                    <i class="entypo-feather"></i>
-                </div>
-
-                <div class="timeline-label">
-                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
-                    <p>Se reinstalo el sistema opertaivo</p>
-                </div>
-            </div>
-
-        </article>
+            </article>
+        {% endfor %}
         <article class="timeline-entry begin">
 
             <div class="timeline-entry-inner">
@@ -258,146 +244,255 @@
 
     <table class="table table-bordered">
         <tbody>
-
-
-        <td>
-            <strong>Line Chart</strong>
-            <br />
-            <div id="chart8" style="height: 300px"></div>
-        </td>
-    </tr>
-</tbody>
-</table>
-
-
-
-<!--Notificacion><-->
+            <tr>                
+                <td>
+                    <strong>Gráfica</strong>
+                    <br />
+                    <div id="chart8" style="height: 300px"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 
 
-<!-- Modal 6 (Long Modal)-->
-<div class="modal fade" id="modal-6">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Notificación</h4>
-            </div>
-
-            <div class="modal-body">
+    <!--Notificacion><-->
 
 
 
-                <div class="row">
-                    <div class="col-md-12">
+    <!-- Modal 6 (Long Modal)-->
+    <div class="modal fade" id="modal-6">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-                        <div class="form-group">
-                            <label for="field-3" class="control-label">Destinatario</label>
-
-                            <input type="text" class="form-control" id="field-3" placeholder="maryori.cueva@cnm.gob.pe">
-                        </div>	
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="form-group">
-                            <label for="field-3" class="control-label">Asunto</label>
-
-                            <input type="text" class="form-control" id="field-3" placeholder="Escriba el Asunto aqui">
-                        </div>	
-
-                    </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Registrar Avance</h4>
                 </div>
 
+                <div class="modal-body" style="">
 
+                    <div class="row">
+                        <div class="col-md-12">
 
-                <div class="row">
-                    <div class="col-md-12">
+                            <div class="form-group no-margin">
+                                <label for="field-7" class="control-label">Mensaje</label>
 
-                        <div class="form-group no-margin">
-                            <label for="field-7" class="control-label">Mensaje</label>
+                                <textarea class="form-control autogrow" id="mensajeAvance"  ></textarea>
+                            </div>	
 
-                            <textarea class="form-control autogrow" id="field-7" placeholder="Escribir el Mensaje aqui"></textarea>
-                        </div>	
-
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group no-margin">
+                                <label for="field-7" class="control-label">Progreso</label>
+
+
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <select id="progresoopt" class="selectboxit">
+                                            <option value="10">10 %</option>
+                                            <option value="20">20 %</option>
+                                            <option value="30">30 %</option>
+                                            <option value="40">40 %</option>
+                                            <option value="50">50 %</option>
+                                            <option value="60">60 %</option>
+                                            <option value="70">70 %</option>
+                                            <option value="80">80 %</option>
+                                            <option value="90">90 %</option>
+                                            <option value="100">100 %</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                            </div>	
+
+                        </div>
+                    </div>
+
                 </div>
 
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-info" href="javascript:;" onclick="jQuery('#modal-4').modal('show', {backdrop: 'static'});" class="btn btn-default">Enviar</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-info" id="guardarMsje" class="btn btn-default">Guardar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- Modal 4 (Confirm)-->
-<div class="modal fade" id="modal-4" data-backdrop="static">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <!-- Modal 4 (Confirm)-->
+    <div class="modal fade" id="modal-4" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <h4 class="modal-title">Mensaje de información</h4>
-            </div>
+                <div class="modal-header">
+                    <h4 class="modal-title">Mensaje de información</h4>
+                </div>
 
-            <div class="modal-body">
+                <div class="modal-body">
 
-                Su mensaje fue enviado con éxito
+                    Su mensaje fue enviado con éxito
 
-            </div>
+                </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Continue</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Continue</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
 
-<center><div class="panel-body">
-
-        <form role="form" class="form-horizontal form-groups-bordered">
-
-            <div class="col-sm-offset-3 col-sm-5" style=" margin-left: 300px;">                     
-
-                <a href="javascript:;" onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default">Notificación</a>
-
-            </div>
-        </form>
 
 
 
-
-    </div></center>
-
-
-<br>
-<br>
+    <br>
+    <br>
 
 </div>
 
 {% endblock %}
 
 {% block javascripts_unique %}
-{% javascripts 
+    {% javascripts 
         '@FisiSigriBundle/Resources/public/template/js/bootstrap-datepicker.js'
         '@FisiSigriBundle/Resources/public/template/js/icheck/icheck.min.js'
         '@FisiSigriBundle/Resources/public/template/js/neon-charts.js'
+        '@FisiSigriBundle/Resources/public/js/dateformat.js'
+
+    %}
+    <script src="{{ asset_url }}"></script>
 
 
-        
-             %}
-        <script src="{{ asset_url }}"></script>
 
-        {% endjavascripts %}{% endblock %}
+    {% endjavascripts %}
+
+    <script>
+                            jQuery("#modal-6").on("shown.bs.modal", function () {
+                                jQuery("#mensajeAvance").val("");
+                                jQuery('#modal-6 .modal-body').css('height', 400);
+                            });
+
+                            jQuery("#guardarMsje").click(function () {
+
+                                var idactividad = jQuery("#idactividad").val();
+                                var mensajeAvance = jQuery("#mensajeAvance").val();
+                                var progresoopt = jQuery("#progresoopt").val();
+
+                                if (idactividad === "" || mensajeAvance === "" || progresoopt === "") {
+                                    alert("Información incompleta");
+                                }
+
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '{{ path('guardarAvance') }}',
+                                    data: {'id': idactividad, 'descripcion': mensajeAvance, 'progreso': progresoopt},
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        if (data["status"] === "ok") {
+                                            alert("Avance guardado exitósamente");
+                                            window.location.replace("{{ path('gestionar_actividad_personal', {'id':actividad.idactividad})}}");
+                                        }
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert("Se ha producido un error");
+                                    }
+                                });
+                            });
+
+                            jQuery("#iniciarAct").click(function () {
+
+                                var idactividad = jQuery("#idactividad").val();
+
+                                if (idactividad === "") {
+                                    alert("Información incompleta");
+                                }
+
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '{{ path('InicarActividad') }}',
+                                    data: {'id': idactividad},
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        if (data["status"] === "ok") {
+                                            alert("Actividad Iniciada");
+                                            window.location.replace("{{ path('gestionar_actividad_personal', {'id':actividad.idactividad})}}");
+                                        }
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert("Se ha producido un error");
+                                    }
+                                });
+                            });
+
+                            jQuery("#finalizarAct").click(function () {
+
+                                var idactividad = jQuery("#idactividad").val();
+
+                                if (idactividad === "") {
+                                    alert("Información incompleta");
+                                }
+
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '{{ path('finalizarAct') }}',
+                                    data: {'id': idactividad},
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        if (data["status"] === "ok") {
+                                            alert("Actividad Finalizada");
+                                            window.location.replace("{{ path('gestionar_actividad_personal', {'id':actividad.idactividad})}}");
+                                        }
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert("Se ha producido un error");
+                                    }
+                                });
+                            });
+
+                            var idactividad = jQuery("#idactividad").val();
+                            var cantidades = null;
+                            jQuery.ajax({
+                                type: 'POST',
+                                url: '{{ path('reporteActividad') }}',
+                                data: {'id': idactividad},
+                                dataType: 'json',
+                                success: function (data) {
+                                    cantidades = data;
+                                    var day_data = [];
+                                    if (cantidades !== null) {
+                                        for (key in cantidades){
+                                            var fecha = (new Date( (cantidades[key].fecha).timestamp * 1000)).format("dd/mm/yyyy");                                                                                   
+                                            day_data.push({"elapsed": fecha, "value": cantidades[key].cantidad});                                           
+                                        }
+                                        
+                                        Morris.Line({
+                                            element: 'chart8',
+                                            data: day_data,
+                                            xkey: 'elapsed',
+                                            ykeys: ['value'],
+                                            labels: ['value'],
+                                            parseTime: false,
+                                            lineColors: ['#242d3c']
+                                        });
+                                        
+                                    }
+                                },
+                                error: function (xhr, ajaxOptions, thrownError) {
+                                    alert("No se puede mostrar la gráfica");
+                                }
+                            });
+                            
+    </script>
+
+{% endblock %}
 
 {% block stylesheets_unique %}
     {% stylesheets
@@ -408,4 +503,5 @@
     <stylesheets src="{{ asset_url }}"></stylesheets>
 
 {% endstylesheets %}{% endblock %}
+
 

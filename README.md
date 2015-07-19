@@ -71,3 +71,9 @@ Agregar la nueva informacion de usuarios para poder acceder:
 
   usuario: prueba_gestorsolo, password: 789456
 
+
+
+5.para visualizar la grafica de personal oti
+
+ create view vw_avancesxdia as
+select FECHA_AVANCE AS `FECHA`,ACTIVIDAD_ID_ACTIVIDAD AS `ID_ACTIVIDAD`,count(1) AS `CANTIDAD` from avance group by FECHA_AVANCE,ACTIVIDAD_ID_ACTIVIDAD

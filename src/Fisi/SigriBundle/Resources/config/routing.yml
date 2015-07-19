@@ -59,7 +59,7 @@ bandeja_entrada_personal:
     defaults: { _controller: FisiSigriBundle:User:MostrarBEP }
 
 gestionar_actividad_personal:
-    path:     /gestionActividad/bandeja
+    path:     /personal/actividad/{id}
     defaults: { _controller: FisiSigriBundle:User:GestionarActividad}
 
 menu_principal:
@@ -122,4 +122,16 @@ mantenimientoPersonal:
 registrarInicReq:
     path:   /gestor/menuPrincipal/bandejaEntrada/reg
     defaults: {_controller: FisiSigriBundle:Ticket:registrarInicReq}
-
+    
+guardarAvance:
+    path:   /personal/guardarAvance
+    defaults: {_controller: FisiSigriBundle:User:GuardarAvancesActividad}
+InicarActividad:
+    path:   /personal/iniciarActividad
+    defaults: {_controller: FisiSigriBundle:User:InicarActividad}
+finalizarAct:
+    path:   /personal/finalizarActividad
+    defaults: {_controller: FisiSigriBundle:User:finalizarAct}
+reporteActividad:
+    path:   /personal/reporteActividad
+    defaults: {_controller: FisiSigriBundle:User:reporteActividad}

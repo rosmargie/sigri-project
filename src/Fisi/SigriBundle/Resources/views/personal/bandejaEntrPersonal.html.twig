@@ -8,181 +8,123 @@
 
 
 <nav class="navbar navbar-default" role="navigation">
-
- <div class="form-group " style="
-    width: 1000px;
-    margin-left: 50px;">
-        <label class="col-sm-1 control-label" style="margin:5px;"> Periodo</label> 
-        <div class="form-group">
-                                <label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>
-                                
-                                <div class="col-sm-2" >
-                                    <div class="input-group">
-                                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-                                        
-                                        <div class="input-group-addon">
-                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+   <form role="form" method="post" id="reg_actividad" name="reg_actividad" action="{{ path('bandeja_entrada_personal') }}">
+        <nav class="navbar navbar-default" role="navigation">    
+            <div class="form-group " style="width: 1000px;margin-left: 100px;">
+                <label class="col-sm-1 control-label" style="margin:5px;"> Periodo</label> 
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>
+                    <div class="col-sm-2" >
+                        <div class="input-group">
+                            <input type="text" class="form-control datepicker" name="f_inicio" data-format="dd/mm/yyyy" value="{% if filtro.f_inicio %}{{filtro.f_inicio|date("d/m/Y")}}{% endif %}">
+                            <div class="input-group-addon">
+                                <a href="#"><i class="entypo-calendar"></i></a>
                             </div>
-        <div class="form-group" >
-                                <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
-                                
-                                <div class="col-sm-2" >
-                                    <div class="input-group">
-                                        <input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-                                        
-                                        <div class="input-group-addon">
-                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
+                    <div class="col-sm-2" >
+                        <div class="input-group">
+                            <input type="text" class="form-control datepicker" name="f_fin" data-format="dd/mm/yyyy" value="{% if filtro.f_fin %}{{filtro.f_fin|date("d/m/Y")}}{% endif %}">
+                            <div class="input-group-addon">
+                                <a href="#"><i class="entypo-calendar"></i></a>
                             </div>
-        <label class="col-sm-1 control-label" style="margin:5px;"> Prioridad</label> 
-
-         <div class="col-sm-2">
-
-                <select name="test" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
-                    <option>Todas</option>
-                    <option value="1">Alta</option>
-                    <option value="2">Media</option>
-                    <option value="2">Baja</option>
-                </select>
-
-            </div>
-    
-       <label>  
-                                <button type="button" class="btn btn-default entypo-search"></button>
-                            </label>
-
-
-
-
-        </div>
-
+                        </div>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label" style="margin:5px;"> Prioridad</label> 
+                <div class="col-sm-2">
+                    <select name="prioridad" class="selectboxit-container selectboxit-container control-label"  data-first-option="false" style="    border-top-width: 1px;  margin-top: 3px; padding-top: 3px;padding-bottom: 3px; padding-left: 4px; border-right-width: 1px;    border-bottom-width: 2px;    margin-bottom: 7px;">
+                        {% for prioridad in prioridades %}
+                        <option value="{{prioridad.valor}}" {% if prioridad.seleccionado %}{{"selected"}}{% endif %} >{{prioridad.etiqueta}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <label>  
+                    <button type="submit" class="btn btn-default entypo-search"></button>
+                </label>
+            </div> 
+        </nav>
+    </form>
  </nav>
 
 <!--Barras>  <-->
+<div class="row" style="width: 1200px;margin-left: 70px;">
+        <div class="col-sm-3 col-xs-6" >
+            <div class="tile-stats tile-red">
+                <div class="icon"><i class="entypo-mail"></i></div>
+                <div class="num" data-start="0" data-end="{{cantPrioridad.ALTA}}" data-postfix="" data-duration="1500" data-delay="0">{{cantPrioridad.ALTA}}</div>
+                <h3>Alta</h3>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <div class="tile-stats tile-orange">
+                <div class="icon"><i class="entypo-mail"></i></div>
+                <div class="num" data-start="0" data-end="{{cantPrioridad.MEDIA}}" data-postfix="" data-duration="1500" data-delay="600">{{cantPrioridad.MEDIA}}</div>
 
-<div class="row" style="
-    width: 1200px;
-    margin-left: 70px;">
-    <div class="col-sm-3 col-xs-6" >
-        
-                <div class="tile-stats tile-red">
-                    <div class="icon"><i class="entypo-mail"></i></div>
-                    <div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
-        
-                    <h3>Prioridad Alta</h3>
-                </div>
-        
-    </div>
+                <h3>Media</h3>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <div class="tile-stats tile-green">
+                <div class="icon"><i class="entypo-mail"></i></div>
+                <div class="num" data-start="0" data-end="{{cantPrioridad.BAJA}}" data-postfix="" data-duration="1500" data-delay="1200">{{cantPrioridad.BAJA}}</div>
 
-    <div class="col-sm-3 col-xs-6">
-                <div class="tile-stats tile-orange">
-                    <div class="icon"><i class="entypo-mail"></i></div>
-                    <div class="num" data-start="0" data-end="1" data-postfix="" data-duration="1500" data-delay="600">0</div>
-        
-                    <h3>Prioridad Media</h3>
-                </div>
+                <h3>Baja</h3>
+            </div>
+        </div>
     </div>
-
-    <div class="col-sm-3 col-xs-6">
-                <div class="tile-stats tile-green">
-                    <div class="icon"><i class="entypo-mail"></i></div>
-                    <div class="num" data-start="0" data-end="2" data-postfix="" data-duration="1500" data-delay="1200">0</div>
-        
-                    <h3>Prioridad Baja</h3>
-                </div>
-    </div>
-</div>
-</br></br>
+    </br></br>
 <!--Lista de Solicitudes>  <!-->
 
     <table class="table table-bordered datatable dataTable" id="table-1" role="grid" aria-describedby="table-1_info">
         <thead>
             <tr>
-                <th>
-        <div class="checkbox checkbox-replace">
-            <input type="checkbox" id="chk-1">
-        </div>
-    </th>
+               
     <th>N° de Actividad</th>
     <th>Título</th>
     <th>Estado</th>
-    <th>Asignado</th>
-    <th>Responsable</th>
     <th>Solicitante</th>
     <th>Progreso</th>
+    <th>Prioridad</th>
     <th>Fecha</th>
-    <th>Tiempo Estimado</th>
-    <th>Opciones</th>
+     <th>
+       
+    </th>
 </tr>
 </thead>
 
 <tbody>
-
    {% for actividad in actividades %}
-         <tr>
-                    <td>
-                        <div class="checkbox checkbox-replace">
-                            <input type="checkbox" id="chk-21">
-                        </div>
+                <tr>
+                   
+                    <td>{{ actividad.idactividad }}</td>
+                    <td>{{ actividad.tituloact }}</td>
+                    <td>{{ actividad.estadoact }}</td>
+                    <td>{{ actividad.solicitud.empleado.nombre}}</td>
+                    <td>{{ actividad.progresoact }}</td>
+                    <td>{{ actividad.prioridadact }}</td>
+                    <td>{{ actividad.fechareporte|date("d/m/Y")  }}</td>
+                     <td>
+                    <a href="{{path('gestionar_actividad_personal', {'id':actividad.idactividad} )}}" class="btn btn-default btn-sm btn-icon icon-left">
+							<i class="entypo-info"></i>
+							{% if actividad.estadoact == "FINALIZADO" %}
+                                                            Consultar
+                                                        {% else %}
+                                                            Editar
+                                                        {% endif %}
+						</a>
                     </td>
-                    <td>{{ actividad.idactividad}}</td>
-                    <td>{{ actividad.titulo }}</td>
-                    <td>{{ actividad.estado }}</td>
-                    <td>{{ actividad.idsolicitud }}</td>
-                    <td>{{ actividad.idsolicitante }}</td>
-                    <td>{{ actividad.idsolicitud }}</td>
-                    <td>{{ actividad.idprogreso}}</td>
-                    <td>{{ actividad.idsolicitud }}</td>
-                    <td>{{ actividad.fechaeinicio|date("d/m/Y") }}</td>
-<td>
-            <a href="{{ path('gestionar_actividad_personal') }}" class="btn btn-default btn-sm btn-icon icon-left">
-                <i class="entypo-pencil"></i>
-                Edit
-            </a>
-
-            <a href="#" class="btn btn-default btn-sm btn-icon icon-left">
-                <i class="entypo-cancel"></i>
-                Delete
-            </a>
-
-          
-        </td>
-                    
-
+                 
+                 
                 </tr>
-        {% endfor %}
+            {% endfor %}
 </tbody>
 
 </table>
-<div style="float:right;" class="dataTables_paginate paging_bootstrap" id="table-1_paginate">
-    <ul class="pagination pagination-sm">
-        <li class="prev disabled">
-            <a href="#"><i class="entypo-left-open"></i></a>
-        </li><li class="active"><a href="#">1</a>
-        </li><li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li class="next"><a href="#"><i class="entypo-right-open"></i>
-            </a></li></ul>
-</div>
 
-
-<script type="text/javascript">
-    jQuery(document).ready(function ($)
-    {
-        var table = $("#table-1").dataTable({
-            "sPaginationType": "bootstrap",
-            "sDom": "<'row'<'col-xs-6 col-left'l><'col-xs-6 col-right'<'export-data'T>f>r>t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
-            "oTableTools": {
-            },
-        });
-    });
-
-</script>
             
 {% endblock %}
 

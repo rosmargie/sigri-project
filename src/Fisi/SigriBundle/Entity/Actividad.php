@@ -3,6 +3,7 @@ namespace Fisi\SigriBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Fisi\SigriBundle\Entity\Solicitud;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,18 +21,23 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Actividad {
     
+    public function __construct() {
+        $this->setFechareporte( new \DateTime());
+        
+    }
+
     
     /**
      * @ORM\Id
      * @ORM\Column(type="integer", name="ID_ACTIVIDAD")
      * @ORM\GeneratedValue(strategy="AUTO") 
      */
-     protected $idactividad;
+    protected $idactividad;
      /**
      * @ORM\Column(type="string",name="TITULO", length=30)
      */      
 
-      protected $tituloact;
+    protected $tituloact;
       /**
      * @ORM\Column(type="string",name="DESCRIPCION", length=250)
      */
@@ -73,11 +79,38 @@ class Actividad {
     
      /*Objeto unidad organica 1..m*/
     /**
-     * @ORM\ManyToOne(targetEntity="solicitud")
+     * @ORM\ManyToOne(targetEntity="Solicitud")
      * @ORM\JoinColumn(name="SOLICITUD_ID_SOLICITUD", referencedColumnName="ID_SOLICITUD")
      */
     protected $solicitud;
-    public function getIdactividad() {
+    
+    /*Objeto empleado 1..m*/
+    /**
+     * @ORM\ManyToOne(targetEntity="PersonalOTI")
+     * @ORM\JoinColumn(name="PERSONAL_OTI_ID_PERSONAL_OTI", referencedColumnName="ID_PERSONAL_OTI")
+     */
+    protected $personaloti;
+    /**
+     * @ORM\Column(type="date",name="FECHA_REPORTE",nullable=false)
+     */
+    protected $fechareporte;
+    public function getFechareporte() {
+        return $this->fechareporte;
+    }
+
+    public function setFechareporte($fechareporte) {
+        $this->fechareporte = $fechareporte;
+    }
+
+        public function getPersonaloti() {
+        return $this->personaloti;
+    }
+
+    public function setPersonaloti($personaloti) {
+        $this->personaloti = $personaloti;
+    }
+
+        public function getIdactividad() {
         return $this->idactividad;
     }
 
@@ -169,7 +202,7 @@ class Actividad {
         $this->progresoact = $progresoact;
     }
 
-    public function setSolicitud($solicitud) {
+    public function setSolicitud(Solicitud $solicitud) {
         $this->solicitud = $solicitud;
     }
 

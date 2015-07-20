@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PersonalOTI</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idpersonaloti</th>
+                <td>{{ entity.idpersonaloti }}</td>
+            </tr>
+            <tr>
+                <th>Cargo</th>
+                <td>{{ entity.cargo }}</td>
+            </tr>
+            <tr>
+                <th>Jefesuperior</th>
+                <td>{{ entity.jefesuperior }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_personaloti') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_personaloti_edit', { 'id': entity.idpersonaloti }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

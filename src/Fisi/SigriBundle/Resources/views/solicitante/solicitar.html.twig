@@ -1,9 +1,6 @@
 {% extends 'FisiSigriBundle:Default:solicitanteLayout.html.twig' %}
 {% block title %}Crear Solicitud{% endblock %}
 {% block content %}
-
-   
-     
      
     <center><h1 style="margin-left: 0px;margin-right: 100px;">REGISTRO DE SOLICITUD / INCIDENCIA </h1></center>
     <center><div class="panel-body">
@@ -14,7 +11,7 @@
 
                     <div class="col-sm-5">
 
-                        <input type="text" class="form-control" value="{{ [empleado.nombre, ' ',empleado.apellido_paterno]|join }}" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
+                        <input type="text" class="form-control" value="{{[empleado.nombre, ' ',empleado.apellidopaterno]|join }}" name="solicitante" data-validate="required,solicitante" data-message-required="Datos Obligatorios" placeholder="Nombre de Solicitante">
 
                     </div>
                 </div>

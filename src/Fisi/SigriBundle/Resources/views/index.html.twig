@@ -1,8 +1,140 @@
-login!!
+{% extends 'FisiSigriBundle:Default:layoutMenu.html.twig' %}
 
-<a href="{{ path('consultar_usuario') }}">Usuario</a>
-<a href="{{ path('bandeja_entrada_personal') }}">Analista</a>
-<a href="{{ path('bandeja_entrada_gestor') }}">Gestor</a>
+{% block title %}Menu Principal{% endblock %}
+
+{% block content %}
+    <ul id="main-menu" class="main-menu" >
+        
+        <li>
+            <a href="{{ path("menu_principal") }}"> Menu Gestor </a>
+        </li>
+        <li>
+            <a href="{{ path("solicitudes_usuario") }}"> Ir como Solicitante </a>
+        </li> 
+        
+        <li>
+            <a href="{{ path("fisi_sigri_admin_menu") }}"> Menu Administrador </a>
+        </li><li>
+            {% if is_granted('ROLE_PERSONALOTI') %} 
+                <a href="{{ path("bandeja_entrada_personal") }}"> Ir como Personal OTI </a>
+            {% endif %}
+        </li>
+    </ul>
+
+{% endblock %}
 
 
- 
+
+{% block pagePrincipal %}
+
+
+    <div class="container-fluid" style="padding-left: 250px; margin-top: -100px; ">
+
+
+
+        <center>
+            <b> <h1>MENÚ PRINCIPAL</h1><br/> </b>
+        </center>
+
+
+        <div class="row">
+            <div class="col-lg-1 col-sm-6 col-md-4">
+            </div>
+            <div class="col-lg-10 col-sm-6 col-md-4">
+
+
+                <div class="col-lg-4 col-sm-6 col-md-4">
+                    <div class="tile-title tile-purple">
+                        <div class="icon">
+                            <i class="entypo-mail"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Bandeja de entrada</h2><br/>
+                            <p><a href="{{ path('bandeja_entrada_gestor_m') }}" class="btn" role="button" style="background-color: #cc66ff; color: #ffffff">Entrar</a></p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-sm-6 col-md-4">
+                    <div class="tile-title tile-aqua">
+                        <div class="icon">
+                            <i class="entypo-list"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Actividades</h2><br/>
+                            <p><a href="{{path("actividadesGestor")}}" class="btn btn-blue" role="button">Entrar</a></p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-sm-6 col-md-4">
+                    <div class="tile-title tile-pink">
+                        <div class="icon">
+                            <i class="entypo-shuffle"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Reportes</h2><br/>
+                            <p><a href="{{path('reportesGestor')}}" class="btn" role="button" style="background-color: #ff6699; color: #ffffff">Entrar</a></p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div class="row">
+            <div class="col-lg-1 col-sm-6 col-md-4">
+            </div>
+            <div class="col-lg-10 col-sm-6 col-md-4">
+                <div class="col-lg-4  col-sm-6 col-md-4">
+                    <div class="tile-title tile-red">
+                        <div class="icon">
+                            <i class="entypo-tag"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">Seguimientos de incidencia/ requerimiento</h2><br/>
+                            <p><a href="{{path('seguimientoGestor')}}" class="btn btn-danger" role="button">Entrar</a></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4  col-sm-6 col-md-4">
+                    <div class="tile-title tile-green">
+                        <div class="icon">
+                            <i class="entypo-book"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">&nbsp;&nbsp; Mantenimiento de &nbsp;&nbsp;catálogo</h2><br/>
+                            <p><a href="{{path('manteminientoCatalogoGestor')}}" class="btn btn-success" role="button">Entrar</a></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4  col-sm-6 col-md-4">
+                    <div class="tile-title tile-cyan">
+                        <div class="icon">
+                            <i class="entypo-layout"></i>
+                        </div>
+                        <div class="title">
+                            <h2 style="color: #ffffff">&nbsp;&nbsp;Mantenimiento de&nbsp;&nbsp; personal</h2><br/>
+                            <p><a href="{{path('mantenimientoPersonal')}}" class="btn" role="button" style="background-color: #00cccc">Entrar</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br/>
+
+
+{% endblock %}
+

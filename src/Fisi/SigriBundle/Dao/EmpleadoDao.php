@@ -28,4 +28,5 @@ class EmpleadoDao extends BaseDao{
             
         
     }
+    
 }

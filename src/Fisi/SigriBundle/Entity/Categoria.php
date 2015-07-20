@@ -26,39 +26,42 @@ class Categoria {
      * @ORM\Column(type="integer", name="ID_CATEGORIA")
      * @ORM\GeneratedValue(strategy="AUTO") 
      */
-    protected $id_categoria;
+    protected $idcategoria;
      /**
-     * @ORM\Column(type="string",name="NOMBRE_CATEGORIA", length=25)
+     * @ORM\Column(type="string",name="NOMBRE_CATEGORIA", length=25 ,nullable=true)
      */
-    protected $nombre_categoria;
+    protected $nombrecategoria;
      /**
      * @ORM\Column(type="string",name="DESCRIPCION_CATEGORIA", length=50)
      */ 
-    protected $descripcion_categoria;
+    protected $descripcioncategoria;
+    
+   
+    public function getIdcategoria() {
+        return $this->idcategoria;
 
-    public function getId_categoria() {
-        return $this->id_categoria;
     }
 
-    public function getNombre_categoria() {
-        return $this->nombre_categoria;
+    public function getNombrecategoria() {
+        return $this->nombrecategoria;
     }
 
-    public function getDescripcion_categoria() {
-        return $this->descripcion_categoria;
+    public function getDescripcioncategoria() {
+        return $this->descripcioncategoria;
     }
 
-    public function setId_categoria($id_categoria) {
-        $this->id_categoria = $id_categoria;
+    public function setIdcategoria($idcategoria) {
+        $this->idcategoria = $idcategoria;
     }
 
-    public function setNombre_categoria($nombre_categoria) {
-        $this->nombre_categoria = $nombre_categoria;
+    public function setNombrecategoria($nombrecategoria) {
+        $this->nombrecategoria = $nombrecategoria;
     }
 
-    public function setDescripcion_categoria($descripcion_categoria) {
-        $this->descripcion_categoria = $descripcion_categoria;
+    public function setDescripcioncategoria($descripcioncategoria) {
+        $this->descripcioncategoria = $descripcioncategoria;
     }
+
 
 
 }

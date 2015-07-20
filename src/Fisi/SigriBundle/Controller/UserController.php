@@ -19,8 +19,9 @@ class UserController extends Controller
     private function obtenerEmpleadoActual(){
         //obtener empleado
         $empleadoDao = new EmpleadoDao;
-        $empleado=$empleadoDao->getEmpleado(2); //Aca se tiene que modificar por el id del usuario actual
+        $empleado=$empleadoDao->getEmpleado($this->getUser()->getIdEmpleado()); //Aca se tiene que modificar por el id del usuario actual
         return $empleado;
+        
     }
     
     public function SolicitudesSolicitanteAction(Request $request)
@@ -61,8 +62,8 @@ class UserController extends Controller
             $data = $request->request->all();
             //obtener ip
             $ip= $request->getClientIp();
-            //mapea el formulario a la entidad
-            $solicitud = MapperForm::convertirFormANuevaSolicitud($data,'PENDIENTE', $empleado, $ip);
+            //mapea el formulario a la entidad, donde 'ASIG = Prioridad no asignada'
+            $solicitud = MapperForm::convertirFormANuevaSolicitud($data,'PENDIENTE','SASIG', $empleado, $ip);
             //enviar al dao y crear solicitud
             $solicitudDao= new SolicitudDao;
             $solicitudDao->crearSolicitud($solicitud);
@@ -80,7 +81,9 @@ class UserController extends Controller
         $solicitud = $solicitudDao->obtenerSolicitud($idsolicitud);
         //convertir la solicitud a json para enviarlo al metodo ajax
         $encoders = array(new XmlEncoder(), new JsonEncoder());
-        $normalizers = array(new GetSetMethodNormalizer());
+        $normalizer = new GetSetMethodNormalizer();
+        $normalizer->setIgnoredAttributes(array('empleado'));
+        $normalizers = array($normalizer);
         $serializer = new Serializer($normalizers, $encoders);
         $jsonContent = $serializer->serialize($solicitud, 'json');
         //responder la peticion con un jsonobject
@@ -96,7 +99,7 @@ class UserController extends Controller
         //Actualizar la calificacion
         $solicitudDao= new SolicitudDao;
         $solicitudDao->actualizarCalificacion($idsolicitud, $calificacion);
-        return new Response(json_encode(array("asd" => $calificacion) ));
+     return $this->render('FisiSigriBundle:personal:bandejaEntrPersonal.html.twig');
     }
     
     public function MostrarBEPAction()

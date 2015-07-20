@@ -1,7 +1,9 @@
 {% extends 'FisiSigriBundle:Default:solicitanteLayout.html.twig' %}
-{% block title %}Solicitante 1{% endblock %}
+{% block title %}Solicitudes{% endblock %}
 {% block content %}
     <!--Barra de Búsqueda>    <-->
+
+       
 
     <center><h1 style="margin-left: 0px;margin-right: 100px;">Lista de Solicitudes </h1></center>
     <form role="form" method="post" id="reg_solicitud" name="reg_solicitud" action="{{ path('solicitudes_usuario') }}">
@@ -12,7 +14,7 @@
                     <label class="col-sm-1 control-label" style="margin:5px;">Inicio</label>
                     <div class="col-sm-2" >
                         <div class="input-group">
-                            <input type="text" class="form-control datepicker" name="f_inicio" data-format="dd/mm/yyyy" value="{% if filtro.f_inicio %}{{filtro.f_inicio|date("m/d/Y")}}{% endif %}">
+                            <input type="text" class="form-control datepicker" name="f_inicio" data-format="dd/mm/yyyy" value="{% if filtro.f_inicio %}{{filtro.f_inicio|date("d/m/Y")}}{% endif %}">
                             <div class="input-group-addon">
                                 <a href="#"><i class="entypo-calendar"></i></a>
                             </div>
@@ -23,7 +25,7 @@
                     <label class="col-sm-1 control-label" style="margin:5px;">Fin</label>
                     <div class="col-sm-2" >
                         <div class="input-group">
-                            <input type="text" class="form-control datepicker" name="f_fin" data-format="dd/mm/yyyy" value="{% if filtro.f_fin %}{{filtro.f_fin|date("m/d/Y")}}{% endif %}">
+                            <input type="text" class="form-control datepicker" name="f_fin" data-format="dd/mm/yyyy" value="{% if filtro.f_fin %}{{filtro.f_fin|date("d/m/Y")}}{% endif %}">
                             <div class="input-group-addon">
                                 <a href="#"><i class="entypo-calendar"></i></a>
                             </div>
@@ -98,15 +100,15 @@
                             <input type="checkbox" id="chk-21">
                         </div>
                     </td>
-                    <td>{{ solicitud.id_solicitud }}</td>
+                    <td>{{ solicitud.idsolicitud }}</td>
                     <td>{{ solicitud.titulo }}</td>
                     <td>{{ solicitud.estado }}</td>
 
-                    <td>{{ solicitud.fecha_reporte|date("d/m/Y")  }}</td>
+                    <td>{{ solicitud.fechareporte|date("d/m/Y")  }}</td>
                     <td>{{ solicitud.calificacion }}</td>
                     <td>
                         {% if solicitud.estado == 'FINALIZADO' and not solicitud.calificacion  %}
-                        <a href="#" href="#" onclick="obtenerSolicitud({{ solicitud.id_solicitud }});return false;" class="btn btn-default">Editar</a>
+                        <a href="#" href="#" onclick="obtenerSolicitud({{ solicitud.idsolicitud }});return false;" class="btn btn-default">Editar</a>
                         {% endif%}
                     </td>
                 </tr>
@@ -218,14 +220,14 @@
                 data: {'id': id},
                 dataType: 'json',
                 success: function(solicitud) {
-                    jQuery("#m_id").text("Solicitud N°" + solicitud.id_solicitud);
-                    jQuery("#m_id_value").val(solicitud.id_solicitud); 
+                    jQuery("#m_id").text("Solicitud N°" + solicitud.idsolicitud);
+                    jQuery("#m_id_value").val(solicitud.idsolicitud); 
                     jQuery("#m_titulo").val(solicitud.titulo);
                     jQuery("#m_tipo").val(solicitud.tipo);
                     jQuery("#m_estado").val(solicitud.estado);
-                    jQuery("#m_frep").val((new Date(solicitud.fecha_reporte.timestamp * 1000)).format("dd/mm/yyyy"));                
-                    if(solicitud.fecha_reserva ===! null){
-                        jQuery("#m_fres").val((new Date(solicitud.fecha_reserva.timestamp * 1000)).format("dd/mm/yyyy"));                
+                    jQuery("#m_frep").val((new Date(solicitud.fechareporte.timestamp * 1000)).format("dd/mm/yyyy"));                
+                    if(solicitud.fechareserva ===! null){
+                        jQuery("#m_fres").val((new Date(solicitud.fechareserva.timestamp * 1000)).format("dd/mm/yyyy"));                
                     }
                     jQuery("#m_desc").val(solicitud.descripcion);
                     jQuery("#modal-2").modal('show');

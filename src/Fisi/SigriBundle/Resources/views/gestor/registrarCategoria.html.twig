@@ -1,28 +1,75 @@
-
-<div class="form-horizontal validate " id="dRegistarCategoria">
-        <div class="form-group" >
-            <div class="col-sm-4  control-label"  style="font-size: 12px; ">Nueva categoria: </div>
-            <div class="col-sm-6">
-                <input type="text" value="Nombre del cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; margin-left: 14px;">
-            </div>
+<div class="form-horizontal validate " id="fRegistarCategoria" method="post" name="fRegistrarCategoria" action="{{path('manteminientoCatalogoGestor')}}">
+    <div class="form-group" >
+        <div class="col-sm-4  control-label"  style="font-size: 12px; ">Nueva categoria: </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="nombreNuevaCategoria" name="nombreNuevaCategoria" data-validate="required,nombreNuevaCategoria" data-message-required="Datos Obligatorios"placeholder="Ingresar nombre de categoria" style="width: 100%;">
         </div>
-        <div class="form-group" >
-            <div class="col-sm-4  control-label"  style="font-size: 12px; ">Descripción: </div>
-            <div class="col-sm-6">
-                <textarea cols="68" rows="7" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none; margin-left: 15px;">
-                                
-                </textarea>
-
-            </div>
-        </div>
-
-        <div>
-            <center>
-                <button type="button" class="btn btn-info" >Aceptar</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-info">Cancelar</button>
-            </center>
+    </div>
+    <div class="form-group" >
+        <div class="col-sm-4  control-label"  style="font-size: 12px; ">Descripción: </div>
+        <div class="col-sm-6">
+            <textarea cols="68" rows="7" class="form-control" id="descripcionNuevaCategoria" name="descripcionNuevaCategoria"  style="width: 100%; resize: none;"></textarea>
 
         </div>
+    </div>
 
+    <div>
+        <center>
+            <button type="button" class="btn btn-info"onclick="jQuery('#dMCNuevaCategoria').modal('show', {backdrop: 'static'});"  >Aceptar</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-info">Cancelar</button>
+        </center>
 
     </div>
+
+
+</div>
+
+<div class="modal fade" id="dMCNuevaCategoria" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <h4 class="modal-title">Mensaje de confirmación</h4>
+            </div>
+            <div class="modal-body row" style="padding: 20px 40px 40px 40px; ">
+                <div class="col-lg-3" style="text-align: center;">
+                    <i class="entypo-help-circled" style="font-size: 60px;"> </i>
+                </div>
+                <div class="col-lg-9" >
+                    <br/>
+                    <br/>
+                    Esta seguro que desea registrar nueva categoria <br/><br/>
+                </div>
+            </div>
+            <div class="modal-footer"><center>
+
+                    <button type="button" id="btnRegistrarNuevaCategoria"   class="btn btn-info"> Aceptar</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery("#btnRegistrarNuevaCategoria").click(function () {
+        var nombreNuevaCategoria = jQuery("#nombreNuevaCategoria").val();
+        var descripcionNuevaCategoria = jQuery("#descripcionNuevaCategoria").val();    
+        jQuery.ajax({
+            type: 'POST',
+            url: '{{ path('registrarNuevaCategoriaG') }}',
+            data: {
+                'nombreNuevaCategoria': nombreNuevaCategoria,
+                'descripcionNuevaCategoria': descripcionNuevaCategoria
+            },
+            dataType: 'json',
+            success: function (data) {
+                alert("El regitro ha sido realizad con éxito");
+                jQuery("#fRegistrarCategoria").submit();
+            }
+        });
+            jQuery("#btnRegistrarNuevaCategoria").attr("data-dismiss", "modal");
+        
+        
+
+    });
+</script>

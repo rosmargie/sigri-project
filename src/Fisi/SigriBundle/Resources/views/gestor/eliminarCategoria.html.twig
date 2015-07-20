@@ -1,25 +1,26 @@
-
-
-<div class="form-horizontal validate " id="dEliminarCategoria">
+<div class="form-horizontal validate " id="feliminarCategoriaR" method="post" name="feliminarCategoriaR" action="{{path('manteminientoCatalogoGestor')}}">
+    <div class="form-group" >
+        <div class="col-sm-4  control-label"  style="font-size: 12px; ">ID Categoria: </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" disabled  id="idCategoriaRE" name="idCategoriaRE" value="{{categoria.idcategoria}}" style="width: 100%;">
+        </div>
+    </div>
     <div class="form-group" >
         <div class="col-sm-4  control-label"  style="font-size: 12px; ">Categoria: </div>
         <div class="col-sm-6">
-            <input type="text" value="Nombre del cargo" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; margin-left: 14px;">
+            <input type="text" class="form-control"  disabled id="nombreCategoriaRE" name="nombreCategoriaR"  value="{{categoria.nombrecategoria}}"   style="width: 100%;">
         </div>
     </div>
     <div class="form-group" >
         <div class="col-sm-4  control-label"  style="font-size: 12px; ">Descripción: </div>
         <div class="col-sm-6">
-            <textarea cols="68" rows="7" disabled style="width: 100%; background-color: white; border: solid; border-color: #cccccc; border-width: 0.2px; resize: none; margin-left: 15px;">
-                                
-            </textarea>
-
+            <textarea cols="68" rows="4" class="form-control" disabled id="descripcionCategoriaRE" name="descripcionCategoriaR"    style="width: 100%; resize: none;">{{categoria.descripcioncategoria}}</textarea>
         </div>
     </div>
 
     <div>
         <center>
-            <button type="button" class="btn btn-info" >Aceptar</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-info"onclick="jQuery('#dMCEliminarCategoria').modal('show', {backdrop: 'static'});"  >Aceptar</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" class="btn btn-info">Cancelar</button>
         </center>
 
@@ -28,3 +29,54 @@
 
 </div>
 
+<div class="modal fade" id="dMCEliminarCategoria" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <h4 class="modal-title">Mensaje de confirmación</h4>
+            </div>
+            <div class="modal-body row" style="padding: 20px 40px 40px 40px; ">
+                <div class="col-lg-3" style="text-align: center;">
+                    <i class="entypo-help-circled" style="font-size: 60px;"> </i>
+                </div>
+                <div class="col-lg-9" >
+                    <br/>
+                    <br/>
+                    Esta seguro que desea eliminar categoria <br/><br/>
+                </div>
+            </div>
+            <div class="modal-footer"><center>
+
+                    <button type="button" id="btnEliminarCategoriaR"   class="btn btn-info"> Si </button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal"> No </button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery("#btnEliminarCategoriaR").click(function () {
+	
+	
+	var idCategoriaRE = jQuery("#idCategoriaRE").val();
+        
+        //todo este code se debe borrar
+        jQuery.ajax({
+            type: 'POST',
+            url: '{{ path('eliminarCategoriaG') }}',
+            data: {
+			'idCategoriaRE': idCategoriaRE			
+             },
+            dataType: 'json',
+            success: function (data) {
+                alert("La eliminación se realizó con éxito");
+                jQuery("#feliminarCategoriaR").submit();
+            }
+        });
+		 alert("La eliminación se realizó con éxito");
+            jQuery("#btnEliminarCategoriaR").attr("data-dismiss", "modal");      
+        
+
+    });
+</script>

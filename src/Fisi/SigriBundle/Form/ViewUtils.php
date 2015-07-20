@@ -42,7 +42,9 @@ class ViewUtils {
         }
     }
     
-    public static function obtenerListaEstadosSolEspera($estadoActual){
+
+     public static function obtenerListaEstadosSolEspera($estadoActual){
+
         $listaEstados = array();
         $estados = array(array("Todas",""), array("Pendiente",1), 
             array("Proceso", 2));
